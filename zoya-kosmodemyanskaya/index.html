@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Лагерь им. Зои Космодемьянской — аудит и предложение CampBox</title>
+<meta name="description" content="Проверка сайта лагеря им. Зои Космодемьянской, юридических блоков и пути родителя.">
+<style>
+:root{--g:#55C96B;--gd:#23834B;--gs:#EDF9F0;--gt:#DDF4E3;--ink:#202823;--ink2:#111714;--text:#34423B;--muted:#6B7871;--bg:#F5F7F3;--card:#fff;--line:#DDE6E2;--red:#C94B43;--redbg:#FFF0EE;--amber:#D69313;--amberbg:#FFF3D0;--purple:#7457E9;--side:240px}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button,input,select{font:inherit} a{color:inherit} .app{min-height:100vh}
+.sidebar{position:fixed;inset:0 auto 0 0;width:var(--side);background:linear-gradient(180deg,var(--ink),var(--ink2));color:#fff;padding:20px 14px;display:flex;flex-direction:column;z-index:30}
+.brand{padding:4px 8px 18px;text-decoration:none} .brand strong{font-size:22px} .brand small{display:block;color:var(--gt);font-size:11px;margin-top:2px}
+.nav{display:grid;gap:4px} .nav button{border:0;background:transparent;color:var(--gt);padding:10px;border-radius:12px;display:grid;grid-template-columns:28px 1fr;gap:8px;text-align:left;cursor:pointer}
+.nav button:hover{background:rgba(255,255,255,.07)} .nav button.active{background:#fff;color:var(--ink)} .num{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:11px;font-weight:800}
+.nav button.active .num{background:var(--gs);color:var(--gd)} .manager{margin-top:auto;border-top:1px solid rgba(255,255,255,.14);padding:16px 8px 0;display:grid;gap:5px;font-size:12px}
+.manager strong{font-size:15px} .manager a{color:var(--gt);text-decoration:none} .manager .max{margin-top:5px;background:var(--purple);color:#fff;padding:9px;border-radius:10px;text-align:center;font-weight:700}
+.main{margin-left:var(--side)} .topbar{height:70px;position:sticky;top:0;z-index:20;background:rgba(245,247,243,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.crumb{font-size:12px;color:var(--muted)} .topcta{background:var(--g);color:var(--ink2);padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800}
+.canvas{width:min(1440px,calc(100vw - var(--side) - 48px));margin:auto;padding:24px 0 90px} .screen{display:none} .screen.active{display:block}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--gd);font-weight:800;display:flex;gap:8px;align-items:center} .kicker:before{content:"";width:22px;height:3px;background:var(--g);border-radius:8px}
+h1{font-size:clamp(38px,4.8vw,72px);line-height:.98;letter-spacing:-.05em;margin:10px 0 16px} h2{font-size:clamp(28px,3vw,44px);letter-spacing:-.035em;line-height:1.1;margin:8px 0 10px} h3{margin:0 0 8px}
+.lead{font-size:16px;color:var(--text);max-width:850px} .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.hero{background:linear-gradient(135deg,#fff 0%,#FBFCFB 60%,var(--gs));border:1px solid var(--line);border-radius:30px;padding:34px;box-shadow:0 18px 50px rgba(32,40,35,.09)}
+.hero p{font-size:17px;color:var(--text);max-width:820px} .hero-actions{margin-top:24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap} .primary{background:var(--g);color:var(--ink2);border:0;border-radius:13px;padding:12px 16px;font-weight:800;text-decoration:none;cursor:pointer}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:12px} .summary article{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 28px rgba(32,40,35,.06)} .summary strong{display:block;font-size:20px;line-height:1.15} .summary small{display:block;color:var(--muted);margin-top:7px}
+.outcome{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px} .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 10px 28px rgba(32,40,35,.05)} .card.green{background:var(--gs)} .card.amber{background:var(--amberbg)} .card.red{background:var(--redbg)} .card p{margin:0;color:var(--text)}
+.scene-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:18px} .scene-head .lead{max-width:540px;margin:0}
+.guided{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 16px 40px rgba(32,40,35,.08)} .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px;border-bottom:1px solid var(--line)} .tab{border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px;text-align:left;cursor:pointer} .tab.active{background:var(--gs);border-color:var(--g)} .tab small{display:block;color:var(--muted);font-size:10px} .tab strong{font-size:13px} .stage{padding:22px} .stage h3{font-size:27px;letter-spacing:-.025em}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px} .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.finding{width:100%;background:#fff;border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:18px;padding:17px;text-align:left;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:8px} .finding:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(32,40,35,.08)} .finding.bad{border-left-color:var(--red)} .finding.ok{border-left-color:var(--g)} .finding-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted)} .finding strong{font-size:17px} .finding p{margin:0;color:var(--text);font-size:13px} .status{padding:5px 8px;border-radius:999px;background:var(--amberbg);color:#8A5B00;font-weight:800} .finding.bad .status{background:var(--redbg);color:#A93832} .finding.ok .status{background:var(--gs);color:var(--gd)}
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch} .arrow{display:grid;place-items:center;font-size:30px;color:var(--gd)} ul{padding-left:20px}
+.legal-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px} .legal-tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;cursor:pointer;font-weight:700} .legal-tabs button.active{background:var(--g);border-color:var(--g)} .law-panel{display:none} .law-panel.active{display:block} .legal-extra{margin-top:14px}
+.note{padding:14px 16px;border:1px dashed #B9C8C0;border-radius:15px;background:#FBFCFB;color:var(--text)} .speed{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.decision{display:grid;grid-template-columns:1.1fr .9fr;gap:14px} .dark{background:linear-gradient(135deg,var(--ink),var(--ink2));color:#fff} .dark p{color:var(--gt)} .steps{display:grid;gap:9px;margin-top:14px} .step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:11px;border-radius:13px;background:rgba(255,255,255,.07)} .step b{width:30px;height:30px;border-radius:9px;background:rgba(85,201,107,.18);color:var(--gt);display:grid;place-items:center}
+.price-grid{display:grid;grid-template-columns:1fr .8fr;gap:18px} .price-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px} .price-card.dark{background:var(--ink)} .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px} label{display:block;color:var(--muted);font-size:12px;margin-bottom:5px} input{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;font-size:20px} .metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px} .metric{background:var(--bg);border-radius:13px;padding:12px} .metric span{display:block;color:var(--muted);font-size:11px} .metric strong{font-size:16px} .price-big{font-size:clamp(42px,5vw,68px);font-weight:900;letter-spacing:-.05em;margin:18px 0} .rule{background:var(--gs);color:var(--gd);padding:12px;border-radius:13px;font-weight:750} .dark .rule{background:rgba(85,201,107,.14);color:var(--gt)}
+.final{background:radial-gradient(circle at 80% 20%,rgba(85,201,107,.22),transparent 30%),linear-gradient(135deg,var(--ink2),var(--ink) 65%,var(--gd));color:#fff;border-radius:30px;padding:38px} .final p{color:var(--gt);font-size:16px} .final-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center} .launch{border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:18px;background:rgba(255,255,255,.06)} .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px} .ghost{border:1px solid rgba(255,255,255,.2);padding:12px 16px;border-radius:13px;text-decoration:none}
+.bottom{position:fixed;bottom:12px;left:calc(var(--side) + (100% - var(--side))/2);transform:translateX(-50%);z-index:18;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:15px;padding:6px;box-shadow:0 14px 34px rgba(32,40,35,.14)} .bottom button{border:0;background:transparent;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700} .bottom .next{background:var(--g)} .bottom span{color:var(--muted);font-size:11px;min-width:110px;text-align:center}
+.backdrop{display:none;position:fixed;inset:0;background:rgba(17,23,20,.58);z-index:100;justify-content:flex-end} .backdrop.open{display:flex} .drawer{height:100%;width:min(620px,100vw);background:#fff;padding:66px 28px 30px;overflow:auto;position:relative} .close{position:fixed;right:18px;top:16px;width:44px;height:44px;border:1px solid var(--line);background:var(--bg);border-radius:12px;cursor:pointer;font-size:22px} .drawer h2{font-size:28px;line-height:1.2} .drawer .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0} .drawer .meta div{background:var(--bg);padding:12px;border-radius:12px} .drawer small{display:block;color:var(--muted)} .ev{margin-top:20px} .ev p{font-size:15px;color:var(--text)} .done{background:var(--gs);padding:14px;border-radius:14px}
+@media(max-width:1050px){:root{--side:200px} .hero-grid,.decision,.final-grid,.price-grid{grid-template-columns:1fr} .summary{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){:root{--side:0} .sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px 12px;display:grid;grid-template-columns:auto 1fr} .brand{padding:0} .brand small,.manager{display:none} .nav{grid-column:1/-1;display:flex;overflow:auto;margin-top:8px} .nav button{flex:0 0 auto;display:flex;align-items:center;min-width:120px} .main{margin-left:0} .topbar{display:none} .canvas{width:calc(100% - 22px);padding-top:14px} .hero-grid,.summary,.outcome,.grid2,.grid3,.speed,.fields,.metrics{grid-template-columns:1fr} .hero{padding:22px} .scene-head{display:block} .tabs{display:flex;overflow:auto} .tab{flex:0 0 145px} .stage{padding:16px} .compare{grid-template-columns:1fr} .arrow{transform:rotate(90deg)} .legal-tabs{display:grid;grid-template-columns:1fr 1fr} .bottom{left:0;right:0;bottom:0;transform:none;width:100%;border-radius:0;justify-content:space-between;padding-bottom:calc(6px + env(safe-area-inset-bottom))} .bottom span{display:none} .drawer{padding:64px 18px 26px} .drawer .meta{grid-template-columns:1fr} h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<a class="brand" href="#" data-screen="overview"><strong>CampBox</strong><small>Продажи и оформление путёвок</small></a>
+<nav class="nav" id="nav">
+<button data-screen="overview"><span class="num">01</span><span>Главное</span></button>
+<button data-screen="journey"><span class="num">02</span><span>Путь родителя</span></button>
+<button data-screen="payment"><span class="num">03</span><span>Оплата</span></button>
+<button data-screen="docs"><span class="num">04</span><span>Документы</span></button>
+<button data-screen="legal"><span class="num">05</span><span>Данные и законы</span></button>
+<button data-screen="visibility"><span class="num">06</span><span>Сайт и поиск</span></button>
+<button data-screen="ai"><span class="num">07</span><span>Ответы родителям</span></button>
+<button data-screen="siteplan"><span class="num">08</span><span>План по сайту</span></button>
+<button data-screen="price"><span class="num">09</span><span>Стоимость</span></button>
+<button data-screen="next"><span class="num">10</span><span>Следующий шаг</span></button>
+</nav>
+<div class="manager"><strong>Евгений Петров</strong><span>Специалист отдела продаж CampBox</span><a href="tel:+79969581851">+7 996 958-18-51</a><a href="mailto:E.petrov@camp-box.ru">E.petrov@camp-box.ru</a><a class="max" href="https://max.ru/u/f9LHodD0cOLIkOxqSGim_lj0AELqa9BqgH3rdl4RKT3h6zPxCh3qIYWnv6s" target="_blank">Написать в MAX ↗</a></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb">ДОЛ им. Зои Космодемьянской × <strong>CampBox</strong></div><a class="topcta" href="mailto:E.petrov@camp-box.ru?subject=CampBox%20—%20ДОЛ%20им.%20Зои%20Космодемьянской">Обсудить решение</a></header>
+<div class="canvas">
+
+<section class="screen active" id="screen-overview">
+<div class="hero-grid">
+<div class="hero"><div class="kicker">Проверка сайта + путь родителя</div><h1>Сначала убираем противоречия на сайте. Затем сокращаем ручную работу лагеря.</h1><p>У сайта уже есть базовая структура обязательной информации, но жёсткая проверка выявила не только устаревшие документы и ошибку в реквизитах: публичная форма оплаты собирает ФИО ребёнка, ФИО плательщика и телефон без отдельного чек-пойнта согласия/ознакомления. Параллельно сама форма оплаты осталась в сезоне 2025 года с ценой 30 000 ₽.</p><div class="hero-actions"><button class="primary" data-screen="journey">Перейти к результатам проверки →</button><span>Показываем только подтверждённые факты. Остальное отмечаем как требующее проверки.</span></div></div>
+<div class="summary"><article><strong>4 подтверждённых дефекта</strong><small>Паспорт, реквизиты, форма ПДн и старая форма оплаты</small></article><article><strong>ПДн собираются без чек-пойнта</strong><small>ФИО ребёнка, ФИО плательщика и телефон</small></article><article><strong>Договоры частично вручную</strong><small>Подтверждено на встрече</small></article><article><strong>1% · минимум 5 000 ₽</strong><small>Стандартная модель CampBox</small></article></div>
+</div>
+<div class="outcome"><article class="card red"><div class="kicker">Сначала</div><h3>Обновить официальные данные</h3><p>Паспорт, реквизиты и медицинскую памятку.</p></article><article class="card amber"><div class="kicker">Затем</div><h3>Исправить форму оплаты</h3><p>Убрать сезон 2025 и добавить обязательный чек-пойнт перед отправкой персональных данных.</p></article><article class="card green"><div class="kicker">После этого</div><h3>Убрать ручные операции</h3><p>Связать бронирование, оплату и документы через CampBox.</p></article></div>
+</section>
+
+<section class="screen" id="screen-journey">
+<div class="scene-head"><div><div class="kicker">Точка 1</div><h2>Путь родителя: от выбора смены до готовности к заезду</h2></div><p class="lead">Часть информации уже опубликована, но родителю приходится собирать картину из разных страниц и документов, а лагерь часть договоров оформляет вручную.</p></div>
+<div class="guided" data-guide="journey"><div class="tabs"></div><div class="stage"></div></div>
+</section>
+
+<section class="screen" id="screen-payment">
+<div class="scene-head"><div><div class="kicker">Точка 2</div><h2>Оплата: разделяем путёвку и дополнительные услуги</h2></div><p class="lead">Форма оплаты проверена жёстко: она собирает ФИО ребёнка, ФИО плательщика и телефон без отдельного чек-пойнта согласия/ознакомления. На этой же странице остались смены 2025 года и цена 30 000 ₽.</p></div>
+<div class="guided" data-guide="payment"><div class="tabs"></div><div class="stage"></div></div>
+</section>
+
+<section class="screen" id="screen-docs">
+<div class="scene-head"><div><div class="kicker">Точка 3</div><h2>Документы: здесь уже подтверждена ручная работа</h2></div><p class="lead">Публичные документы сайта и документы конкретной путёвки — разные задачи. Первые нужно актуализировать, вторые можно перевести в управляемый цифровой процесс.</p></div>
+<div class="guided" data-guide="docs"><div class="tabs"></div><div class="stage"></div></div>
+</section>
+
+<section class="screen" id="screen-legal">
+<div class="scene-head"><div><div class="kicker">Юридическая часть</div><h2>Подтверждённые ошибки отделяем от того, что ещё нужно проверить</h2></div><p class="lead">Само наличие нужного раздела или документа не означает соответствие. Важны содержание, актуальность и реальная механика форм.</p></div>
+<div class="legal-tabs"><button class="active" data-law="pd">152-ФЗ</button><button data-law="order">Приказ №201</button><button data-law="abroad">Передача за рубеж</button><button data-law="photos">Фото и видео</button></div>
+<div class="law-panel active" id="law-pd"><div class="card red" style="margin-bottom:14px">
+<h3>Критическое: сбор персональных данных подтверждён</h3>
+<p>На <strong>/dol-payment/</strong> форма отправляет данные в <strong>/payments/dol-payment.php</strong> и собирает ФИО ребёнка, ФИО плательщика и телефон. Внутри формы отсутствует отдельный checkbox и нет текста согласия/политики. Это больше не «нужно проверить» — в отчёте фиксируется красным статусом.</p>
+</div><div class="grid2">
+    <button class="finding bad" data-evidence="AUD-004" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Форма оплаты собирает ПДн без отдельного чек-пойнта</strong><p>ФИО ребёнка, ФИО плательщика и телефон отправляются через форму, в которой нет checkbox и текста согласия/политики.</p>
+    </button><article class="card green"><h3>Согласие должно быть отдельным</h3><p>С 1 сентября 2025 года согласие на обработку персональных данных оформляется отдельно от иных документов, которые подтверждает или подписывает человек.</p></article><article class="card"><h3>Что проверяем</h3><p>Поля, цель обработки, отдельную галочку, её состояние по умолчанию, ссылку на документ, срок хранения и получателей.</p></article><article class="card amber"><h3>Чего не утверждаем без доказательств</h3><p>Сторонний сервис сам по себе не доказывает передачу персональных данных за рубеж или нарушение локализации.</p></article></div></div>
+<div class="law-panel" id="law-order"><div class="grid2">
+    <button class="finding ok" data-evidence="AUD-005" type="button">
+      <div class="finding-top"><span class="status">Проверено</span><span>Подробнее →</span></div>
+      <strong>Основа структуры №201 уже есть</strong><p>На сайте заведены ключевые верхнеуровневые разделы.</p>
+    </button>
+    <button class="finding bad" data-evidence="AUD-001" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Публичный Паспорт расходится с текущей страницей</strong><p>Файл 2025 года содержит другие смены и стоимость.</p>
+    </button>
+    <button class="finding check" data-evidence="AUD-008" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Наполнение обязательных разделов</strong><p>Каждый раздел и файл нужно открыть и сверить по пунктам.</p>
+    </button>
+    <button class="finding bad" data-evidence="AUD-002" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Ошибка в регистрационном реквизите</strong><p>ОГРН юридического лица подписан как ОГРНИП.</p>
+    </button></div><div class="note" style="margin-top:14px">Итог по Приказу №201 нельзя ставить только по наличию пунктов меню. Финальная отметка — после проверки содержимого каждого применимого раздела и файла.</div></div>
+<div class="law-panel" id="law-abroad"><div class="grid2"><article class="card amber"><h3>Передача за рубеж не подтверждена</h3><p>В этой версии нет достаточной цепочки, чтобы заявлять трансграничную передачу или нарушение локализации.</p></article><article class="card"><h3>Как проверять корректно</h3><p>Нужно установить, куда форма реально отправляет данные, где происходит первичная запись и кто является получателем.</p></article></div></div>
+<div class="law-panel" id="law-photos"><div class="grid2">
+    <button class="finding check" data-evidence="AUD-010" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Фотографии детей: нужны документы</strong><p>Сам факт публикации не означает отсутствие согласий.</p>
+    </button><article class="card"><h3>Что нужно сверить</h3><p>Согласия на съёмку и распространение изображения, площадки, сроки использования и порядок отзыва.</p></article></div></div>
+<div class="legal-extra"><div class="kicker">Актуальные требования 2026</div><div class="grid3" style="margin-top:12px">
+    <button class="finding check" data-evidence="AUD-003" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Медицинская памятка</strong><p>Сверить с правилами, действующими с 01.09.2026.</p>
+    </button>
+    <button class="finding check" data-evidence="AUD-011" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Доступная среда</strong><p>Публичные сведения и реальные условия проверять отдельно.</p>
+    </button>
+    <button class="finding check" data-evidence="AUD-009" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Платные дополнения</strong><p>Никакого заранее выбранного платного мерча или услуги.</p>
+    </button></div></div>
+</section>
+
+<section class="screen" id="screen-visibility">
+<div class="scene-head"><div><div class="kicker">Сайт и поиск</div><h2>Сначала единые факты — затем продвижение</h2></div><p class="lead">Поиск, карты и родители не должны получать разные версии адреса, стоимости, смен или реквизитов.</p></div>
+<div class="speed"><article class="card"><span class="status">Нет замера</span><h3>На телефоне</h3><p>В этой версии не зафиксирован воспроизводимый замер скорости. Провести его вместе с технической диагностикой.</p></article><article class="card"><span class="status">Нет замера</span><h3>На компьютере</h3><p>Не выдаём отсутствие замера за хороший результат. Нужны фактические измерения ключевых страниц.</p></article></div>
+<div class="grid2">
+    <button class="finding check" data-evidence="AUD-012" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Адрес лагеря нужно унифицировать</strong><p>Сначала получить подтверждение фактического адреса, затем синхронизировать все источники.</p>
+    </button><article class="card"><h3>Яндекс и 2ГИС</h3><p>В этой версии не заявляем полную проверку карточек. После подтверждения адреса нужно синхронизировать название, адрес, телефон, сайт, сезонность и программы.</p></article><article class="card green"><h3>Что уже хорошо</h3><p>На основной странице опубликован график смен 2026 года. Его нужно сделать единственным актуальным источником для остальных документов.</p></article><article class="card"><h3>Приоритет</h3><p>Сначала убрать противоречия в исходных данных. Затем расширять страницы под поиск и рекламный трафик.</p></article></div>
+</section>
+
+<section class="screen" id="screen-ai">
+<div class="scene-head"><div><div class="kicker">Ответы для родителей</div><h2>Сайт должен давать один короткий и точный ответ на основные вопросы</h2></div><p class="lead">Внешние ответы ИИ в этой версии не проверялись, поэтому не делаем вывод «ИИ не знает лагерь».</p></div>
+<div class="grid2"><article class="card amber"><h3>Сейчас мешают противоречия</h3><p>Если на странице и в официальном документе разные цены или смены, поисковой системе сложнее выбрать правильный ответ.</p></article><article class="card"><h3>Нужны явные ответы</h3><p>Где лагерь, возраст, даты, стоимость, что входит, документы, как оформить и с кем связаться.</p></article><article class="card"><h3>Страницы смен</h3><p>Для актуальных смен полезны стабильные страницы с датами, возрастом, программой и понятным действием.</p></article><article class="card green"><h3>Единый источник</h3><p>Актуальные смены и продажу удобнее поддерживать в одном рабочем контуре, а сайт использовать как понятную витрину.</p></article></div>
+</section>
+
+<section class="screen" id="screen-siteplan">
+<div class="scene-head"><div><div class="kicker">План по сайту</div><h2>Не начинать с дизайна. Сначала привести в порядок содержание и роли.</h2></div><p class="lead">Клиент сам отметил необходимость серьёзного обновления. Платформа сайта и доступы не подтверждены, поэтому точную смету до технической диагностики давать некорректно.</p></div>
+<div class="decision"><div class="card dark"><div class="kicker">Рекомендуемый порядок</div><h3>Сначала обязательные исправления</h3><div class="steps"><div class="step"><b>01</b><div><strong>Обновить Паспорт, реквизиты и медицинскую памятку</strong></div></div><div class="step"><b>02</b><div><strong>Пройти все формы и обязательные разделы</strong></div></div><div class="step"><b>03</b><div><strong>Подтвердить платформу сайта, доступы и объём работ</strong></div></div><div class="step"><b>04</b><div><strong>Выбрать: дорабатывать текущий сайт или собирать новый</strong></div></div></div></div><div class="card"><div class="kicker">Разделение ответственности</div><h3>Сайт и CampBox решают разные задачи</h3><p><strong>Сайт:</strong> публичная информация, доверие и обязательные разделы.</p><p><strong>CampBox:</strong> бронирование, путёвки, платежи, документы и подготовка к заезду.</p><p><strong>Лагерь:</strong> актуальность исходных данных и финальная проверка.</p></div></div>
+<div class="note" style="margin-top:14px">Новый сайт можно рассматривать как отдельный проект, но решение должно опираться на техническую диагностику и реальный объём исправлений, а не только на возраст дизайна.</div>
+</section>
+
+<section class="screen" id="screen-price">
+<div class="scene-head"><div><div class="kicker">Стоимость CampBox</div><h2>1% от месячного оборота состоявшихся путёвок</h2></div><p class="lead">Минимальный ежемесячный платёж — 5 000 ₽, в том числе в месяцы без продаж.</p></div>
+<div class="price-grid"><article class="price-card"><h3>Рассчитать на своих значениях</h3><div class="rule">Стоимость за месяц = max(5 000 ₽, 1% от оборота)</div><div class="fields" style="margin-top:16px"><div><label for="avg">Средняя стоимость путёвки, ₽</label><input id="avg" type="number" min="0" step="1000" value="33000"></div><div><label for="tickets">Состоявшихся путёвок в месяц</label><input id="tickets" type="number" min="0" step="1" value="0"></div></div><div class="metrics"><div class="metric"><span>Оборот</span><strong id="turnover">—</strong></div><div class="metric"><span>1% от оборота</span><strong id="raw">—</strong></div></div></article><article class="price-card dark"><h3>Стоимость CampBox в месяц</h3><div class="price-big" id="finalPrice">5 000 ₽</div><p id="priceNote">Минимальный платёж применяется даже при отсутствии продаж.</p><div class="rule">Минимум: 5 000 ₽ ежемесячно.</div></article></div>
+<div class="note" style="margin-top:14px">Стоимость сайта, юридической подготовки документов и сторонних сервисов рассчитывается отдельно.</div>
+</section>
+
+<section class="screen" id="screen-next">
+<div class="final"><div class="final-grid"><div><div class="kicker">Следующий шаг</div><h2>Вернуться к уже прерванному этапу договора</h2><p>CampBox организации уже знаком: ранее стороны дошли почти до подписания. Следующий разговор лучше посвятить вопросам Оксаны Алексеевны, границам работ по сайту и решению по договору.</p><div class="actions"><a class="primary" href="mailto:E.petrov@camp-box.ru?subject=CampBox%20—%20ДОЛ%20им.%20Зои%20Космодемьянской">Связаться с Евгением →</a><a class="ghost" href="https://max.ru/u/f9LHodD0cOLIkOxqSGim_lj0AELqa9BqgH3rdl4RKT3h6zPxCh3qIYWnv6s" target="_blank">Написать в MAX</a></div></div><aside class="launch"><strong>Следующий контакт: вторник, ориентировочно 13.10.2026</strong><div class="steps"><div class="step"><b>01</b><div><strong>Обсудить материал с Оксаной Алексеевной</strong><small>Собрать вопросы по сайту, процессу и стоимости.</small></div></div><div class="step"><b>02</b><div><strong>Разделить объём работ</strong><small>Что исправляется на сайте, а что автоматизируется через CampBox.</small></div></div><div class="step"><b>03</b><div><strong>Зафиксировать условия</strong><small>1% от оборота, минимум 5 000 ₽ в месяц.</small></div></div><div class="step"><b>04</b><div><strong>Вернуться к договору</strong><small>Если вопросов не остаётся — согласовать подписание и запуск.</small></div></div></div></aside></div></div>
+</section>
+
+</div>
+<div class="bottom"><button id="prev">← Назад</button><span id="bottomLabel">Главное</span><button class="next" id="next">Далее →</button></div>
+</main>
+</div>
+
+<div class="backdrop" id="backdrop">
+<aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="evTitle">
+<button class="close" id="close" aria-label="Закрыть">×</button>
+<span class="status" id="evStatus"></span><h2 id="evTitle"></h2>
+<div class="meta"><div><small>Дата проверки</small><strong id="evDate"></strong></div><div><small>Где найдено</small><strong id="evWhere"></strong></div></div>
+<div class="ev"><small>Что зафиксировано</small><p id="evFound"></p></div>
+<div class="ev"><small>Почему это важно</small><p id="evWhy"></p></div>
+<div class="ev"><small>Основание</small><p id="evBasis"></p></div>
+<div class="ev"><small>Что сделать</small><p id="evAction"></p></div>
+<div class="ev"><small>Ответственный</small><p id="evOwner"></p></div>
+<div class="ev done"><small>Как понять, что исправлено</small><p id="evDone"></p></div>
+</aside>
+</div>
+
+<script>
+const EVIDENCE={"AUD-001": {"status": "Подтверждено", "title": "Паспорт лагеря содержит устаревшие сведения", "date": "07.10.2026", "where": "Кнопка «Паспорт» на странице лагеря", "found": "В публичном файле «Паспорт ДОЛ 2025г.» указано состояние на 21.04.2025, 4 смены и коммерческая стоимость 30 000 ₽. На текущей странице лагеря опубликованы 5 смен 2026 года и стоимость 33 000 ₽.", "why": "Родитель получает разные официальные ответы по сменам и стоимости.", "basis": "Приказ Минпросвещения №201: публичные сведения и документы организации отдыха должны поддерживаться в актуальном состоянии и проверяются по фактическому содержанию.", "action": "Заменить публичный Паспорт на актуальную версию 2026 года и сверить все цифры с текущей страницей.", "owner": "Лагерь / ответственный за сайт", "done": "На странице и в паспорте одинаковые смены, стоимость и ключевые сведения."}, "AUD-002": {"status": "Подтверждено", "title": "ОГРН юридического лица подписан как ОГРНИП", "date": "07.10.2026", "where": "Контакты / реквизиты", "found": "У ПО «Коопзаготпромторг» номер 1034637002938 опубликован с подписью «ОГРНИП», хотя для юридического лица это ОГРН.", "why": "Ошибка в официальных реквизитах создаёт путаницу при сверке документов и снижает доверие.", "basis": "Публичные реквизиты должны быть достоверными и непротиворечивыми.", "action": "Исправить «ОГРНИП» на «ОГРН» и перепроверить аналогичные подписи у остальных юридических лиц.", "owner": "Ответственный за сайт", "done": "Названия ОГРН/ОГРНИП соответствуют типу каждого субъекта."}, "AUD-003": {"status": "Требует проверки", "title": "Медицинскую памятку нужно сверить с правилами 2026 года", "date": "07.10.2026", "where": "Перечень документов к заезду", "found": "На сайте опубликованы требования к медицинским документам и отдельное упоминание справки об отсутствии контактов / COVID. Формулировки нужно сверить с правилами, действующими с 01.09.2026.", "why": "Устаревшая памятка может привести к неправильному пакету документов и лишним вопросам перед заездом.", "basis": "С 01.09.2026 действует СП 2.4.2.4283-26. Финальную медицинскую формулировку должен подтвердить ответственный специалист.", "action": "Перепроверить перечень, сроки и формулировки медицинских документов, затем обновить памятку.", "owner": "Медицинский ответственный / лагерь", "done": "На сайте и в рабочем процессе используется один утверждённый актуальный перечень."}, "AUD-004": {"status": "Подтверждено", "title": "Форма оплаты собирает персональные данные без отдельного чек-пойнта", "date": "07.10.2026", "where": "https://kursk-coop.ru/dol-payment/ → форма action=/payments/dol-payment.php", "found": "В форме «Оформление путевки в лагерь» есть поля: выбор смены, ФИО ребенка, ФИО плательщика и телефон. Внутри самой формы отсутствует input type=\"checkbox\"; также не обнаружены текст согласия на обработку персональных данных, упоминание политики обработки персональных данных или отдельный чек-пойнт перед отправкой.", "why": "Пользователь передает персональные данные взрослого и ребенка без отдельной фиксируемой точки подтверждения/ознакомления. Для жесткого аудита это красный статус, а не «требует проверки».", "basis": "Фактически подтверждено по HTML формы. Ст. 9 Федерального закона №152-ФЗ требует отдельного оформления согласия, когда обработка осуществляется на основании согласия. Даже если оператор использует иное законное основание, оно и условия обработки не раскрыты пользователю непосредственно в этой форме.", "action": "До отправки формы добавить отдельный неотмеченный по умолчанию чекбокс, понятный текст согласия/основания обработки и ссылку на актуальный документ. Отправка формы должна блокироваться, когда обязательный чек-пойнт не пройден.", "owner": "Владелец сайта + разработчик + ответственный за персональные данные", "done": "Форма не отправляется без обязательного чек-пойнта; рядом с ним указано, с чем именно соглашается пользователь, и доступна ссылка на актуальный документ."}, "AUD-005": {"status": "Проверено", "title": "На сайте уже заведена основа структуры Приказа №201", "date": "07.10.2026", "where": "Навигация лагеря", "found": "На сайте есть разделы «Деятельность», «Услуги», «Доступная среда», «Материально-техническое обеспечение» и «Об организации…».", "why": "Структуру не нужно проектировать с нуля — нужно довести содержание.", "basis": "Приказ Минпросвещения №201 задаёт структуру публичной информации лагеря.", "action": "Сохранить текущую структуру и проверить содержимое каждого внутреннего раздела и файла.", "owner": "Ответственный за сайт", "done": "Каждый обязательный раздел заполнен актуальными сведениями."}, "AUD-006": {"status": "Проверено", "title": "Текущий график смен уже обновлён на 2026 год", "date": "07.10.2026", "where": "Основная страница лагеря", "found": "На текущей странице опубликованы смены 2026 года. Замечание со встречи про график 2025 года не используем как действующий дефект.", "why": "Это хороший базовый источник, с которым нужно синхронизировать остальные документы.", "basis": "Актуальность публичной информации.", "action": "Сохранить текущий график и привести к нему Паспорт и остальные материалы.", "owner": "Лагерь", "done": "Во всех публичных источниках одинаковые даты смен."}, "AUD-007": {"status": "Подтверждено", "title": "Договоры как минимум частично оформляются вручную", "date": "07.10.2026", "where": "Транскрибация встречи", "found": "Клиент подтвердил: «Ну да, так и есть. Не везде вручную.»", "why": "Сотрудник повторно переносит данные и контролирует версии документов вручную.", "basis": "Подтверждённый операционный процесс клиента.", "action": "Разделить сценарии оформления и перевести подходящие договоры в единый цифровой процесс.", "owner": "Лагерь + CampBox", "done": "Подходящие документы формируются из уже собранных данных, сотрудник проверяет результат."}, "AUD-008": {"status": "Требует проверки", "title": "Наполнение обязательных разделов нужно проверить пункт за пунктом", "date": "07.10.2026", "where": "Разделы по Приказу №201", "found": "Названия разделов видны, но полный состав внутренних страниц и файлов не подтверждён текущей проверкой.", "why": "Наличие пункта меню само по себе не доказывает полноту обязательной информации.", "basis": "Приказ Минпросвещения №201 проверяется по содержанию, актуальности и работоспособности опубликованных материалов.", "action": "Собрать матрицу «требование → страница/файл → актуальность → действие».", "owner": "Ответственный за сайт", "done": "Каждый применимый пункт №201 имеет актуальное публичное подтверждение."}, "AUD-009": {"status": "Требует проверки", "title": "Дополнительные платные услуги и мерч", "date": "07.10.2026", "where": "Будущие дополнительные продажи", "found": "На встрече клиент подтвердил планы продавать дополнительные услуги/мерч.", "why": "При запуске платных дополнений родитель должен сам сделать выбор; нельзя проставлять согласие заранее.", "basis": "Статья 16 Закона о защите прав потребителей в редакции, действующей с 01.09.2025.", "action": "Разделить базовую путёвку и дополнительные позиции, показать цену и добровольный выбор.", "owner": "Лагерь + CampBox", "done": "Ни одна дополнительная платная позиция не добавляется без явного действия родителя."}, "AUD-010": {"status": "Требует проверки", "title": "Фото и видео: нужны внутренние документы", "date": "07.10.2026", "where": "Фотоматериалы с детьми", "found": "На сайте опубликованы фотографии детей. Сам факт публикации не доказывает отсутствия согласий.", "why": "Нужно подтвердить основания для съёмки и распространения изображений, сроки, площадки и порядок отзыва.", "basis": "Право на изображение и требования к персональным данным проверяются раздельно.", "action": "Сверить формы согласий и порядок их хранения/отзыва.", "owner": "Лагерь / юрист", "done": "Для используемых материалов есть подтверждённое основание и понятный порядок отзыва."}, "AUD-011": {"status": "Требует проверки", "title": "Доступная среда: сайт и реальные условия проверяются отдельно", "date": "07.10.2026", "where": "Раздел «Доступная среда» / Паспорт лагеря", "found": "Паспорт 2025 года не даёт полной картины. Текущее наполнение раздела сайта нужно проверить отдельно.", "why": "Недостаток информации на сайте не доказывает физическую недоступность объекта.", "basis": "Приказ №201 — публичные сведения; Приказ Минпросвещения №253 — фактическая доступность услуг.", "action": "Заполнить публичный раздел по подтверждённым фактам и отдельно сверить реальные условия.", "owner": "Лагерь", "done": "На сайте опубликованы точные условия, а фактические обещания подтверждены."}, "AUD-012": {"status": "Требует проверки", "title": "Адрес лагеря нужно подтвердить и унифицировать", "date": "07.10.2026", "where": "Сайт / документы / справочники", "found": "В публичных источниках встречаются разные номера дома в Парке Солянка.", "why": "Разные адреса мешают родителю строить маршрут и создают противоречие между источниками.", "basis": "Достоверность и единообразие публичной информации.", "action": "Получить подтверждение фактического адреса и затем синхронизировать сайт, документы, Яндекс и 2ГИС.", "owner": "Лагерь / ответственный за сайт", "done": "Один и тот же актуальный адрес используется во всех источниках."}, "AUD-013": {"status": "Подтверждено", "title": "Страница оплаты осталась в сезоне 2025 и содержит старую цену", "date": "07.10.2026", "where": "https://kursk-coop.ru/dol-payment/", "found": "В форме оплаты указаны 4 смены 2025 года: 10.06–25.06, 28.06–13.07, 16.07–31.07 и 03.08–18.08, а стоимость путевки — 30 000 ₽. На основной странице лагеря уже опубликованы 5 смен 2026 года и цена 33 000 ₽.", "why": "Родитель может перейти из актуальной страницы лагеря в старую форму оплаты и получить другой сезон, другое количество смен и другую стоимость.", "basis": "Подтверждено сравнением публичной страницы лагеря и публичной формы оплаты.", "action": "Закрыть старую форму от использования либо немедленно обновить даты смен, количество смен и стоимость. После правки проверить весь путь до платежного обработчика.", "owner": "Ответственный за сайт / продажи", "done": "Основная страница, форма оплаты и все документы показывают один и тот же сезон, одинаковые даты и одинаковую стоимость."}};
+const screens=["overview","journey","payment","docs","legal","visibility","ai","siteplan","price","next"];
+const labels={overview:"Главное",journey:"Путь родителя",payment:"Оплата",docs:"Документы",legal:"Данные и законы",visibility:"Сайт и поиск",ai:"Ответы родителям",siteplan:"План по сайту",price:"Стоимость CampBox",next:"Следующий шаг"};
+let current=0;
+const guideData={
+journey:[
+{title:"Как устроено сейчас",lead:"Есть актуальные смены 2026 года, но рядом с ними остаются документы со старыми данными.",html:`<div class="grid2">
+    <button class="finding bad" data-evidence="AUD-001" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Паспорт лагеря расходится с текущей страницей</strong><p>В публичном документе остаются сведения 2025 года, включая другое количество смен и другую стоимость.</p>
+    </button>
+    <button class="finding ok" data-evidence="AUD-006" type="button">
+      <div class="finding-top"><span class="status">Проверено</span><span>Подробнее →</span></div>
+      <strong>Текущий график смен уже обновлён</strong><p>Старый график из демонстрации больше не считаем действующим дефектом.</p>
+    </button></div>`},
+{title:"Что видит родитель",lead:"Когда официальные страницы и документ расходятся, сложнее понять, каким данным доверять.",html:`<div class="grid3"><article class="card"><h3>Родитель</h3><p>Сравнивает цену, даты и документы в нескольких местах.</p></article><article class="card amber"><h3>Сотрудник</h3><p>Объясняет расхождения и отдельно готовит часть договоров.</p></article><article class="card"><h3>Руководитель</h3><p>Зависит от ручного обновления сайта и документов.</p></article></div>`},
+{title:"Один понятный путь покупки",lead:"CampBox подключаем там, где начинается операционная работа с путёвкой. Публичные обязательные сведения остаются на сайте.",html:`<div class="grid2"><article class="card green"><h3>Выбор смены и бронирование</h3><p>Родитель выбирает актуальную смену и вводит данные один раз.</p></article><article class="card green"><h3>Личный кабинет</h3><p>Путёвка, платежи, документы и инструкции — в одном месте.</p></article><article class="card"><h3>Сайт</h3><p>Актуальная публичная информация и понятный вход в покупку.</p></article><article class="card"><h3>Контроль лагеря</h3><p>Сотрудник проверяет результат, а не перепечатывает одни и те же данные.</p></article></div>`},
+{title:"Результат",lead:"Родитель проходит один последовательный сценарий, а лагерь получает единую карточку путёвки.",html:`<div class="grid3"><article class="card green"><h3>Родитель</h3><p>Понимает следующий шаг.</p></article><article class="card"><h3>Сотрудник</h3><p>Меньше ручного переноса данных.</p></article><article class="card"><h3>Руководитель</h3><p>Единая картина оформленных путёвок.</p></article></div>`}
+],
+payment:[
+{title:"Что подтверждено",lead:"Дополнительные услуги и мерч планируются; полный путь оплаты на сайте нужно проверить.",html:`<div class="grid2">
+    <button class="finding bad" data-evidence="AUD-004" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Форма оплаты собирает ПДн без чек-пойнта</strong><p>ФИО ребёнка, ФИО плательщика и телефон собираются без отдельного checkbox и без текста согласия/политики внутри формы.</p>
+    </button>
+    <button class="finding check" data-evidence="AUD-009" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Дополнительные платные услуги</strong><p>Выбор должен быть добровольным и не проставленным заранее.</p>
+    </button><button class="finding bad" data-evidence="AUD-013" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Форма оплаты осталась в сезоне 2025</strong><p>На странице оплаты — 4 смены 2025 года и цена 30 000 ₽, тогда как основная страница уже показывает 5 смен 2026 года и 33 000 ₽.</p>
+    </button></div>`},
+{title:"Почему это важно",lead:"Оплата должна быть понятна родителю и однозначно привязана к путёвке.",html:`<div class="grid2"><article class="card amber"><h3>Нельзя выбирать за родителя</h3><p>Дополнительную платную услугу родитель выбирает сам.</p></article><article class="card"><h3>Статус оплаты</h3><p>Родитель и сотрудник должны понимать, что оплачено и какой остаток.</p></article></div>`},
+{title:"Оплата внутри карточки путёвки",lead:"CampBox может хранить статус оплаты и график платежей в настроенном платёжном процессе.",html:`<div class="grid2"><article class="card green"><h3>Единая карточка</h3><p>Продажа, родитель, ребёнок и оплата связаны с одной путёвкой.</p></article><article class="card green"><h3>График платежей</h3><p>Родитель видит сумму и срок следующего платежа.</p></article><article class="card"><h3>Эквайринг</h3><p>Используется в рамках согласованного провайдера и его фактических возможностей.</p></article><article class="card"><h3>Дополнительные позиции</h3><p>Отдельный добровольный выбор, если они не входят в путёвку.</p></article></div>`},
+{title:"Результат",lead:"Оплата становится частью понятного процесса, а не отдельным ручным контролем.",html:`<div class="compare"><article class="card"><h3>До</h3><ul><li>Статусы сверяются между каналами.</li><li>Родитель уточняет остаток.</li></ul></article><div class="arrow">→</div><article class="card green"><h3>После</h3><ul><li>Платёж связан с путёвкой.</li><li>Родитель видит свой график.</li></ul></article></div>`}
+],
+docs:[
+{title:"Что нашли",lead:"Публичные документы и документы путёвки требуют разных действий.",html:`<div class="grid2">
+    <button class="finding bad" data-evidence="AUD-001" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Публичный Паспорт устарел</strong><p>Файл 2025 года расходится с текущими сведениями.</p>
+    </button>
+    <button class="finding bad" data-evidence="AUD-007" type="button">
+      <div class="finding-top"><span class="status">Подтверждено</span><span>Подробнее →</span></div>
+      <strong>Договоры частично вручную</strong><p>Это прямое подтверждение клиента на встрече.</p>
+    </button>
+    <button class="finding check" data-evidence="AUD-003" type="button">
+      <div class="finding-top"><span class="status">Требует проверки</span><span>Подробнее →</span></div>
+      <strong>Медицинская памятка</strong><p>Её нужно сверить с действующими правилами.</p>
+    </button></div>`},
+{title:"Где возникает лишняя работа",lead:"Ручная подготовка увеличивает зависимость от конкретного сотрудника.",html:`<div class="grid3"><article class="card"><h3>1. Данные собираются</h3><p>Родитель передаёт сведения для договора и заезда.</p></article><article class="card amber"><h3>2. Сотрудник переносит</h3><p>Часть договоров оформляется вручную.</p></article><article class="card"><h3>3. Перед заездом сверяют</h3><p>Нужно проверить полный комплект.</p></article></div>`},
+{title:"Разделить публичные документы и документы путёвки",lead:"CampBox автоматизирует операционный документооборот, но не заменяет публичные обязанности сайта.",html:`<div class="grid2"><article class="card green"><h3>Договор по данным родителя</h3><p>Подготовка документов из уже собранных данных.</p></article><article class="card green"><h3>Комплектность</h3><p>Статусы предоставленных и ожидаемых документов.</p></article><article class="card green"><h3>Подписание</h3><p>Поддерживаемый сценарий простой электронной подписи при корректной настройке.</p></article><article class="card"><h3>Публичный сайт</h3><p>Паспорт и обязательные сведения обновляются отдельно.</p></article></div>`},
+{title:"Результат к заезду",lead:"У сотрудника понятный статус комплектности по каждому ребёнку.",html:`<div class="grid2"><article class="card green"><h3>Договор</h3><p>Подготовлен и подписан в выбранном сценарии.</p></article><article class="card green"><h3>Согласия</h3><p>Собраны отдельно по применимым целям.</p></article><article class="card amber"><h3>Медицинские документы</h3><p>Проверяются по актуальному перечню.</p></article><article class="card green"><h3>Готовность к заезду</h3><p>Понятна сотруднику и родителю.</p></article></div>`}
+]
+};
+const stageLabels=["Как сейчас","В чём проблема","Как помогает CampBox","Результат"];
+const stageState={journey:0,payment:0,docs:0};
+
+function renderGuide(name){
+ const shell=document.querySelector(`[data-guide="${name}"]`); if(!shell)return;
+ const tabs=shell.querySelector(".tabs"), stage=shell.querySelector(".stage"), idx=stageState[name];
+ tabs.innerHTML=stageLabels.map((x,i)=>`<button class="tab ${i===idx?"active":""}" data-i="${i}"><small>${String(i+1).padStart(2,"0")}</small><strong>${x}</strong></button>`).join("");
+ tabs.querySelectorAll("button").forEach(b=>b.onclick=()=>{stageState[name]=Number(b.dataset.i);renderGuide(name)});
+ const d=guideData[name][idx]; stage.innerHTML=`<h3>${d.title}</h3><p class="lead">${d.lead}</p>${d.html}`;
+ bindFindings();
+}
+function go(name){
+ const i=screens.indexOf(name); if(i<0)return; current=i;
+ document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+ document.getElementById("screen-"+name).classList.add("active");
+ document.querySelectorAll("[data-screen]").forEach(x=>x.classList.toggle("active",x.dataset.screen===name));
+ document.getElementById("bottomLabel").textContent=labels[name];
+ document.getElementById("prev").disabled=i===0;
+ document.getElementById("next").disabled=i===screens.length-1;
+ document.querySelector(".bottom").style.display=(name==="overview"||name==="next")?"none":"flex";
+ if(stageState[name]!==undefined)renderGuide(name);
+ window.scrollTo(0,0);
+}
+document.querySelectorAll("[data-screen]").forEach(x=>x.addEventListener("click",e=>{e.preventDefault();go(x.dataset.screen)}));
+document.getElementById("prev").onclick=()=>{let n=screens[current];if(stageState[n]!==undefined&&stageState[n]>0){stageState[n]--;renderGuide(n);return}if(current>0)go(screens[current-1])};
+document.getElementById("next").onclick=()=>{let n=screens[current];if(stageState[n]!==undefined&&stageState[n]<3){stageState[n]++;renderGuide(n);return}if(current<screens.length-1)go(screens[current+1])};
+
+document.querySelectorAll("[data-law]").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll("[data-law]").forEach(x=>x.classList.toggle("active",x===b));
+ document.querySelectorAll(".law-panel").forEach(x=>x.classList.remove("active"));
+ document.getElementById("law-"+b.dataset.law).classList.add("active");
+});
+
+function bindFindings(){
+ document.querySelectorAll("[data-evidence]").forEach(el=>el.onclick=()=>openEvidence(el.dataset.evidence));
+}
+function openEvidence(id){
+ const e=EVIDENCE[id];if(!e)return;
+ document.getElementById("evStatus").textContent=e.status;
+ document.getElementById("evTitle").textContent=e.title;
+ document.getElementById("evDate").textContent=e.date;
+ document.getElementById("evWhere").textContent=e.where;
+ document.getElementById("evFound").textContent=e.found;
+ document.getElementById("evWhy").textContent=e.why;
+ document.getElementById("evBasis").textContent=e.basis;
+ document.getElementById("evAction").textContent=e.action;
+ document.getElementById("evOwner").textContent=e.owner;
+ document.getElementById("evDone").textContent=e.done;
+ document.getElementById("backdrop").classList.add("open");
+ document.body.style.overflow="hidden";
+}
+function closeEv(){document.getElementById("backdrop").classList.remove("open");document.body.style.overflow=""}
+document.getElementById("close").onclick=closeEv;
+document.getElementById("backdrop").onclick=e=>{if(e.target.id==="backdrop")closeEv()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeEv()});
+
+const money=v=>new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0}).format(Math.max(0,Number(v)||0))+" ₽";
+function calc(){
+ const avg=Math.max(0,Number(document.getElementById("avg").value)||0);
+ const n=Math.max(0,Number(document.getElementById("tickets").value)||0);
+ const turnover=avg*n, raw=turnover*.01, final=Math.max(5000,raw);
+ document.getElementById("turnover").textContent=money(turnover);
+ document.getElementById("raw").textContent=money(raw);
+ document.getElementById("finalPrice").textContent=money(final);
+ document.getElementById("priceNote").textContent=raw<5000?"Применяется минимальный ежемесячный платёж 5 000 ₽.":"Стоимость рассчитана как 1% от оборота.";
+}
+document.getElementById("avg").oninput=calc;document.getElementById("tickets").oninput=calc;
+["journey","payment","docs"].forEach(renderGuide);bindFindings();calc();go("overview");
+</script>
+
+<script id="campbox-tilda-height-bridge">
+(function () {
+  const MESSAGE_TYPE = "campbox-audit-height";
+  let lastHeight = 0;
+  let raf = 0;
+
+  function getHeight() {
+    const body = document.body;
+    const doc = document.documentElement;
+    return Math.max(
+      body ? body.scrollHeight : 0,
+      body ? body.offsetHeight : 0,
+      doc ? doc.scrollHeight : 0,
+      doc ? doc.offsetHeight : 0,
+      doc ? doc.clientHeight : 0
+    );
+  }
+
+  function sendHeight() {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function () {
+      const height = Math.max(720, Math.ceil(getHeight()));
+      if (Math.abs(height - lastHeight) < 2) return;
+      lastHeight = height;
+      window.parent.postMessage(
+        { type: MESSAGE_TYPE, height: height, slug: "zoya-kosmodemyanskaya" },
+        "*"
+      );
+    });
+  }
+
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(sendHeight);
+    ro.observe(document.documentElement);
+    if (document.body) ro.observe(document.body);
+  }
+
+  if ("MutationObserver" in window && document.body) {
+    const mo = new MutationObserver(sendHeight);
+    mo.observe(document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true
+    });
+  }
+
+  document.addEventListener("click", function () {
+    setTimeout(sendHeight, 40);
+    setTimeout(sendHeight, 220);
+  }, true);
+
+  setTimeout(sendHeight, 100);
+  setTimeout(sendHeight, 600);
+  setTimeout(sendHeight, 1500);
+})();
+</script>
+
+</body>
+</html>
