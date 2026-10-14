@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173B57">
+<meta name="description" content="Персональное предложение CampBox для ДОЛ «Юность» на базе санатория-профилактория «Перекоп». Анализ процессов и доказательный аудит сайта от 14 октября 2026 года.">
+<title>CampBox × ДОЛ «Юность» — персональное предложение и аудит</title>
+<style>
+:root{
+  --navy:#173B57;--navy2:#0E2B42;--green:#55C96B;--green-dark:#23834B;
+  --bg:#F5F7F3;--paper:#FFFFFF;--ink:#202823;--text:#34423B;--muted:#667970;
+  --line:#DDE6E2;--soft:#ECF6EE;--pale:#F2F6F3;--blue:#EDF6FF;--amber:#9B6418;
+  --shadow:0 18px 56px rgba(20,52,61,.075);--radius:24px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:138px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #37A258;outline-offset:4px}
+.skip{position:absolute;left:-3000px;top:0;background:white;padding:10px;z-index:100}.skip:focus{left:12px}
+.top{position:sticky;z-index:40;top:0;background:rgba(245,247,243,.94);backdrop-filter:blur(22px);border-bottom:1px solid rgba(221,230,226,.9)}
+.top-inner{max-width:1220px;margin:auto;min-height:75px;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:inline-flex;text-decoration:none;align-items:center;gap:12px;white-space:nowrap}
+.brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#6BDC7A,#34AD68);color:#143E24;font-size:16px;font-weight:950;box-shadow:0 5px 18px rgba(55,167,102,.18)}
+.brand-main{font-weight:900;font-size:19px;letter-spacing:-.9px;color:var(--navy)}
+.brand-caption{font-size:10px;display:block;line-height:1.2;letter-spacing:.02em;color:var(--muted);font-weight:600}
+.top-side{display:flex;align-items:center;gap:15px}
+.top-label{font-size:12px;color:var(--muted)}
+.top-contact{display:inline-flex;align-items:center;gap:7px;font-weight:760;font-size:13px;text-decoration:none;border-radius:100px;padding:10px 14px;background:#E8F3E9;color:#1C613A;transition:background .2s,transform .2s}
+.top-contact:hover{background:#D4EEDD;transform:translateY(-1px)}
+.nav-wrap{border-top:1px solid #E7ECE8}
+.nav{max-width:1220px;margin:auto;display:flex;align-items:center;gap:4px;padding:0 28px;justify-content:space-between;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:12.5px;text-decoration:none;color:#52655B;display:flex;align-items:center;justify-content:center;padding:14px 12px 12px;white-space:nowrap;border-bottom:3px solid transparent;min-height:51px;transition:background .2s,color .2s}
+.nav a:hover,.nav a.active{color:var(--green-dark);background:var(--soft);border-bottom-color:#3EAD60}
+main{overflow:hidden}.section{max-width:1164px;margin:auto;padding:78px 24px;scroll-margin-top:130px}
+.section+.section{border-top:1px solid var(--line)}
+.hero{max-width:none;background:radial-gradient(circle at 82% 8%,rgba(104,214,128,.10),transparent 30%),linear-gradient(180deg,#F5F7F3,#F0F5F1);padding:75px max(24px,calc((100vw - 1116px)/2)) 72px}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(370px,.9fr);gap:45px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green-dark);font-size:11.5px;letter-spacing:.13em;font-weight:900;text-transform:uppercase}
+.eyebrow:before{content:"";width:18px;height:2px;background:var(--green);border-radius:8px}
+.hero h1{font-size:clamp(37px,4.45vw,63px);line-height:1.08;letter-spacing:-.052em;margin:22px 0 20px;font-weight:880;color:#19342A;max-width:700px}
+.hero h1 em{font-style:normal;color:var(--green-dark)}
+.hero-lead{font-size:17px;line-height:1.73;color:#465A51;max-width:670px;margin:0 0 29px}
+.button-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;text-decoration:none;border-radius:13px;padding:12px 19px;font-size:13px;font-weight:780;transition:transform .24s,box-shadow .24s,background .2s;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#163E26;box-shadow:0 12px 22px rgba(61,181,91,.13)}
+.btn-primary:hover{background:#45BF62;box-shadow:0 15px 28px rgba(61,181,91,.22)}
+.btn-dark{background:var(--navy);color:#fff}.btn-dark:hover{background:var(--navy2)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-subtle{background:transparent;color:var(--green-dark);border-color:#CFE3D3}
+.hero-note{color:#6F8077;font-size:12px;margin-top:23px}
+.hero-panel{background:#fff;border:1px solid #DDE9E1;border-radius:26px;padding:22px;box-shadow:0 24px 70px rgba(13,53,48,.09);position:relative;isolation:isolate}
+.hero-panel:before{content:"";position:absolute;z-index:-1;inset:-14px 30px auto 30px;height:80px;border-radius:60px;background:#A7EABC;filter:blur(34px);opacity:.55}
+.panel-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11px;color:#72847A;margin-bottom:18px}
+.live-dot{display:inline-flex;align-items:center;gap:6px;color:var(--green-dark)}
+.live-dot:before{content:"";width:7px;height:7px;background:var(--green);border-radius:50%}
+.streams{display:grid;gap:9px}
+.stream-card{display:flex;align-items:center;gap:11px;border:1px solid #E0EAE5;border-radius:13px;background:#F9FCFA;padding:13px 15px}
+.stream-icon{height:35px;width:35px;flex:none;display:grid;place-items:center;border-radius:11px;background:#E6F7EA;color:#277C47}
+.stream-name{font-size:12.5px;font-weight:750}
+.stream-note{font-size:11px;color:#77877F}
+.stream-arr{margin-left:auto;font-weight:800;color:#49AA65}
+.process-hub{background:linear-gradient(140deg,#193D4A,#112E42);border-radius:16px;padding:21px;color:white;margin:15px 0;position:relative;overflow:hidden}
+.process-hub:after{content:"";position:absolute;width:130px;height:130px;right:-45px;top:-57px;border-radius:100%;background:rgba(85,201,107,.2)}
+.hub-logo{color:#8CE3A0;font-size:11px;letter-spacing:.12em;font-weight:850;text-transform:uppercase}
+.process-hub strong{display:block;font-size:23px;letter-spacing:-.04em;margin:4px 0}
+.hub-line{font-size:12px;color:#C6DADD}
+.output-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.output-stat{background:#F1F7F3;border-radius:13px;padding:13px 9px}
+.output-stat strong{font-size:13px;display:block;color:#264C37}
+.output-stat span{font-size:10.5px;color:#698172;line-height:1.3;display:block;margin-top:5px}
+.hero-foot{margin-top:18px;font-size:10.5px;color:#7E8D83;line-height:1.5}
+.fact-strip{max-width:1116px;margin:35px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fact{background:rgba(255,255,255,.82);border:1px solid #E1EAE3;border-radius:17px;padding:21px 24px}
+.fact strong{display:block;font-size:27px;font-weight:880;letter-spacing:-.04em;color:#1F6741;line-height:1.2}
+.fact span{display:block;font-size:12.5px;margin-top:7px;color:#62746A}
+.section-heading{max-width:850px;margin-bottom:33px}
+.section-heading h2{font-size:clamp(28px,3.2vw,41px);letter-spacing:-.042em;line-height:1.17;margin:14px 0 14px;font-weight:850;color:#22382D}
+.section-heading p{font-size:15.5px;color:#62736A;max-width:790px;margin:0}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:21px;padding:27px;box-shadow:0 9px 30px rgba(24,54,42,.025);min-width:0}
+.card-tag{font-size:11px;font-weight:830;letter-spacing:.09em;color:var(--green-dark);text-transform:uppercase}
+.card h3{font-size:20px;line-height:1.3;letter-spacing:-.02em;margin:10px 0 10px}
+.card p{margin:0;font-size:14px;color:#637268;line-height:1.67}
+.card-foot{display:flex;gap:6px;align-items:center;margin-top:17px;color:#216D45;font-size:12.5px;font-weight:760}
+.section-alt{background:#EFF4EF;max-width:none;padding-left:max(24px,calc((100vw - 1116px)/2));padding-right:max(24px,calc((100vw - 1116px)/2))}
+.section-alt .section-heading{max-width:940px}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px}
+.pill-btn{border-radius:100px;border:1px solid #D1E1D5;background:#FFF;color:#506259;padding:11px 17px;font-weight:780;font-size:12.5px;transition:all .2s}
+.pill-btn:hover{background:#E9F4EB}.pill-btn[aria-selected=true]{background:#1B6043;color:#fff;border-color:#1B6043}
+.scenario{display:none;grid-template-columns:.95fr 1.05fr;gap:30px;align-items:center;min-height:300px}
+.scenario.active{display:grid;animation:soft-enter .4s both}
+.scenario-copy h3{font-size:29px;letter-spacing:-.035em;line-height:1.25;margin:10px 0 15px}
+.scenario-copy p{color:#576960}
+.scenario-result{background:#fff;border:1px solid #D6E4DA;border-radius:20px;padding:25px}
+.scenario-result b{font-size:11px;color:#2B8452;letter-spacing:.1em}
+.step{display:flex;gap:12px;align-items:start;border-bottom:1px solid #EAF0EB;padding:15px 0}
+.step:last-child{border:0}
+.step-mark{border-radius:8px;background:#EDF8F0;padding:4px 9px;font-weight:850;color:#267B46;flex:none}
+.step span{font-size:13.5px;font-weight:730;color:#31443A}
+.caveat{font-size:12px!important;color:#6B7B72!important;line-height:1.7}
+.audit-top{display:grid;grid-template-columns:1fr .77fr;gap:16px;margin-bottom:17px}
+.good-list{margin:14px 0 0;padding:0;list-style:none}
+.good-list li{padding:10px 0 10px 24px;position:relative;font-size:14px;color:#4C5E53}
+.good-list li:before{content:"✓";position:absolute;left:0;top:10px;font-weight:950;color:#229850}
+.audit-right{background:#193A43;color:#fff;border:0}
+.audit-right h3{color:white}.audit-right p{color:#CDDCD3}
+.label-check{display:inline-block;font-size:11px;font-weight:850;color:#C6EFCC;letter-spacing:.1em;text-transform:uppercase}
+.findings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.finding{appearance:none;text-align:left;display:flex;flex-direction:column;align-items:flex-start;border:1px solid #D9E5DB;background:#fff;border-radius:18px;min-height:230px;padding:21px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.finding:hover{transform:translateY(-3px);border-color:#81CFA0;box-shadow:0 14px 28px rgba(24,74,41,.07)}
+.finding small{font-size:10.5px;font-weight:830;color:#91611A;text-transform:uppercase;letter-spacing:.07em}
+.finding h3{font-size:16px;letter-spacing:-.01em;line-height:1.4;margin:13px 0 10px}
+.finding p{font-size:12px;color:#66766B;margin:0}
+.finding span{margin-top:auto;color:var(--green-dark);font-weight:750;font-size:11.5px;padding-top:18px}
+.audit-caution{font-size:12px;color:#738278;margin:17px 0 0}
+.more-audit{margin-top:25px;background:#fff;border:1px solid #D9E4DC;border-radius:19px;overflow:hidden}
+.more-audit summary{padding:22px 25px;cursor:pointer;font-weight:790;font-size:14px;list-style:none;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.more-audit summary::-webkit-details-marker{display:none}
+.more-audit summary:after{content:"＋";font-size:20px;color:#2D9156}
+.more-audit[open] summary:after{content:"−"}
+.more-audit[open] summary{border-bottom:1px solid var(--line)}
+.report{padding:28px 31px;max-height:700px;overflow:auto;background:#FCFDFB;scrollbar-color:#BED4C5 transparent;color:#394B41;font-size:13.5px}
+.report h1,.report h2,.report h3{line-height:1.3;letter-spacing:-.025em;color:#1C3C2A;margin-top:27px;margin-bottom:12px}
+.report h1{font-size:24px;margin-top:0}.report h2{font-size:21px}.report h3{font-size:16px}
+.report p{line-height:1.7}.report table{border-collapse:collapse;width:100%;margin:17px 0;font-size:12px;line-height:1.45}
+.report th,.report td{text-align:left;vertical-align:top;border:1px solid #DFE8E1;padding:11px}
+.report th{background:#E9F4EB;color:#204C31;min-width:90px}
+.report tr:nth-child(even) td{background:#F7F9F7}
+.report a{color:#116F45;overflow-wrap:anywhere}.report code{background:#EAF1EA;padding:1px 4px;border-radius:3px}
+.report blockquote{border-left:3px solid #8FC9A0;padding-left:16px;margin-left:0;color:#506A56}
+.commercial{display:grid;grid-template-columns:1.05fr .95fr;gap:17px}
+.pricing-card{border-radius:22px;background:#fff;border:1px solid var(--line);padding:30px}
+.pricing-label{font-size:12px;color:#64776A;font-weight:800}
+.price-hero{font-size:clamp(34px,4vw,52px);font-weight:900;letter-spacing:-.05em;line-height:1.1;color:#1E6741;margin:10px 0 13px}
+.price-sub{font-size:13.5px;color:#5E7266}
+.price-box{background:#F3F8F4;padding:20px;border-radius:15px;margin-top:26px}
+.price-box label{display:block;font-size:12px;color:#476451;font-weight:760;margin-bottom:8px}
+.price-box input{width:100%;padding:12px 14px;border:1px solid #CDDCCF;border-radius:10px;background:#fff;max-width:400px}
+.calc-result{border-top:1px solid #D5E2D6;margin-top:15px;padding-top:15px;font-size:12px;color:#63756B}
+.calc-result strong{display:block;color:#153C2A;font-size:32px;letter-spacing:-.04em;margin-top:3px}
+.site-choice{display:grid;gap:12px}
+.site-option{padding:23px;border:1px solid var(--line);border-radius:19px;background:white}
+.site-option h3{margin:0 0 8px;font-size:18px;letter-spacing:-.02em}
+.site-option p{font-size:13.5px;margin:0;color:#687970}
+.site-option small{margin-top:11px;display:block;color:#287C49;font-weight:750}
+.next{background:linear-gradient(125deg,#183C4E,#13392E);padding:68px 52px;border-radius:27px;color:#fff;position:relative;overflow:hidden}
+.next:after{content:"";width:320px;height:320px;position:absolute;border:1px solid rgba(152,242,177,.16);border-radius:50%;right:-105px;top:-145px;box-shadow:0 0 0 65px rgba(85,201,107,.035),0 0 0 130px rgba(85,201,107,.027);pointer-events:none}
+.next .eyebrow{color:#9BDFB1}.next h2{color:#fff;font-size:clamp(31px,4vw,46px);line-height:1.16;letter-spacing:-.04em;max-width:750px;margin:22px 0 17px}
+.next p{color:#D0E5DC;max-width:730px;line-height:1.75}
+.next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:27px 0}
+.next-item{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.13);padding:20px;border-radius:15px;font-size:13px;color:#E4F2EA;line-height:1.5}
+.next-item strong{display:block;color:#9DECAB;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.next .btn-primary{background:#69DA7C}.next .btn-ghost{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:white}
+.footer{max-width:1164px;margin:auto;padding:24px 24px 50px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;border-top:1px solid var(--line)}
+.footer p{font-size:11.5px;max-width:850px;color:#76877A;margin:5px 0}
+.footer a{color:#336E4D}
+.fab{position:fixed;z-index:38;bottom:24px;right:24px;display:flex;align-items:center;gap:12px;text-decoration:none;padding:11px 16px 11px 12px;background:var(--navy2);color:#fff;border-radius:99px;box-shadow:0 12px 38px rgba(6,34,28,.2);font-size:12px;font-weight:800}
+.fab-avatar{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;color:#164126;background:#71D686;font-size:12px}
+dialog{border:0;max-width:min(650px,calc(100vw - 32px));width:100%;max-height:min(760px,85vh);overflow:auto;border-radius:25px;padding:0;background:white;color:var(--ink);box-shadow:0 40px 100px rgba(7,34,24,.27)}
+dialog::backdrop{background:rgba(7,27,24,.56);backdrop-filter:blur(4px)}
+.modal-inner{padding:35px}
+.modal-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.modal-close{appearance:none;border:none;background:#EFF5EF;border-radius:50%;height:36px;width:36px;display:grid;place-items:center;font-size:22px}
+.modal-tag{font-size:11px;color:#7B5B27;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
+dialog h3{font-size:25px;margin:15px 0;line-height:1.26;letter-spacing:-.03em}
+dialog p{color:#586A60;font-size:14px;line-height:1.72}
+dialog .modal-source{margin-top:18px;border-top:1px solid var(--line);padding-top:15px;font-size:12px;color:#63756A}
+dialog .modal-source a{color:#197647}
+.modal-action{padding:15px 19px;background:#F0F8F0;border-radius:12px;color:#2B603F!important}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+@keyframes soft-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:1030px){.hero-inner{grid-template-columns:1fr;max-width:790px}.hero-panel{max-width:630px}.fact-strip{max-width:790px}.top-label{display:none}}
+@media(max-width:800px){.audit-top,.commercial,.scenario{grid-template-columns:1fr}.findings{grid-template-columns:1fr 1fr}.cards{gap:12px}.next-grid{grid-template-columns:1fr}.nav a{font-size:11.7px}.section{padding:58px 24px}.section-alt{padding:58px 24px}}
+@media(max-width:600px){.top-contact span:last-child{display:none}.top-contact:after{content:"Связаться";font-size:12px}.top-inner{padding:10px 17px;min-height:63px}.nav{padding:0 10px;justify-content:flex-start}.nav a{padding:13px 12px;font-size:11.5px;min-height:45px}.hero{padding:50px 20px 40px}.hero h1{font-size:38px}.hero-lead{font-size:15px}.hero-panel{padding:16px}.fact-strip{grid-template-columns:1fr;gap:8px}.fact{padding:13px 18px}.fact strong{font-size:21px}.fact span{margin:2px 0}.cards,.findings{grid-template-columns:1fr}.section,.section-alt{padding:48px 20px}.card{padding:23px}.section-heading h2{font-size:30px}.scenario-result{padding:20px}.next{padding:39px 25px}.next h2{font-size:31px}.next-grid{gap:9px}.footer{flex-direction:column;align-items:flex-start;padding-bottom:90px}.report{padding:17px}.report table{display:block;max-width:100%;overflow-x:auto}.report td,.report th{min-width:180px}.top-side .top-contact{padding:9px}.top-contact .contact-name{display:none}.fab{right:14px;bottom:14px}.fab .fab-text{display:none}.fab{padding:9px}.fab-avatar{width:33px;height:33px}.output-stats{grid-template-columns:1fr 1fr 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}}
+@media print{
+  @page{size:A4;margin:14mm}html{scroll-behavior:auto}body{background:#fff;color:#1E3026;font-size:11pt;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .top,.fab,.nav-wrap,.btn,.pill-btn,dialog,.hero-panel,.top-side{display:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .hero{padding:15mm 0 8mm;background:#fff}.hero-inner{display:block}.hero h1{font-size:31pt}.hero-lead{font-size:12pt}
+  .section,.section-alt{padding:8mm 0;max-width:none;background:#fff;border-top:1px solid #DDE6E2}
+  .section-heading h2{font-size:22pt}.fact-strip,.cards,.findings,.audit-top,.commercial,.site-choice,.scenario,.next-grid{display:block}
+  .fact,.card,.finding,.site-option,.scenario-result,.pricing-card,.next-item{break-inside:avoid;margin:0 0 6mm;box-shadow:none}
+  .scenario{display:none!important}.scenario.active{display:block!important}.scenario-result{margin-top:7mm}
+  .more-audit{break-before:page}.more-audit summary{display:none}.report{max-height:none;overflow:visible;padding:0;background:#fff}
+  .report table{font-size:8pt;display:table}.report tr{break-inside:avoid}.report td,.report th{padding:6px}
+  .next{background:#193A43!important;padding:15mm;border-radius:12px}
+  .footer{font-size:9pt}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Перейти к содержанию</a>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="#top" aria-label="CampBox — в начало"><span class="brand-mark">CB</span><span><span class="brand-main">CampBox</span><span class="brand-caption">Персональное предложение</span></span></a>
+    <div class="top-side"><span class="top-label">Для ДОЛ «Юность» · 14.10.2026</span><a class="top-contact" href="tel:+79969581851">↗ <span class="contact-name">Евгений Петров</span><span>+7 996 958-18-51</span></a></div>
+  </div>
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Разделы предложения">
+      <a href="#top" class="active">Главное</a><a href="#tasks">Ваши задачи</a><a href="#solution">Решение CampBox</a><a href="#audit">Проверка сайта</a><a href="#terms">Условия</a><a href="#next">Следующий шаг</a>
+    </nav>
+  </div>
+</header>
+<main id="content">
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">ДОЛ «Юность» · санаторий-профилакторий «Перекоп»</div>
+        <h1>Меньше ручной работы.<br><em>Больше контроля</em> над каждой путёвкой.</h1>
+        <p class="hero-lead">У лагеря уже есть спрос. Следующая задача — объединить корпоративные и частные путёвки, документы, оплаты и распределение детей в понятный для команды процесс. С учётом тех особенностей, которые мы обсудили на встрече 14 октября.</p>
+        <div class="button-row"><a class="btn btn-primary" href="#solution">Посмотреть решения <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#audit">Что показала проверка сайта</a></div>
+        <p class="hero-note">Персональный разбор после демонстрации CampBox · отдельное предложение по новому сайту не является условием подключения.</p>
+      </div>
+      <div class="hero-panel reveal" aria-label="Концептуальная схема предлагаемых процессов, не скриншот продукта">
+        <div class="panel-caption"><span>Схема предлагаемого процесса</span><span class="live-dot">Для обсуждения</span></div>
+        <div class="streams">
+          <div class="stream-card"><span class="stream-icon" aria-hidden="true">◎</span><div><div class="stream-name">Корпоративные путёвки</div><div class="stream-note">Уралхим и другие организации</div></div><span class="stream-arr">↘</span></div>
+          <div class="stream-card"><span class="stream-icon" aria-hidden="true">◇</span><div><div class="stream-name">Частные родители</div><div class="stream-note">Оформление и документы</div></div><span class="stream-arr">↘</span></div>
+        </div>
+        <div class="process-hub"><span class="hub-logo">Единый процесс · CampBox</span><strong>Одна картина по смене</strong><span class="hub-line">Брони · Оплаты · Документы · Участники</span></div>
+        <div class="output-stats">
+          <div class="output-stat"><strong>Реестр</strong><span>Статусы путёвок</span></div>
+          <div class="output-stat"><strong>Документы</strong><span>Комплектность</span></div>
+          <div class="output-stat"><strong>Отряды</strong><span>Подготовка списков</span></div>
+        </div>
+        <div class="hero-foot">Концептуальная схема; не изображение действующего кабинета и не обещание специальных интеграций.</div>
+      </div>
+    </div>
+    <div class="fact-strip">
+      <div class="fact"><strong>≈ 320 детей</strong><span>ориентировочно за смену — по итогам встречи</span></div>
+      <div class="fact"><strong>150–200</strong><span>пожеланий по распределению — со слов команды</span></div>
+      <div class="fact"><strong>≈ 50%</strong><span>путёвок корпоративного потока Уралхима</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="tasks">
+    <div class="section-heading reveal"><div class="eyebrow">Важнее автоматизации ради автоматизации</div><h2>Процессы, в которых сегодня теряется время команды</h2><p>Мы не предлагаем менять работающую модель лагеря целиком. Задача — убрать лишние ручные операции и сохранить необходимый контроль сотрудников.</p></div>
+    <div class="cards">
+      <article class="card reveal"><span class="card-tag">Корпоративный поток</span><h3>Сложные условия путёвок — отдельные списки и правила</h3><p>Для детей сотрудников Уралхима оформление проходит через отдел социального развития. У других юридических лиц и частных клиентов свои договоры, суммы и маршруты.</p><div class="card-foot">↗ Нужны прозрачные статусы и разграничение сценариев</div></article>
+      <article class="card reveal"><span class="card-tag">Родительский путь</span><h3>Документы и оплата требуют поездок и сверок</h3><p>Встреча показала зависимость от бумажных документов и личного приезда родителей. Для загородного лагеря это лишняя нагрузка на обе стороны.</p><div class="card-foot">↗ Нужны дистанционные этапы там, где они допустимы</div></article>
+      <article class="card reveal"><span class="card-tag">Распределение</span><h3>Пожелания по отрядам обрабатываются вручную</h3><p>До 150–200 пожеланий на смену при примерно 320 участниках. Важно учитывать возраст, пол, друзей, группы и наполняемость, сохранив последнее слово за сотрудником.</p><div class="card-foot">↗ Нужен управляемый процесс подготовки списков</div></article>
+      <article class="card reveal"><span class="card-tag">Организованные группы</span><h3>Спортивные и творческие коллективы не всегда укладываются в стандартную сетку</h3><p>Пловцы, футболисты, лыжники, танцевальные коллективы и разновозрастные группы требуют отдельного учёта и правил размещения.</p><div class="card-foot">↗ Нужна проверка сценариев на реальных данных лагеря</div></article>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="solution">
+    <div class="section-heading reveal"><div class="eyebrow">Как CampBox может помочь</div><h2>Один процесс. Разные правила для каждого потока.</h2><p>Выбери ситуацию, чтобы посмотреть предлагаемую схему. Детальные интеграции и нетиповые правила фиксируются в ТЗ до договора.</p></div>
+    <div class="pills" role="tablist" aria-label="Сценарии CampBox">
+      <button class="pill-btn" id="tab-corp" role="tab" aria-controls="scenario-corp" aria-selected="true" data-scenario="corp">Корпоративные путёвки</button>
+      <button class="pill-btn" id="tab-private" role="tab" aria-controls="scenario-private" aria-selected="false" data-scenario="private">Частные родители</button>
+      <button class="pill-btn" id="tab-team" role="tab" aria-controls="scenario-team" aria-selected="false" data-scenario="team">Отряды и группы</button>
+    </div>
+    <div class="scenario active" id="scenario-corp" role="tabpanel" aria-labelledby="tab-corp">
+      <div class="scenario-copy"><div class="card-tag">Сценарий Уралхима и других организаций</div><h3>От корпоративного списка — к понятному статусу каждой путёвки</h3><p>Предлагаем согласовать отдельные категории путёвок, правила доступа к программам, квоты и показатели комплектности. Лагерь видит движение оформления, не ломая корпоративный порядок согласования.</p><p class="caveat">Интеграция с внутренними системами Уралхима не включена автоматически: её возможность и объём требуют отдельного согласования.</p></div>
+      <div class="scenario-result"><b>ПРЕДЛАГАЕМЫЙ МАРШРУТ</b><div class="step"><span class="step-mark">01</span><span>Определить категории и правила корпоративных путёвок</span></div><div class="step"><span class="step-mark">02</span><span>Фиксировать бронирование, данные ребёнка и комплектность</span></div><div class="step"><span class="step-mark">03</span><span>Получать реестры и статусы для ответственных сотрудников</span></div><div class="step"><span class="step-mark">04</span><span>Сверять итог с корпоративным заказчиком по согласованному регламенту</span></div></div>
+    </div>
+    <div class="scenario" id="scenario-private" role="tabpanel" aria-labelledby="tab-private">
+      <div class="scenario-copy"><div class="card-tag">Сценарий частного родителя</div><h3>Меньше поездок ради бумаги — понятный путь от заявки до заезда</h3><p>Можно выстроить последовательность: выбор подходящей смены, оформление данных, документы и доступные способы оплаты, информирование о готовности путёвки.</p><p class="caveat">Способ подписания договора, список оригиналов, платёжная интеграция, возвраты и правила предоплаты согласуются отдельно.</p></div>
+      <div class="scenario-result"><b>ПРЕДЛАГАЕМЫЙ МАРШРУТ</b><div class="step"><span class="step-mark">01</span><span>Выбрать смену и подать заявку</span></div><div class="step"><span class="step-mark">02</span><span>Заполнить данные ребёнка и родителя в личном кабинете</span></div><div class="step"><span class="step-mark">03</span><span>Отследить документы и согласованный статус оплаты</span></div><div class="step"><span class="step-mark">04</span><span>Подготовить пакет и инструкции к заезду</span></div></div>
+    </div>
+    <div class="scenario" id="scenario-team" role="tabpanel" aria-labelledby="tab-team">
+      <div class="scenario-copy"><div class="card-tag">Сценарий для педагогической команды</div><h3>Готовить отряды на основе данных, а не пересобирать всё вручную</h3><p>Собираем возраст, пол, групповые заявки и пожелания в едином реестре, проверяем ограничивающие правила и готовим отрядные списки для решения ответственного сотрудника.</p><p class="caveat">Распределение разновозрастных спортивных групп и конкретные ограничения необходимо протестировать на примерах «Юности». Полностью автоматический итог не обещаем.</p></div>
+      <div class="scenario-result"><b>ПРЕДЛАГАЕМЫЙ МАРШРУТ</b><div class="step"><span class="step-mark">01</span><span>Собрать участников, группы и пожелания</span></div><div class="step"><span class="step-mark">02</span><span>Зафиксировать вместимость и правила формирования отрядов</span></div><div class="step"><span class="step-mark">03</span><span>Подготовить предварительные списки и выявить исключения</span></div><div class="step"><span class="step-mark">04</span><span>Передать финальную проверку руководителю распределения</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="audit">
+    <div class="section-heading reveal"><div class="eyebrow">Дополнительная ценность встречи</div><h2>Сайт уже информирует родителей. Есть несколько точек для усиления.</h2><p>Проверили публичные материалы сайта <a href="https://perekopcamp.ru/" target="_blank" rel="noopener noreferrer">perekopcamp.ru ↗</a> и доступный договор сезона 2026. Выделяем подтверждённые наблюдения, не выдавая непроверенные вопросы за нарушения.</p></div>
+    <div class="audit-top">
+      <div class="card reveal"><span class="card-tag">Что уже сделано</span><h3>У сайта есть полезная основа</h3><ul class="good-list"><li>Опубликованы смены и цены сезона 2026, возраст 7–14 лет.</li><li>Есть памятки по документам и подготовке ребёнка к заезду.</li><li>Представлены сведения об организации, материальной базе и программах.</li><li>На странице размещены ссылки на основные документы.</li></ul></div>
+      <div class="card audit-right reveal"><span class="label-check">Граница исследования</span><h3>Точное наблюдение важнее громкого вывода</h3><p>В рамках этой проверки не проведены отправка форм, замеры скорости, анализ сетевого трафика и полный просмотр всех PDF. Эти элементы получили статус «Требует проверки».</p><a class="btn btn-ghost" style="margin-top:18px" href="#full-audit">Открыть полный реестр ↘</a></div>
+    </div>
+    <div class="findings">
+      <button class="finding reveal" data-finding="return"><small>Публичный договор · подтверждено содержание</small><h3>Согласовать формулировки условий возврата и досрочного расторжения</h3><p>Пункты 2.2.6 и 5.6 описывают разные основания. Нужна юридическая сверка, не автоматический вывод о нарушении.</p><span>Детали и источник ↗</span></button>
+      <button class="finding reveal" data-finding="photo"><small>Публичный договор · подтверждено содержание</small><h3>Развести условия использования фото и согласия на распространение данных</h3><p>В п. 2.2.8 есть разрешение на рекламное использование изображений ребёнка. Требуется проверка фактического комплекта согласий.</p><span>Детали и источник ↗</span></button>
+      <button class="finding reveal" data-finding="documents"><small>Сайт и договор · уточнить процесс</small><h3>Проверить реальные формы, отдельные согласия и разделы сайта</h3><p>Бланк согласия существует; остаётся проверить, как его подписывают, и прочитать недоступные PDF.</p><span>Детали и источник ↗</span></button>
+    </div>
+    <p class="audit-caution">Это выборочный доказательный аудит публичного контура, а не заключение о полном юридическом соответствии. Отсутствие результата технической проверки ≠ установленное нарушение.</p>
+    <details class="more-audit" id="full-audit">
+      <summary><span>Детальный аудит: 152-ФЗ, Приказ №201, родительский путь, SEO и план доработок</span></summary>
+      <div class="report" id="reportContent"><h1>Детальный аудит: факты, источники и области проверки</h1>
+<h2>Источники и классификация</h2>
+<ul>
+<li><strong>SITE:</strong> публичная главная страница https://perekopcamp.ru/ , проверена 14.10.2026, текстовое отображение поискового обхода.</li>
+<li><strong>CONTRACT:</strong> PDF https://perekopcamp.ru/f/dogovor_s_roditelem_dol_yunost_2026_kirovskaya_oblast.pdf , 8 страниц, прочитан текст доступной копии.</li>
+<li><strong>TRANSCRIPT:</strong> транскрибация онлайн-встречи 14.10.2026, предоставленная для текущего аудита (слова клиента и примеры менеджера разграничены).</li>
+<li><strong>LAW-201:</strong> Приказ Минпросвещения РФ №201 от 14.03.2025, https://base.garant.ru/411780679/ .</li>
+<li><strong>LAW-PD:</strong> статья 9 152-ФЗ, https://mintrud.gov.ru/docs/laws/130 ; изменение №156-ФЗ https://www.consultant.ru/document/cons_doc_LAW_508287/1500545af6526db1dfa11aba44d4df42208a0b05/ .</li>
+<li><strong>LAW-CONSUMER:</strong> статья 32 Закона о защите прав потребителей, https://www.consultant.ru/document/cons_doc_LAW_305/758e2cfdf136a621c8f66dcb3372b772c7b5e6e8/ .</li>
+<li><strong>LAW-SANITARY:</strong> СП 2.4.2.4283-26, действует с 01.09.2026, https://base.garant.ru/414329139/ .</li>
+</ul>
+<p>Статусы: <strong>Подтверждено</strong> (публичный источник доказывает факт), <strong>Не найдено в проверенной области</strong> (не утверждает отсутствия вообще), <strong>Требует проверки</strong> (нет доказательства работоспособности/юридического состава), <strong>Положительный факт</strong>, <strong>Не проверялось</strong>.</p>
+<h2>A. Подтверждённые публичные факты и проблемы</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Статус</th>
+<th>Где</th>
+<th>Факт</th>
+<th>Значение</th>
+<th>Что сделать / ответственный</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-01</td>
+<td>Положительный факт</td>
+<td>SITE, верхняя часть</td>
+<td>Смены июня–августа 2026 и цены 45 600 ₽/56 810 ₽ присутствуют</td>
+<td>Нельзя повторять утверждение о наличии только сезона 2025</td>
+<td>Перед запуском 2027 разместить утверждённые цены и смены; контент лагеря</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>Положительный факт</td>
+<td>SITE, «Основные сведения»</td>
+<td>ДОЛ связан с санаторием «Перекоп», указан директор, адрес, сезонный график</td>
+<td>Базовая идентификация присутствует</td>
+<td>Сверить с учредительными документами и региональным реестром; лагерь</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>Положительный факт</td>
+<td>SITE, «Документы»</td>
+<td>Ссылки на правила, устав, программу, договор, политику, состав сотрудников присутствуют</td>
+<td>Нельзя объявлять эти документы полностью отсутствующими</td>
+<td>Открыть и проверить каждый файл в полном браузерном прогоне; лагерь/юрист</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>Подтверждено</td>
+<td>CONTRACT, с. 2, п. 2.2.6; с. 3, п. 5.6</td>
+<td>В одном опубликованном договоре есть формулировка полного невозврата при досрочном расторжении по нарушениям и отдельно правило о расходах при отказе заказчика</td>
+<td>Условия могут оказаться спорными; нельзя приравнивать разные основания расторжения. Нужен юрист для их согласования с применимым законодательством</td>
+<td>Переписать механизм расчёта в зависимости от основания расторжения и проверить правомерность удержаний; юрист</td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>Подтверждено</td>
+<td>CONTRACT, с. 2, п. 2.2.8</td>
+<td>При подписании договора родитель в общем тексте соглашается на рекламное использование фото/видео ребёнка, в том числе на внешних площадках</td>
+<td>Договорная формулировка не показывает, как оформляется специальное согласие на распространение персональных данных, где оно требуется</td>
+<td>Юристу разделить основания обработки, согласие на изображение и согласие на распространение ПДн при применимости, проверить фактические разрешения; юрист/лагерь</td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>Подтверждено</td>
+<td>CONTRACT, с. 4, п. 6.1–6.5, и с. 5, приложение №1</td>
+<td>В основном договоре есть положения о согласии на обработку ПДн; приложение №1 — отдельный подписываемый бланк</td>
+<td>Само наличие отдельного приложения — важный положительный факт. Но нужно понять, является ли отдельное подписание реальной практикой, нет ли смешения разных целей</td>
+<td>Сверить выдачу бланка, реквизиты оператора, основания обработки, специальные категории и процесс согласия; юрист/лагерь</td>
+</tr>
+<tr>
+<td>A-07</td>
+<td>Подтверждено</td>
+<td>CONTRACT, с. 4, п. 6.3</td>
+<td>Упомянута возможная «трансграничная передача» персональных данных</td>
+<td>Сам текст не доказывает, что такая передача фактически есть</td>
+<td>Уточнить получателей, страны, основания и технический маршрут. Не объявлять незаконную передачу без этих данных; юрист/IT</td>
+</tr>
+<tr>
+<td>A-08</td>
+<td>Подтверждено</td>
+<td>CONTRACT, приложение №1, с. 5</td>
+<td>Упомянуты ООО «УРАЛАЙТЕХ» и АО «ОХК «УРАЛХИМ» как лица, обрабатывающие данные по поручению</td>
+<td>Есть конкретный перечень для сверки с актуальными договорами-поручениями и политикой</td>
+<td>Проверить реальный состав обрабатываемых данных, поручения и сроки; юрист</td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>Подтверждено</td>
+<td>SITE, «Способ оплаты»</td>
+<td>Текст предлагает нажать «Оплатить» в следующем разделе, но отдельный работающий платёжный путь не доказан имеющимся представлением страницы</td>
+<td>Родителю неочевидно, как завершить покупку</td>
+<td>В браузере проверить наличие кнопки, доступность провайдера, роль получателя оплаты и путь к подтверждению; IT/лагерь</td>
+</tr>
+<tr>
+<td>A-10</td>
+<td>Подтверждено</td>
+<td>SITE, конец страницы</td>
+<td>В текстовом представлении страницы содержится слово «Заголовок» как отдельный незаполненный блок</td>
+<td>Признак незавершённого контента, если виден обычному посетителю</td>
+<td>Проверить визуально и убрать заглушку, если воспроизводится; подрядчик сайта</td>
+</tr>
+<tr>
+<td>A-11</td>
+<td>Подтверждено</td>
+<td>SITE, контакты</td>
+<td>В текстовом отображении телефоны отображаются без понятного разделителя («+7 (919) 504-17-648 (83361) 9-41-59,8 800…»)</td>
+<td>На небольшом экране сложнее отличить один номер от другого</td>
+<td>Разделить телефоны, сделать отдельные ссылки на звонок; подрядчик сайта</td>
+</tr>
+<tr>
+<td>A-12</td>
+<td>Положительный факт</td>
+<td>SITE, документы и памятка</td>
+<td>Опубликованы списки для оформления путёвки и заезда, включая форму 079/у, а также памятка по одежде и связи</td>
+<td>Родителям доступна практическая информация до заезда</td>
+<td>Обновлять инструкции и сверять с внутренним медицинским регламентом</td>
+</tr>
+</tbody>
+</table>
+<h2>B. 152-ФЗ — самостоятельная матрица</h2>
+<table>
+<thead>
+<tr>
+<th>Проверка</th>
+<th>Результат по доступному контуру</th>
+<th>Статус</th>
+<th>Следующее действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Публичный оператор и правовая роль</td>
+<td>В договоре обозначена АОО «Санаторий-профилакторий „Перекоп“»; в приложении №1 фигурирует «Санаторий-профилакторий „Перекоп“ (АОО)»</td>
+<td>Требует сверки</td>
+<td>Единообразно зафиксировать полное название оператора по уставу/ЕГРЮЛ</td>
+</tr>
+<tr>
+<td>Политика обработки ПДн</td>
+<td>Ссылка «Политика конфиденциальности» есть на главной; чтение PDF по ссылке технически не удалось</td>
+<td>Требует проверки</td>
+<td>Прочитать всю политику, проверить состав сведений и доступность</td>
+</tr>
+<tr>
+<td>Отдельное согласие</td>
+<td>Отдельный подписываемый бланк — приложение №1 к договору, с. 5</td>
+<td>Положительный факт / требуется проверка практики</td>
+<td>Проверить выдачу/подписание отдельно от договора с учётом редакции ст. 9 152-ФЗ после 01.09.2025</td>
+</tr>
+<tr>
+<td>Специальные данные о здоровье ребёнка</td>
+<td>Приложение №1 содержит упоминание состояния здоровья; договор содержит медицинский блок</td>
+<td>Требует проверки</td>
+<td>Проверить специальную категорию данных, применимые основания и согласия; не сводить всё к обычной форме</td>
+</tr>
+<tr>
+<td>Распространение/фотографии</td>
+<td>П. 2.2.8 предусматривает использование фото в рекламе; отдельный механизм с проверяемым согласием не показан</td>
+<td>Требует проверки</td>
+<td>Правовые основания и объём распространения подтвердить отдельно</td>
+</tr>
+<tr>
+<td>Сторонние обработчики</td>
+<td>В приложении №1 указаны два юридических лица</td>
+<td>Публичный факт / дальнейшая проверка</td>
+<td>Сверить договоры поручения, объём/цели, список операторов и фактических получателей</td>
+</tr>
+<tr>
+<td>Согласия на рекламные рассылки</td>
+<td>Не обнаружен достоверно проверенный поток подписки</td>
+<td>Не проверялось</td>
+<td>Проверить при наличии формы</td>
+</tr>
+<tr>
+<td>«Заказать звонок»</td>
+<td>Кнопка присутствует; отправка/галочка/фиксация согласия не воспроизводились</td>
+<td>Требует проверки</td>
+<td>Пройти форму и проверить фактическое поведение до/после согласия</td>
+</tr>
+<tr>
+<td>Яндекс Формы</td>
+<td>Использование подтверждено встречей, но адрес и текущие настройки форм не переданы</td>
+<td>Требует проверки</td>
+<td>Проверить действующие формы отдельно, юридические тексты и цепочку получения данных</td>
+</tr>
+<tr>
+<td>Cookie и счётчики</td>
+<td>В текстовом отображении отмечен Top.Mail.Ru; сети/cookie не наблюдались</td>
+<td>Требует проверки</td>
+<td>Провести браузерный сетевой замер до/после выбора пользователя</td>
+</tr>
+<tr>
+<td>Локализация первичной записи данных</td>
+<td>Не имеется подтверждённой схемы хранения</td>
+<td>Не проверялось</td>
+<td>Запросить архитектуру записи данных и договоры; с 01.07.2025 оценивать действующую редакцию 152-ФЗ</td>
+</tr>
+<tr>
+<td>Трансграничная передача</td>
+<td>Формулировка в договоре есть; фактический трансграничный канал не выявлен</td>
+<td>Требует проверки</td>
+<td>Проверить получателей, страны и правовые основания; запись в договоре сама по себе не доказывает передачу</td>
+</tr>
+<tr>
+<td>Отзыв/сроки</td>
+<td>В приложении №1 указан отзыв через почту/лично, в п. 6.4 указан период 5 лет</td>
+<td>Требует проверки</td>
+<td>Согласовать сроки, законные исключения и доступные каналы взаимодействия</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Правовой ориентир:</strong> согласие на обработку ПДн должно оформляться отдельно от иных подписываемых документов с 01.09.2025 (ст. 9 152-ФЗ в редакции 156-ФЗ). Эта норма требует проверки фактического комплекта, а не формального вывода по одному пункту договора. <strong>Штрафы не рассчитаны</strong>, поскольку состав и субъекты ответственности не квалифицированы.</p>
+<h2>C. Приказ Минпросвещения №201 — самостоятельная матрица</h2>
+<p>Проверенная область — индексируемое текстовое представление страницы <code>https://perekopcamp.ru/</code> и доступный договор; часть PDF недоступна для чтения. «Не найдено» ниже не равно установленному нарушению.</p>
+<table>
+<thead>
+<tr>
+<th>Группа требований №201</th>
+<th>Что найдено публично</th>
+<th>Вывод / действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Об организации — основные сведения</td>
+<td>Название ДОЛ, связь с санаторием, адрес, главный врач, директор, сезонность и режим</td>
+<td>Значимая часть информации представлена; сверить форму юрлица и тип организации</td>
+</tr>
+<tr>
+<td>Документы</td>
+<td>Ссылки на устав, правила, программу воспитания, инструктаж и договор</td>
+<td>Состав и актуальность всех файлов не подтверждены; проверить действующий календарный план воспитательной работы</td>
+</tr>
+<tr>
+<td>Руководство</td>
+<td>Главный врач, директор ДОЛ, педагог-организатор</td>
+<td>Есть основные имена; сверить состав руководства и заместителей по применимости</td>
+</tr>
+<tr>
+<td>Педагогический и вожатский состав</td>
+<td>Ссылка на PDF «Педагогический состав»</td>
+<td>Не прочитан PDF — недостаточно данных о полноте сведений</td>
+</tr>
+<tr>
+<td>Контакты</td>
+<td>Адрес, телефоны, e-mail, график</td>
+<td>Есть; проверить формат номеров и удобство связи</td>
+</tr>
+<tr>
+<td>Деятельность</td>
+<td>Возраст 7–14, даты четырёх смен 2026, краткие названия программ</td>
+<td>Есть; проверить документы и сведения о дополнительных программах по применимости</td>
+</tr>
+<tr>
+<td>Материально-техническое обеспечение</td>
+<td>Годы ввода/ремонтов корпусов, проживание, питание, спортивные объекты</td>
+<td>Значимая информация присутствует</td>
+</tr>
+<tr>
+<td>Услуги, в том числе платные</td>
+<td>Цены путёвок, стоимость дня, сведения об оплате, перечень документов</td>
+<td>Информация частичная: отдельно проверить порядок оказания платных услуг и сведения о компенсации/субсидировании</td>
+</tr>
+<tr>
+<td>Доступная среда</td>
+<td>В проверенном текстовом представлении главной страницы отдельный раздел не обнаружен</td>
+<td>Проверить наличие полного блока условий для детей с ОВЗ и детей-инвалидов; отсутствие на просмотренной странице не доказывает отсутствие в иных местах</td>
+</tr>
+<tr>
+<td>Иная информация</td>
+<td>Дополнительные материалы доступны</td>
+<td>Состав определяется применимостью и решениями организации</td>
+</tr>
+<tr>
+<td>Формат предоставления информации</td>
+<td>Часть сведений собрана на одной длинной странице</td>
+<td>Проверить фактическую навигацию, доступность файлов, структуру и формат по п. 13 приказа</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Важно:</strong> полнота раздела «Доступная среда» относится к раскрытию сведений на сайте. Фактические условия доступности территории и услуг — самостоятельная проверка, не устанавливаемая по публичной странице.</p>
+<h2>D. Требования 2026 года — отдельно от 152-ФЗ и №201</h2>
+<table>
+<thead>
+<tr>
+<th>Тема</th>
+<th>Проверено</th>
+<th>Что сделать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Санитарные правила СП 2.4.2.4283-26 с 01.09.2026</td>
+<td>На сайте есть список медицинских справок; внутренний санитарный режим не проверялся</td>
+<td>Сверить инструкцию по приёму детей с действующей редакцией норм и местным медицинским регламентом. Не утверждать санитарных нарушений без документов/осмотра</td>
+</tr>
+<tr>
+<td>Доступность услуг / Приказ №253</td>
+<td>На странице имеются сведения о проживании и территории; специальные условия для детей с ОВЗ не верифицированы</td>
+<td>Запросить сведения о доступных помещениях, сопровождении, питании и медподдержке; оценить реальную применимость требований</td>
+</tr>
+<tr>
+<td>Региональный реестр организаций отдыха</td>
+<td>Отдельное подтверждение актуальной записи не получено</td>
+<td>Сверить юридическое наименование, адрес, сезон и сайт с региональным реестром</td>
+</tr>
+<tr>
+<td>Дополнительные платные услуги</td>
+<td>На сайте описаны путёвки и оплата; мерч известен из встречи</td>
+<td>Отдельно проверить условия дополнительных покупок и необходимые согласия/чеки, если соответствующий функционал будет подключён</td>
+</tr>
+<tr>
+<td>Фото/видео и права</td>
+<td>В договоре есть рекламное разрешение; подтверждений конкретных прав на опубликованные изображения не получено</td>
+<td>Сверить применимые согласия родителей, основания использования изображений, права авторов; публикация фотографий сама по себе не доказательство нарушения</td>
+</tr>
+</tbody>
+</table>
+<h2>E. Родительский путь, поиск и технические параметры</h2>
+<table>
+<thead>
+<tr>
+<th>Зона</th>
+<th>Наблюдение</th>
+<th>Статус и действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Первый экран</td>
+<td>Название лагеря и сведения о сменах, стоимости и возрасте доступны</td>
+<td>Положительный информационный факт; оценить визуальное первенство по скриншоту</td>
+</tr>
+<tr>
+<td>Выбор смены/покупка</td>
+<td>2026 смены и цены названы, полная дистанционная покупка не подтверждена</td>
+<td>Пройти путь от выбора до оплаты без совершения реальной покупки</td>
+</tr>
+<tr>
+<td>Оплата</td>
+<td>Публикация указывает на Сбербанк и отдельную кнопку</td>
+<td>Проверить действующие реквизиты и фактический платёжный сценарий</td>
+</tr>
+<tr>
+<td>Бронь и предоплата</td>
+<td>По встрече брони позже отменяются; опубликованной динамики сроков не проверено</td>
+<td>Настроить правила после согласования с лагерем; не выдавать 72 часа за выбранный регламент</td>
+</tr>
+<tr>
+<td>Возвраты</td>
+<td>Публичный договор содержит пункты 2.2.6 и 5.6</td>
+<td>Первым делом провести юридическую редактуру</td>
+</tr>
+<tr>
+<td>Мобильный путь</td>
+<td>Клиент подтвердил важность телефона</td>
+<td>Тест 360/390/768/1024/1440 px не проведён; статус — не проверялось</td>
+</tr>
+<tr>
+<td>Кнопка «Заказать звонок»</td>
+<td>Кнопка указана в опубликованном тексте, на встрече менеджер предположил её неисправность</td>
+<td>Реальное открытие/отправка не проверены; нельзя писать «не работает» как факт</td>
+</tr>
+<tr>
+<td>Скорость сайта</td>
+<td>Замеры PageSpeed или браузерной загрузки не получены</td>
+<td>Не указывать выдуманные оценки ПК/мобильного устройства</td>
+</tr>
+<tr>
+<td>Поисковая индексация</td>
+<td>Главная и часть PDF доступны через результаты поиска</td>
+<td>Нельзя из этого заключить, что все страницы индексируются корректно; требуется расширенная проверка</td>
+</tr>
+<tr>
+<td>Структура поиска и ответы ИИ</td>
+<td>На главной размещены возраст, даты, стоимость, адрес, документы</td>
+<td>Усилить структуру «смена — программа — цена — условия — документы — компенсация — как оформить» без обещаний трафика</td>
+</tr>
+<tr>
+<td>Яндекс Карты/2ГИС</td>
+<td>В текущей проверке не идентифицирована достоверная карточка именно ДОЛ «Юность» с проверенными полями</td>
+<td>Не объявлять карточки отсутствующими; отдельно сопоставить карточки лагеря и санатория, телефоны, адрес, отзывы</td>
+</tr>
+<tr>
+<td>Платформа сайта</td>
+<td>На публичной странице размещён логотип/подпись MegaGroup, на встрече клиент также назвал MegaGroup</td>
+<td>Подтверждён поставщик/исторический контекст, но версия CMS, доступы и технические ограничения не проверены</td>
+</tr>
+<tr>
+<td>Сторонние сервисы и cookies</td>
+<td>В извлечённом содержимом присутствует изображение Top.Mail.Ru</td>
+<td>Это не доказательство фактической передачи ПДн или хранения за рубежом; требуется осмотр трафика</td>
+</tr>
+</tbody>
+</table>
+<h2>F. Приоритетный план исправлений сайта</h2>
+<table>
+<thead>
+<tr>
+<th>Приоритет</th>
+<th>Работа</th>
+<th>Ответственный</th>
+<th>Зависимость</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Первый</td>
+<td>Юридическая сверка условий отказа/расторжения и правил возврата</td>
+<td>Юрист лагеря</td>
+<td>Действующий договор, практика возвратов</td>
+</tr>
+<tr>
+<td>Первый</td>
+<td>Проверка фото/видео-разрешений, отдельного согласия на ПДн и реального процесса подписания</td>
+<td>Юрист/лагерь</td>
+<td>Все шаблоны, процесс выдачи, действующие согласия</td>
+</tr>
+<tr>
+<td>Первый</td>
+<td>Проверка полной матрицы №201: «Доступная среда», календарный план, услуги/компенсация, педагогический состав</td>
+<td>Лагерь/контент</td>
+<td>Доступ к оригиналам PDF и редактору сайта</td>
+</tr>
+<tr>
+<td>Второй</td>
+<td>Сквозной тест кнопки «Заказать звонок», оплаты и сбора согласий</td>
+<td>Подрядчик сайта/IT</td>
+<td>Доступ к сайту, тестовые контакты, безопасный тест без списания денег</td>
+</tr>
+<tr>
+<td>Второй</td>
+<td>Обновление телефонных блоков и незаполненных элементов</td>
+<td>Подрядчик сайта</td>
+<td>Проверка фактического визуального отображения</td>
+</tr>
+<tr>
+<td>Второй</td>
+<td>Мобильная проверка, скорость, перечень файлов и навигация по документам</td>
+<td>Подрядчик сайта</td>
+<td>Полноценный браузер и измерения</td>
+</tr>
+<tr>
+<td>Отдельно</td>
+<td>Выбор «доработка MegaGroup или новый сайт TravelLine»</td>
+<td>Руководство/TravelLine/IT</td>
+<td>Обследование платформы, расчёт партнёра, объём CampBox-интеграции</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Трудозатраты и стоимость:</strong> не оценены в рублях и часах, потому что объём доработок, исходные доступы, актуальная ставка подрядчика и расчёт TravelLine не предоставлены. Недопустимо выдавать произвольный диапазон за смету.</p>
+<h2>G. Ограничения исследования</h2>
+<ul>
+<li>Не утверждать, что кнопка обратного звонка действительно сломана: это не воспроизведено в браузере.</li>
+<li>Не утверждать, что политика конфиденциальности отсутствует: ссылка есть, но файл нельзя было прочитать полностью.</li>
+<li>Не утверждать отсутствие отдельного согласия на ПДн: подписываемое приложение №1 к договору найдено.</li>
+<li>Не утверждать фактическую трансграничную передачу данных или нарушение локализации на основании одной фразы договора.</li>
+<li>Не утверждать, что раздел «Доступная среда» отсутствует на всём сайте: его не найдено в проверенном текстовом представлении главной страницы.</li>
+<li>Не подменять информацию о сезоне 2026 предположением о сезоне 2025.</li>
+<li>Не обещать QR-регистрацию, функционал обратных талонов, мерч или конкретный механизм частичной предоплаты без продуктового подтверждения.</li>
+<li>Не гарантировать юридическую действительность любой электронной подписи для всех типов документов без проверки процедуры.</li>
+<li>Не называть 72 часа утверждённым сроком оплаты.</li>
+<li>Не обещать коммерческие сроки, цену нового сайта и банковскую комиссию без расчёта.</li>
+<li>Не давать численных прогнозов сокращения труда или конверсии.</li>
+</ul>
+</div>
+    </details>
+  </section>
+
+  <section class="section section-alt" id="terms">
+    <div class="section-heading reveal"><div class="eyebrow">Условия и варианты</div><h2>Понятная модель CampBox. Сайт — отдельное решение по желанию лагеря.</h2><p>Стоимость CampBox рассчитывается по стандартной модели. Комиссии банков, нетиповые интеграции и разработка нового сайта в этот расчёт не включены.</p></div>
+    <div class="commercial">
+      <div class="pricing-card reveal">
+        <div class="pricing-label">Стандартная модель CampBox</div>
+        <div class="price-hero">1% от оборота</div>
+        <div class="price-sub">но не менее <strong>5 000 ₽ в месяц</strong>, включая месяцы без продаж — при применении стандартных условий.</div>
+        <div class="price-box"><label for="turnover">Проверить на примере: оборот реализованных путёвок за месяц, ₽</label><input id="turnover" type="number" min="0" max="999999999999" step="1000" value="500000" inputmode="numeric"><div class="calc-result">Ориентировочный платёж CampBox<strong id="calculated" aria-live="polite">5 000 ₽</strong><span id="calculation-note">1% от оборота с минимальным платежом</span></div></div>
+        <p class="caveat" style="margin-top:18px">Итоговые условия фиксируются в договоре. Доступность Сбера / Альфа-Банка, размер эквайринга, предоплата и возвраты требуют отдельной продуктовой и платёжной проверки.</p>
+      </div>
+      <div class="site-choice">
+        <div class="site-option reveal"><div class="card-tag">Вариант A</div><h3>Сохранить действующий сайт</h3><p>Уточнить юридические тексты и маршрут оформления, проверить формы, мобильную версию и возможность подключения CampBox на текущей платформе.</p><small>Без обязательной разработки нового сайта</small></div>
+        <div class="site-option reveal"><div class="card-tag">Вариант B</div><h3>Создать новый сайт с партнёром</h3><p>Отдельно обсудить структуру, адаптивность, контент и путь родителя. Расчёт стоимости и сроков возможен только после обследования и предложения TravelLine.</p><small>Отдельная смета; пока не согласована</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="next reveal">
+      <div class="eyebrow">Предлагаемый следующий шаг</div>
+      <h2>Обсудим с директором, какой процесс выгоднее перевести первым.</h2>
+      <p>Не предлагаем менять всё одновременно. За одну рабочую встречу можно согласовать приоритет, ответственную команду и состав пилотного контура — затем зафиксировать коммерческие и технические условия.</p>
+      <div class="next-grid">
+        <div class="next-item"><strong>Приоритет</strong>Корпоративные путёвки, частные родители или отряды?</div>
+        <div class="next-item"><strong>Условия</strong>Документы, права доступа, оплата и интеграции</div>
+        <div class="next-item"><strong>Решение</strong>Состав первого этапа и переход к договору</div>
+      </div>
+      <div class="button-row"><a class="btn btn-primary" href="mailto:E.petrov@camp-box.ru?subject=CampBox%20%D0%A5%20%D0%AE%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%E2%80%94%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D0%B0%20%D1%81%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%BC">Обсудить следующий шаг ↗</a><a class="btn btn-ghost" href="tel:+79969581851">Позвонить Евгению</a><a class="btn btn-ghost" href="https://max.ru/u/f9LHodD0cOLIkOxqSGim_lj0AELqa9BqgH3rdl4RKT3h6zPxCh3qIYWnv6s" target="_blank" rel="noopener noreferrer">Написать в MAX</a></div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div><div style="font-weight:900;color:var(--navy);font-size:16px">CampBox × ДОЛ «Юность»</div><p>Материал составлен после онлайн-встречи 14 октября 2026 года. Сведения о внутренних процессах приведены по результатам разговора; публичные наблюдения относятся к проверенному сайту и опубликованному договору. Юридические вопросы требуют оценки профильного специалиста.</p><p>Источники: <a href="https://perekopcamp.ru/" target="_blank" rel="noopener noreferrer">официальный сайт</a> · <a href="https://perekopcamp.ru/f/dogovor_s_roditelem_dol_yunost_2026_kirovskaya_oblast.pdf" target="_blank" rel="noopener noreferrer">договор 2026</a>. Часть технических проверок не завершена и явно указана в реестре.</p></div>
+  <div style="font-size:12px;text-align:right;white-space:nowrap">Евгений Петров<br><a href="tel:+79969581851">+7 996 958-18-51</a><br><a href="mailto:E.petrov@camp-box.ru">E.petrov@camp-box.ru</a><br><button id="print" style="background:none;border:0;text-decoration:underline;color:#236D47;padding:9px 0;font-weight:800">Версия для печати / PDF ↗</button></div>
+</footer>
+<a class="fab" href="mailto:E.petrov@camp-box.ru?subject=CampBox%20%D0%AE%D0%BD%D0%BE%D1%81%D1%82%D1%8C" title="Написать менеджеру" aria-label="Написать Евгению Петрову по электронной почте"><span class="fab-avatar">ЕП</span><span class="fab-text">Обсудить с CampBox ↗</span></a>
+<dialog id="findingDialog" aria-labelledby="modalTitle">
+  <div class="modal-inner"><div class="modal-head"><div class="modal-tag" id="modalTag"></div><button class="modal-close" id="modalClose" aria-label="Закрыть">×</button></div><h3 id="modalTitle"></h3><p id="modalText"></p><p class="modal-action" id="modalAction"></p><div class="modal-source">Источник: <a id="modalSource" target="_blank" rel="noopener noreferrer" href="https://perekopcamp.ru/f/dogovor_s_roditelem_dol_yunost_2026_kirovskaya_oblast.pdf">Публичный договор ДОЛ «Юность» (PDF) ↗</a><div style="margin-top:6px" id="modalLocator"></div></div></div>
+</dialog>
+<script>
+(()=>{'use strict';
+const links=[...document.querySelectorAll('.nav a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){const a=links.find(x=>x.getAttribute('href')==='#'+e.target.id);if(a){links.forEach(x=>x.classList.toggle('active',x===a));}}}},{rootMargin:'-30% 0px -55% 0px'});sections.forEach(s=>io.observe(s));
+const appears=[...document.querySelectorAll('.reveal')];
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){appears.forEach(x=>x.classList.add('visible'));}
+else{const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:.08});appears.forEach(x=>revealObs.observe(x));}
+const buttons=[...document.querySelectorAll('[data-scenario]')];
+buttons.forEach((b,i)=>b.addEventListener('click',()=>activate(b)));
+function activate(button){buttons.forEach(b=>{let active=b===button;b.setAttribute('aria-selected',String(active));const panel=document.getElementById('scenario-'+b.dataset.scenario);panel.classList.toggle('active',active);panel.hidden=!active;});}
+buttons.forEach(b=>{if(b.getAttribute('aria-selected')!=='true'){document.getElementById('scenario-'+b.dataset.scenario).hidden=true;}});
+const turnover=document.getElementById('turnover'),calculated=document.getElementById('calculated'),note=document.getElementById('calculation-note');
+const rub=new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0});
+function recalc(){const value=Number(turnover.value);if(!Number.isFinite(value)||value<0||value>999999999999||turnover.value===''){calculated.textContent='—';note.textContent='Укажите неотрицательную сумму';turnover.setAttribute('aria-invalid','true');return;}
+turnover.removeAttribute('aria-invalid');const pct=value*0.01,res=Math.max(5000,pct);calculated.textContent=rub.format(res);note.textContent=pct<5000?'Применён минимальный платёж 5 000 ₽':'Расчёт: '+rub.format(value)+' × 1%';}turnover.addEventListener('input',recalc);recalc();
+const cases={
+return:{tag:'Подтверждено содержание договора · правовая оценка требуется',title:'Условия прекращения договора и возврата денег',text:'В доступном договоре сезона 2026 п. 2.2.6 содержит положение о невозврате при досрочном расторжении за нарушения правил, а п. 5.6 устанавливает подход с учётом фактически понесённых расходов при отказе заказчика. Это разные основания прекращения. Их нельзя автоматически считать противоречием или доказанным нарушением без юридического контекста.',action:'Рекомендация: юристу сверить формулировки, основания расторжения и реальные правила расчёта возврата.',loc:'Страницы 2–3 договора; пп. 2.2.6 и 5.6.'},
+photo:{tag:'Подтверждено содержание договора · требуется проверка согласий',title:'Использование фотографий и видео детей',text:'Пункт 2.2.8 содержит согласие родителя на использование фото/видео ребёнка для рекламных целей, в том числе на внешних площадках. Это не доказывает, что у лагеря нет других согласий. Для корректной схемы нужно проверить фактический комплект документов и отдельные основания для распространения персональных данных, где они требуются.',action:'Рекомендация: согласовать договор, согласие на изображение, специальные согласия на распространение данных и фактическую процедуру подписания.',loc:'Страница 2 договора; п. 2.2.8.'},
+documents:{tag:'Частично подтверждено · требуется проверка процесса',title:'Согласия, формы и сведения на сайте',text:'В договоре есть приложение №1 — отдельный бланк согласия на обработку персональных данных. На сайте есть ссылки на политику и другие документы. Но фактическое подписание, содержание части PDF, отправка обратного звонка и оплата не проходили полноценного браузерного теста.',action:'Рекомендация: провести проверку каждой формы и документа, затем обновить процедуру согласий и обязательные разделы по применимым требованиям.',loc:'Договор, приложение №1, с. 5; главная страница, раздел «Документы».',source:'https://perekopcamp.ru/'}
+};
+const dlg=document.getElementById('findingDialog');
+document.querySelectorAll('[data-finding]').forEach(b=>b.addEventListener('click',()=>{const d=cases[b.dataset.finding];if(!d)return;document.getElementById('modalTag').textContent=d.tag;document.getElementById('modalTitle').textContent=d.title;document.getElementById('modalText').textContent=d.text;document.getElementById('modalAction').textContent=d.action;document.getElementById('modalLocator').textContent=d.loc;const source=document.getElementById('modalSource');source.href=d.source||'https://perekopcamp.ru/f/dogovor_s_roditelem_dol_yunost_2026_kirovskaya_oblast.pdf';source.textContent=d.source?'Официальный сайт ↗':'Публичный договор ДОЛ «Юность» (PDF) ↗';dlg.showModal();}));
+document.getElementById('modalClose').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+const detail=document.getElementById('full-audit');let priorPrint=false;
+window.addEventListener('beforeprint',()=>{priorPrint=detail.open;detail.open=true});
+window.addEventListener('afterprint',()=>{detail.open=priorPrint});
+document.getElementById('print').addEventListener('click',()=>window.print());
+})();
+</script>
+</body>
+</html>
