@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#173B57">
+<meta name="description" content="Коммерческое предложение на разработку сайта детского лагеря: продажи, информационная структура по Приказу № 201, проектирование с учётом 152-ФЗ.">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CampBox — сайт детского лагеря | Коммерческое предложение</title>
+<style>
+:root{--side:214px;--bg:#F5F7F3;--paper:#fff;--ink:#173047;--text:#355064;--muted:#627789;--navy:#173B57;--navy2:#0F2C43;--blue:#3B8FDB;--bluebg:#EDF6FF;--green:#55C96B;--green2:#23834B;--greenbg:#EDF9F0;--amber:#C27A10;--amberbg:#FFF5E1;--line:#DDE6E2;--shadow:0 18px 50px rgba(23,59,87,.10);--r:24px}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,a{font:inherit;-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid #62C9FF;outline-offset:3px}
+.app{min-height:100vh}.sidebar{position:fixed;z-index:40;top:0;bottom:0;left:0;width:var(--side);background:linear-gradient(165deg,#173B57,#0D2A40 95%);padding:19px 12px 18px;display:flex;flex-direction:column;color:#fff;box-shadow:16px 0 40px rgba(15,44,67,.08)}.brand{display:flex;align-items:center;gap:10px;padding:7px 6px 21px;text-decoration:none;color:#fff}.brand-mark{flex:none;display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:var(--green);font-weight:900;font-size:23px;color:var(--navy2)}.brand strong{font-size:19px;letter-spacing:-.5px}.brand small{display:block;font-size:11px;font-weight:500;color:#BBD0DB}.side-label{padding:0 11px 10px;color:#8DB3C4;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}.nav{display:grid;gap:5px}.nav-btn{width:100%;display:flex;align-items:center;gap:11px;border:0;background:transparent;color:#C9DBE4;text-align:left;border-radius:14px;padding:12px 10px;font-size:13px;font-weight:700;line-height:1.25;transition:background .15s}.nav-btn:hover{color:#fff;background:rgba(255,255,255,.09)}.nav-btn.active{color:var(--navy);background:#fff;box-shadow:0 8px 23px rgba(0,0,0,.12)}.nav-icon{width:25px;height:25px;flex:none;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.09);font-size:13px;font-weight:900}.nav-btn.active .nav-icon{background:var(--greenbg);color:var(--green2)}.side-contact{margin-top:auto;padding:14px 10px 0;border-top:1px solid rgba(255,255,255,.12)}.side-contact small{display:block;color:#A5C1CF;font-size:11px}.side-contact strong{display:block;font-size:13px;margin:5px 0}.side-contact a{font-size:12px;display:block;color:#D9ECF4;text-decoration:none;margin:7px 0}.side-contact a:hover{text-decoration:underline}.side-progress{margin-top:18px;display:flex;align-items:center;gap:11px;color:#BBD0DB;font-size:11px}.progress-track{background:#375369;border-radius:20px;height:4px;flex:1;overflow:hidden}.progress-fill{height:100%;width:16.67%;background:var(--green);transition:width .15s}
+.main{margin-left:var(--side);min-height:100vh}.topbar{position:sticky;z-index:30;top:0;min-height:73px;padding:13px clamp(18px,3vw,38px);display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #E0E8E3;background:#F5F7F3}.crumb{font-size:12px;color:var(--muted)}.crumb strong{color:var(--navy)}.top-actions{display:flex;gap:9px;align-items:center}.chip{border:1px solid var(--line);border-radius:99px;background:#fff;padding:7px 10px;font-size:11px;font-weight:700;color:var(--text);white-space:nowrap}.chip.good{background:var(--greenbg);border-color:#C9EAD1;color:var(--green2)}.top-cta,.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;font-size:13px;font-weight:800;padding:11px 15px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;line-height:1.25}.top-cta:hover,.btn:hover{background:#245271}.btn.soft{background:#fff;color:var(--navy);border-color:var(--line)}.btn.soft:hover{background:var(--bluebg)}.btn.green{background:var(--green);border-color:var(--green);color:#0D3724}.btn.green:hover{background:#6ADC80}.menu-toggle{display:none;background:#fff;color:var(--navy);border:1px solid var(--line);border-radius:11px;padding:9px 11px}
+.canvas{width:min(1410px,calc(100% - 65px));margin:0 auto;padding:32px 0 86px}.screen{display:none}.screen.active{display:block}.kicker{display:flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--green2);font-weight:900}.kicker:before{content:"";height:3px;width:22px;border-radius:10px;background:var(--green)}.headline{margin:12px 0;font-size:clamp(34px,3.75vw,59px);line-height:1.04;letter-spacing:-.05em;max-width:1020px;font-weight:850}.lead{color:var(--text);font-size:16px;line-height:1.72;max-width:830px;margin:0 0 22px}.muted{color:var(--muted)}.scene-head{margin-bottom:22px}.section-rule{border:0;border-top:1px solid var(--line);margin:27px 0}.eyebrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(350px,.87fr);gap:18px;align-items:stretch}.hero-card{border-radius:29px;background:linear-gradient(135deg,#173B57,#174B62 55%,#1D6B55);padding:clamp(24px,3vw,40px);color:#fff;min-height:405px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}.hero-card:after{content:"";position:absolute;border-radius:50%;width:310px;height:310px;right:-130px;top:-160px;background:rgba(85,201,107,.15)}.hero-card h1{font-size:clamp(36px,3.65vw,62px);font-weight:850;letter-spacing:-.055em;line-height:1.02;margin:0;max-width:700px;position:relative;z-index:1}.hero-card p{color:#DDECF1;font-size:16px;line-height:1.6;margin:21px 0 25px;max-width:600px;position:relative;z-index:1}.hero-cta-row{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}.hero-tag{display:inline-flex;margin-bottom:22px;padding:7px 11px;width:max-content;max-width:100%;border-radius:40px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.10);font-size:11px;font-weight:750;position:relative;z-index:1;color:#E8F6F8}
+.preview{border:1px solid var(--line);border-radius:28px;background:#fff;padding:21px;box-shadow:0 9px 30px rgba(23,59,87,.07);min-height:405px;display:flex;flex-direction:column}.preview-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;margin-bottom:15px}.browser{border:1px solid #D7E5E3;border-radius:17px;overflow:hidden;flex:1;background:#F9FCFA;min-height:275px}.browser-top{background:#EAF1EE;display:flex;align-items:center;gap:5px;padding:8px 11px}.browser-top i{display:block;width:7px;height:7px;border-radius:50%;background:#AEC1B9}.browser-top span{margin-left:auto;color:#607C86;font-size:9px}.site-hero{background:linear-gradient(125deg,#17405B,#216B69 70%);color:#fff;padding:26px 20px 23px;min-height:160px;position:relative;overflow:hidden}.site-hero:after{content:"";position:absolute;width:140px;height:140px;right:-30px;top:-45px;border:30px solid rgba(255,255,255,.07);border-radius:50%}.site-hero small{font-size:9px;display:block;margin-bottom:28px;opacity:.78;letter-spacing:.06em}.site-hero strong{display:block;font-size:19px;line-height:1.15;letter-spacing:-.5px;position:relative;z-index:1}.site-hero p{margin:8px 0;font-size:10px;opacity:.87;position:relative;z-index:1}.site-search{display:grid;grid-template-columns:1fr 1fr auto;gap:5px;padding:9px 8px;background:#fff;margin:-9px 12px 0;border-radius:9px;box-shadow:0 4px 15px rgba(0,0,0,.07);position:relative}.site-search span{display:flex;align-items:center;background:#F3F7F5;border-radius:6px;color:#6F8189;font-size:9px;padding:7px}.site-search button{border:0;border-radius:6px;background:var(--green);color:#173B57;font-size:9px;font-weight:750;padding:7px}.site-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 12px}.site-tiles div{border:1px solid var(--line);border-radius:8px;background:#fff;padding:9px 8px;min-height:51px}.site-tiles b{font-size:9px;display:block}.site-tiles small{color:var(--muted);font-size:8px;display:block;margin-top:4px}.preview-caption{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:16px}.stat{padding:19px;background:#fff;border:1px solid var(--line);border-radius:20px}.stat b{font-size:24px;line-height:1.05;display:block;color:var(--navy);letter-spacing:-.045em}.stat strong{font-size:14px;display:block;margin:7px 0}.stat p{font-size:12.5px;color:var(--text);margin:0;line-height:1.55}.stat.em{background:var(--greenbg);border-color:#BDE4C7}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:22px;min-width:0}.card h3{font-size:19px;line-height:1.2;letter-spacing:-.025em;margin:11px 0 9px}.card p{font-size:13.7px;line-height:1.64;color:var(--text);margin:0}.card-icon{display:grid;place-items:center;width:41px;height:41px;border-radius:13px;background:var(--greenbg);font-weight:900;color:var(--green2);font-size:21px}.card-icon.blue{background:var(--bluebg);color:#217FB5}.card-icon.amber{background:var(--amberbg);color:var(--amber)}.card-foot{margin-top:20px;font-size:12px;color:var(--green2);font-weight:750}.strip{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #BEDCCB;background:var(--greenbg);border-radius:24px;padding:20px 24px;margin-top:18px}.strip strong{font-size:18px;line-height:1.25}.strip p{margin:6px 0 0;color:var(--text);font-size:13px;max-width:880px}
+.tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.tile{min-height:153px;border:1px solid var(--line);background:#fff;padding:20px 18px;border-radius:20px;text-align:left;color:var(--ink);display:flex;flex-direction:column;align-items:flex-start;transition:border-color .15s,background .15s,box-shadow .15s}.tile:hover{border-color:#7BBE99;box-shadow:0 7px 22px rgba(23,59,87,.06)}.tile.selected{background:var(--greenbg);border-color:#79C58A}.tile small{color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-size:10px;font-weight:750}.tile strong{display:block;margin:9px 0 8px;font-size:17px;line-height:1.3;letter-spacing:-.015em}.tile .t-desc{font-size:12.5px;color:var(--text);line-height:1.45}.tile .arr{margin-top:auto;align-self:flex-end;color:var(--green2);font-size:19px;font-weight:750;line-height:1}.detail{margin-top:13px;border-radius:23px;border:1px solid #C8E8D0;background:linear-gradient(135deg,#F1FBF3,#FFFFFF);padding:24px 28px;min-height:175px;display:grid;grid-template-columns:1.07fr 1fr;gap:25px;align-items:start}.detail .detail-label{font-size:11px;color:var(--green2);letter-spacing:.09em;text-transform:uppercase;font-weight:850}.detail h3{font-size:23px;line-height:1.23;margin:7px 0 9px;letter-spacing:-.03em}.detail p{font-size:13.5px;color:var(--text);margin:0;line-height:1.62}.detail ul{margin:4px 0;padding-left:20px;color:var(--text);font-size:13.5px;line-height:1.66}.detail li{margin-bottom:5px}.detail a{color:#18659B;font-weight:700}.detail-note{grid-column:1/-1;color:var(--muted);font-size:12px;border-top:1px solid #D7E9DC;padding-top:13px;margin-top:3px}.content-title{display:flex;justify-content:space-between;gap:18px;align-items:end;margin:24px 0 14px}.content-title h2{font-size:23px;line-height:1.22;margin:0;letter-spacing:-.025em}.content-title p{font-size:12px;margin:0;color:var(--muted);max-width:410px}.label-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.mini-card{padding:15px 17px;background:#fff;border:1px solid var(--line);border-radius:17px;min-height:92px}.mini-card strong{display:block;font-size:13px;line-height:1.3}.mini-card p{font-size:11.5px;line-height:1.45;color:var(--muted);margin:7px 0 0}.notice{background:#F5F8FC;border:1px solid #D4E3EF;border-radius:18px;padding:16px 19px;color:#355064;font-size:12.5px;line-height:1.65;margin-top:15px}.notice strong{color:var(--navy)}
+.price-grid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:15px}.price-grid>*{min-width:0}.price-line{overflow-wrap:anywhere}.price-card{border:1px solid var(--line);border-radius:26px;padding:27px;background:#fff}.price-card.feature{background:linear-gradient(155deg,#173B57,#165667);color:#fff;border:0}.price-tag{font-size:11px;letter-spacing:.1em;font-weight:850;text-transform:uppercase;color:#AFCFE0}.price-amount{font-size:clamp(38px,4vw,58px);line-height:1.1;font-weight:850;letter-spacing:-.06em;margin:18px 0 4px}.price-card.feature p{color:#D0E3EA;font-size:13px;line-height:1.6}.price-card p{font-size:13px;color:var(--text)}.price-card.feature .price-time{color:#B8EBC7}.price-time{display:inline-flex;padding:7px 11px;border-radius:99px;background:rgba(85,201,107,.14);color:var(--green2);font-size:12px;font-weight:850;margin-top:10px}.price-details{display:grid;gap:9px;margin-top:22px}.price-details .price-line{border-bottom:1px solid rgba(221,230,226,.75);padding-bottom:9px;display:flex;gap:10px;align-items:start;font-size:13px}.price-details .price-line:before{content:'✓';color:var(--green);font-size:15px;font-weight:900}.price-card.feature .price-line{color:#EFF7F9;border-color:rgba(255,255,255,.12)}.price-card.feature .price-line:before{color:var(--green)}.option-head{display:flex;gap:12px;justify-content:space-between;align-items:start;flex-wrap:wrap}.option-head h3{font-size:21px;margin:0}.option-head .opt{font-size:10px;border-radius:50px;background:var(--bluebg);padding:6px 8px;color:#216F9B;font-weight:800}.option-amount{font-size:39px;letter-spacing:-.05em;font-weight:850;margin:20px 0 5px}.option-price-note{font-size:12px;color:var(--muted)}.calculator{border:1px solid var(--line);background:#fff;border-radius:21px;padding:21px;margin-top:15px}.cal-top{display:flex;align-items:start;justify-content:space-between;gap:15px}.cal-top strong{font-size:15px}.cal-top p{font-size:12px;color:var(--muted);margin:5px 0 0}.switch{display:inline-flex;border:1px solid var(--line);background:#F5F7F3;border-radius:50px;padding:4px;flex:none}.switch button{padding:8px 11px;border:0;background:transparent;color:var(--text);font-weight:800;border-radius:40px;font-size:12px}.switch button.active{color:#173B57;background:var(--green)}.calc-result{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:13px}.calc-result b{font-size:29px;letter-spacing:-.045em}.calc-result small{color:var(--muted)}.matrix{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:15px}.matrix .card{padding:20px}.matrix .card h3{font-size:18px}.matrix .card ul{padding-left:18px;margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--text)}.matrix .card li{margin-bottom:6px}.scope-label{display:inline-flex;border-radius:20px;background:#EDF6FF;color:#216F9B;padding:6px 9px;font-size:10px;font-weight:900;text-transform:uppercase}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.process .tile{min-height:150px}.process .tile strong{font-size:17px}.process .tile small{text-transform:none;letter-spacing:normal}.process .tile .arr{font-size:19px}.process .tile:not(:nth-child(3n)){position:relative}.process .tile:not(:nth-child(3n)):after{content:'→';position:absolute;right:-15px;top:47%;z-index:1;background:#fff;color:var(--green2);padding:0 3px;font-size:17px;font-weight:900}.finish-panel{background:linear-gradient(140deg,#173B57,#145366);color:#fff;border-radius:27px;padding:clamp(25px,4vw,38px);display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-top:18px}.finish-panel h2{font-size:clamp(27px,2.5vw,42px);letter-spacing:-.045em;line-height:1.12;margin:0 0 12px}.finish-panel p{color:#D4E4EA;font-size:14px;line-height:1.6}.finish-actions{display:flex;gap:10px;flex-wrap:wrap;align-content:center;justify-content:flex-end;align-items:center}.finish-panel .btn.soft{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.10);color:#fff}.finish-panel .btn.soft:hover{background:rgba(255,255,255,.2)}.sources{border-top:1px solid var(--line);margin-top:22px;padding-top:13px;font-size:11.5px;line-height:1.8;color:var(--muted)}.sources a{color:#176B9E}.sources details summary{cursor:pointer;font-weight:800;color:var(--navy)}.sources p{margin:4px 0 0}
+.modal-backdrop{position:fixed;inset:0;background:rgba(12,30,45,.68);z-index:99;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{max-width:590px;width:100%;max-height:90vh;overflow:auto;background:#fff;border-radius:27px;padding:28px;box-shadow:0 30px 90px rgba(0,0,0,.25)}.modal-head{display:flex;align-items:start;justify-content:space-between;gap:18px}.modal h2{margin:0;font-size:28px;letter-spacing:-.04em}.modal p{color:var(--text);line-height:1.65}.close-modal{width:36px;height:36px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:24px;color:var(--text);flex:none}.contact-list{display:grid;gap:10px;margin:22px 0}.contact-list a{padding:12px 15px;background:var(--bluebg);color:var(--navy);text-decoration:none;border-radius:12px;font-size:13px;font-weight:800}.modal .btn{width:100%;margin-top:5px}.mobile-contact{display:none}
+@media(max-width:1170px){.hero-grid{grid-template-columns:1fr}.preview{min-height:unset}.browser{min-height:220px}.grid3{grid-template-columns:repeat(2,1fr)}.label-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:920px){:root{--side:0px}.sidebar{transform:translateX(-105%);transition:none;width:min(290px,85vw)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.menu-toggle{display:inline-block}.topbar{padding:12px 18px}.canvas{width:calc(100% - 36px);padding:25px 0 86px}.chip{display:none}.mobile-contact{display:inline-flex}}
+@media(max-width:650px){.hero-card{min-height:unset}.hero-card h1{font-size:clamp(34px,9vw,47px)}.hero-card p{font-size:14px}.headline{font-size:clamp(31px,8vw,40px)}.lead{font-size:14px}.grid3,.grid2,.tile-grid,.stat-row,.price-grid,.matrix,.process,.finish-panel{grid-template-columns:minmax(0,1fr)}.tile{min-height:112px}.detail{grid-template-columns:1fr;padding:19px}.detail-note{grid-column:1}.label-cards{grid-template-columns:1fr 1fr}.finish-actions{justify-content:flex-start}.top-cta{padding:10px;font-size:11px}.crumb{font-size:11px}.cal-top{flex-direction:column}.process .tile:not(:nth-child(3n)):after{display:none}.strip{flex-direction:column;align-items:flex-start}.preview{padding:15px}.stat{padding:16px}.price-card{padding:22px}.modal{padding:22px}}
+@media(max-width:370px){.label-cards{grid-template-columns:1fr}.canvas{width:calc(100% - 26px)}.topbar{gap:8px}.top-cta{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* CampBox brand v2 / typography and contrast compatibility layer */
+:root{
+ --side:256px;--bg:#F5F7F3;--paper:#FFFFFF;--ink:#202823;--text:#34423B;--muted:#34423B;
+ --navy:#202823;--navy2:#111714;--blue:#23834B;--bluebg:#F0F4F2;
+ --green:#55C96B;--green2:#23834B;--greenbg:#EDF9F0;--line:#DDE6E2;
+ --shadow:0 18px 45px rgba(32,40,35,.10);
+}
+body{color:var(--ink);background:var(--bg);font-size:15.5px;line-height:1.63}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #23834B;outline-offset:3px}
+/* Navigation: graphite is intentional — navy/blue are not brand colors. */
+.nav-btn{transition:none}
+.sidebar{background:#202823;color:#FFF;box-shadow:14px 0 34px rgba(32,40,35,.12);padding:21px 13px 19px}
+.brand{padding:10px 10px 23px}.brand strong{font-size:24px;color:#FFF;letter-spacing:-.7px}
+.brand small{font-size:12px;color:#EAF5ED;line-height:1.3;margin-top:3px}
+.side-label{font-size:11px;color:#E4F5E8;letter-spacing:.10em;line-height:1.5;font-weight:750}
+.nav-btn{color:#F3FAF4;font-size:14px;padding:11px 12px;min-height:45px;gap:10px}
+.nav-btn:hover{background:#34423B;color:#FFF}
+.nav-btn.active,.nav-btn.active:hover{background:#55C96B;color:#111714;box-shadow:none}
+.nav-icon{background:#34423B;color:#FFF;font-size:13px}
+.nav-btn.active .nav-icon{background:#202823;color:#FFF}
+.side-contact{margin-top:auto;padding:16px 11px 11px;border-top:1px solid #66776C;border-radius:15px;background:#F5F7F3;color:#202823}
+.manager-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:850;color:#23834B;margin-bottom:3px}
+.side-contact .manager-name{font-size:17px;color:#202823;line-height:1.18;margin:7px 0 4px}
+.side-contact .manager-role{font-size:11.5px;line-height:1.4;color:#34423B;margin-bottom:11px}
+.side-contact .manager-link{display:flex;align-items:center;gap:6px;color:#202823;font-size:12px;font-weight:750;margin:7px 0;line-height:1.4;word-break:normal;overflow-wrap:anywhere}
+.side-contact .manager-link:hover,.contact-list a:hover{text-decoration:underline}
+.side-contact .manager-max{display:flex;align-items:center;justify-content:center;padding:10px 7px;background:#7457E9;border-radius:10px;color:#fff;font-size:12px;font-weight:850;text-decoration:none;margin:11px 0 0;min-height:40px}
+.side-contact .manager-max:hover{background:#6244D7;text-decoration:none}
+.side-progress{margin-top:13px;font-size:11px;color:#34423B;font-weight:800}
+.progress-track{background:#DDE6E2;height:5px}.progress-fill{background:#23834B}
+/* Text hierarchy and surfaces */
+.topbar{background:#FFF;border-bottom:1px solid #DDE6E2;box-shadow:0 2px 13px rgba(32,40,35,.035)}
+.crumb{font-size:13px;color:#34423B;font-weight:600}.crumb strong{color:#202823}
+.chip{font-size:12px;color:#202823;border-color:#DDE6E2}.chip.good{color:#202823;background:#EDF9F0;border-color:#B7DABE}
+.top-cta,.btn{background:#55C96B;border-color:#55C96B;color:#111714;font-size:13.5px;font-weight:850}
+.top-cta:hover,.btn:hover,.btn.green:hover{background:#23834B;border-color:#23834B;color:#fff}
+.btn.green{background:#55C96B;color:#111714;border-color:#55C96B}
+.btn.soft{background:#FFF;border-color:#C3D0C7;color:#202823}
+.btn.soft:hover{background:#EDF9F0;border-color:#55C96B;color:#202823}
+.menu-toggle{color:#202823;border-color:#C3D0C7}
+.kicker{color:#23834B;font-size:12px;font-weight:850}
+.headline{color:#202823}.lead{color:#34423B;font-size:16px}
+.hero-card{background:linear-gradient(135deg,#202823 3%,#111714 100%);border:1px solid #34423B;box-shadow:0 14px 40px rgba(32,40,35,.18)}
+.hero-card:after{background:#23834B;opacity:.20;filter:blur(5px)}
+.hero-card h1{color:#FFF}.hero-card p{color:#F0F7F1;font-size:16px}
+.hero-tag{color:#FFF!important;background:#34423B!important;border-color:#67776D!important;font-weight:800}
+.hero-card .btn.soft{background:#fff;color:#202823;border-color:#fff}.hero-card .btn.soft:hover{background:#EDF9F0}
+.preview,.card,.stat,.tile,.price-card{background:#FFF;border-color:#DDE6E2;box-shadow:0 6px 22px rgba(32,40,35,.055)}
+.preview-top{color:#34423B;font-size:12px;font-weight:650}
+.preview-top strong{color:#202823;font-size:13.5px}
+.browser{border-color:#C8D7CD;background:#FBFCFB}.browser-top{background:#F0F4F2}
+.browser-top span{color:#34423B;font-size:10.5px;font-weight:650}
+.site-hero{background:linear-gradient(135deg,#202823,#34423B)}
+.site-hero small{opacity:1;color:#FFF;font-size:10px}.site-hero p{opacity:1;color:#F0F4F2;font-size:11px}
+.site-search span{color:#202823;font-size:10px;font-weight:650;background:#F0F4F2}
+.site-search button{color:#111714;font-size:10px}
+.site-tiles b{font-size:11px;color:#202823}.site-tiles small{font-size:10px;color:#34423B}
+.preview-caption{color:#34423B;font-size:12.5px}
+.stat{padding:21px}.stat b{color:#202823;font-size:28px}.stat strong{font-size:15px;color:#202823}
+.stat p{font-size:13.5px;color:#34423B}.stat.em{border-color:#A9D8B2;background:#EDF9F0}
+.card h3,.tile strong,.detail h3{color:#202823}
+.card p,.tile .t-desc,.detail p,.detail ul,.notice,.strip p{color:#34423B;font-size:14px;line-height:1.6}
+.card-icon.blue{color:#23834B;background:#EDF9F0}.card-icon.amber{color:#8A5B00;background:#FFF3D0}
+.card-foot{font-size:13px;font-weight:800;color:#23834B}
+.strip{background:#EDF9F0;border-color:#A9D8B2}.strip strong{font-size:19px;color:#202823}
+.strip .btn{flex:none}
+.tile{min-height:163px;border-color:#CAD7CF}.tile:hover{background:#FBFCFB;border-color:#23834B;box-shadow:0 9px 28px rgba(32,40,35,.08)}
+.tile.selected{background:#DDF4E3;border-color:#23834B;box-shadow:inset 0 0 0 1px #23834B}
+.tile small{color:#34423B;font-size:11.5px;font-weight:800}
+.tile strong{font-size:18px;line-height:1.27}
+.tile .t-desc{font-size:13.5px;color:#34423B}.tile .arr{color:#202823}
+.detail{background:#F5F7F3;border-color:#A9D8B2;box-shadow:0 7px 21px rgba(32,40,35,.06)}
+.detail .detail-label{color:#202823;font-size:12px}.detail-note{color:#34423B;font-size:12.5px;border-color:#C8D7CD}
+.detail a,.sources a{color:#202823;text-decoration-color:#23834B;text-decoration-thickness:2px;text-underline-offset:2px}
+.notice{background:#F0F4F2;border:1px solid #C8D7CD;font-size:13.5px}.notice strong{color:#202823}
+.price-card.feature{background:linear-gradient(140deg,#202823,#111714);color:#FFF;border:1px solid #34423B}
+.price-tag{color:#FFF;font-size:12px}.price-card.feature p,.price-card.feature .price-line{color:#F4FAF5!important;font-size:13.5px}
+.price-card.feature .price-time{color:#111714;background:#55C96B}
+.price-card p{font-size:13.5px;color:#34423B}
+.price-card .price-amount{color:#202823}.price-card.feature .price-amount{color:#FFF}
+.price-time{color:#202823;background:#DDF4E3}
+.price-details .price-line{font-size:13.5px;line-height:1.55}
+.option-head .opt{background:#EDF9F0;color:#202823;border:1px solid #B7DABE;font-size:11px}
+.mini-card{background:#FFF;border-color:#DDE6E2}.mini-card strong{color:#202823}.mini-card p{color:#34423B}
+.finish-panel{background:linear-gradient(135deg,#202823,#111714);border:1px solid #34423B}
+.finish-panel p{color:#F0F7F1;font-size:14.5px}
+.finish-manager-label{display:inline-block;background:#34423B;color:#FFF;border-radius:20px;font-size:12px;font-weight:800;padding:7px 11px;margin-bottom:16px}
+.finish-panel .btn.soft{color:#202823;background:#FFF;border:1px solid #FFF}
+.finish-panel .btn.soft:hover{background:#EDF9F0;color:#202823}
+.sources{color:#34423B;font-size:12.5px}.sources details summary{color:#202823;font-size:13px}
+.modal-backdrop{background:rgba(17,23,20,.78)}.modal{border:1px solid #CAD7CF}
+.modal h2{color:#202823}.modal p{font-size:14.5px;color:#34423B}
+.manager-modal-id{padding:16px 19px;background:#EDF9F0;border:1px solid #B7DABE;border-radius:16px;margin:18px 0 0}
+.manager-modal-badge{color:#23834B;font-size:11px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
+.manager-modal-id strong{display:block;font-size:19px;line-height:1.3;margin:5px 0 2px;color:#202823}
+.manager-modal-id span{display:block;color:#34423B;font-size:13.5px}
+.contact-list{margin:14px 0 19px}
+.contact-list a{padding:15px 14px;background:#FFF;border:1px solid #C8D7CD;color:#202823;border-radius:15px;display:flex;align-items:center;gap:14px;font-size:14px;line-height:1.35;text-decoration:none;transition:border-color .15s,background .15s}
+.contact-list a:hover{background:#EDF9F0;border-color:#23834B;text-decoration:none}
+.contact-list a>span:last-child{margin-left:auto;font-size:18px;font-weight:900}
+.contact-list a span:nth-child(2){min-width:0;overflow-wrap:anywhere}
+.contact-list a strong,.contact-list a small{display:block}.contact-list a strong{font-size:14px;color:#202823}.contact-list a small{font-size:12.5px;color:#34423B;margin-top:3px}
+.contact-list-icon{width:37px;height:37px;display:grid;place-items:center;background:#DDF4E3;color:#202823;border-radius:11px;flex:none;font-size:17px;font-weight:900}
+.contact-list a.contact-max{background:#7457E9;border-color:#7457E9;color:#FFF}
+.contact-list a.contact-max strong,.contact-list a.contact-max small{color:#FFF}
+.contact-list a.contact-max .contact-list-icon{background:rgba(255,255,255,.24);color:#FFF}
+.contact-list a.contact-max:hover{background:#6244D7}
+.mobile-manager-bar{display:none}
+@media(max-width:1170px){.sidebar{padding-left:10px;padding-right:10px}}
+@media(max-width:920px){
+ .sidebar{width:min(310px,90vw);padding:18px 13px;overflow-y:auto}
+ .side-contact{margin-top:24px}
+ .topbar{min-height:63px}
+ .canvas{padding-bottom:115px}
+ .mobile-manager-bar{position:fixed;z-index:39;bottom:0;left:0;right:0;display:flex;align-items:center;gap:9px;padding:10px max(14px,env(safe-area-inset-right));padding-bottom:max(10px,env(safe-area-inset-bottom));background:#FFF;border-top:1px solid #DDE6E2;box-shadow:0 -8px 24px rgba(32,40,35,.10)}
+ .mobile-manager-bar>div{flex:1;min-width:0}
+ .mobile-manager-bar strong,.mobile-manager-bar span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .mobile-manager-bar strong{font-size:13px;color:#202823;line-height:1.25}
+ .mobile-manager-bar span{color:#34423B;font-size:11px}
+ .mobile-manager-bar a,.mobile-manager-bar button{background:#FFF;border:1px solid #CAD7CF;color:#202823;min-height:42px;padding:9px 11px;border-radius:11px;text-decoration:none;font-weight:850;font-size:12px;white-space:nowrap}
+ .mobile-manager-bar button{background:#55C96B;border-color:#55C96B;color:#111714}
+}
+@media(max-width:650px){
+ .top-cta{font-size:12px;padding:10px 12px}
+ .hero-card h1{font-size:clamp(34px,8.8vw,44px)}
+ .card,.tile{padding:19px}
+ .detail{padding:20px}
+ .price-card{padding:22px}
+ .preview-top{align-items:flex-start;gap:8px;flex-wrap:wrap}
+}
+@media(max-width:370px){
+ .mobile-manager-bar{gap:6px;padding-left:8px;padding-right:8px}
+ .mobile-manager-bar a,.mobile-manager-bar button{padding:9px 8px;font-size:11px}
+ .mobile-manager-bar span{display:none}
+ .top-cta{font-size:11px}
+}
+
+@media print{@page{size:A4;margin:11mm}body{background:#fff!important;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sidebar,.topbar,.btn,.hero-cta-row,.finish-actions,.modal-backdrop,.mobile-manager-bar,.sources summary{display:none!important}.main{margin:0!important}.canvas{width:100%;padding:0}.screen,.screen.active{display:block!important;break-before:page;margin-bottom:22px}.screen:first-child{break-before:auto}.hero-card{min-height:unset}.hero-grid,.price-grid,.finish-panel{grid-template-columns:1fr 1fr}.tile-grid{grid-template-columns:repeat(2,1fr)}.detail{display:grid!important;break-inside:avoid}.card,.stat,.price-card,.tile,.detail,.notice,.strip{break-inside:avoid}.sources details{display:block}.sources details>*{display:block}}
+</style>
+
+<!-- GitHub Pages / Tilda iframe adapter. Does not modify approved commercial content. -->
+<script>try{if(window.self!==window.parent)document.documentElement.classList.add('cb-embed')}catch(e){}</script>
+<style media="screen">
+/* Applied only inside the Tilda iframe. Avoid autoheight / 100vh feedback. */
+html.cb-embed,html.cb-embed body{height:auto!important;min-height:0!important}
+html.cb-embed .app,html.cb-embed .main,html.cb-embed .canvas,html.cb-embed .screen{height:auto!important;min-height:0!important}
+html.cb-embed .screen{align-items:flex-start!important;width:100%}
+html.cb-embed .screen.active{display:block!important}
+html.cb-embed .canvas{padding-bottom:26px!important}
+/* The modal must not be vertically centered in a 1000–30000px iframe viewport. */
+html.cb-embed .modal-backdrop{align-items:flex-start!important;justify-content:center!important;padding-top:22px!important}
+html.cb-embed .modal{max-height:min(740px,calc(100vh - 44px))!important}
+@media(max-width:920px){
+ html.cb-embed .canvas{padding-bottom:18px!important}
+ html.cb-embed .mobile-manager-bar{position:relative!important;bottom:auto!important;left:auto!important;right:auto!important;margin:10px 12px 20px!important}
+ html.cb-embed .modal-backdrop{padding-top:12px!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar" aria-label="Разделы коммерческого предложения">
+ <a href="#main" class="brand" data-go="main"><span><strong>CampBox</strong><small>Сайты для детских лагерей</small></span></a>
+ <div class="side-label">Коммерческое предложение</div>
+ <nav class="nav" id="navigation">
+  <button class="nav-btn active" data-go="main" aria-current="page"><span class="nav-icon">⌂</span><span>Главное</span></button>
+  <button class="nav-btn" data-go="benefits"><span class="nav-icon">◇</span><span>Почему этот подход</span></button>
+  <button class="nav-btn" data-go="privacy"><span class="nav-icon">◎</span><span>152-ФЗ</span></button>
+  <button class="nav-btn" data-go="order"><span class="nav-icon">▤</span><span>Приказ № 201</span></button>
+  <button class="nav-btn" data-go="offer"><span class="nav-icon">₽</span><span>Состав и стоимость</span></button>
+  <button class="nav-btn" data-go="launch"><span class="nav-icon">➜</span><span>Запуск и решение</span></button>
+ </nav>
+ <div class="side-contact" aria-label="Контакт менеджера CampBox">
+ <div class="manager-kicker">Ваш менеджер</div><strong class="manager-name">Евгений Петров</strong><div class="manager-role">Специалист отдела продаж CampBox</div>
+ <a class="manager-link" href="tel:+79969581851" aria-label="Позвонить Евгению Петрову">☎ <span>+7 996 958-18-51</span></a>
+ <a class="manager-link" href="mailto:E.petrov@camp-box.ru" aria-label="Написать Евгению Петрову по почте">✉ <span>E.petrov@camp-box.ru</span></a>
+ <a class="manager-max" href="https://max.ru/u/f9LHodD0cOLIkOxqSGim_lj0AELqa9BqgH3rdl4RKT3h6zPxCh3qIYWnv6s" target="_blank" rel="noopener noreferrer" aria-label="Написать Евгению Петрову в MAX">Написать в MAX ↗</a>
+ <div class="side-progress"><span id="progressText">1 / 6</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+</div>
+</aside>
+<div class="main">
+<header class="topbar"><div class="top-actions"><button class="menu-toggle" id="menuToggle" aria-controls="sidebar" aria-expanded="false">☰ Меню</button><span class="crumb">CampBox / <strong id="crumb">Главное</strong></span></div><div class="top-actions"><span class="chip good">Коммерческое предложение</span><button class="top-cta" data-contact="1">Связаться с менеджером ↗</button></div></header>
+<main class="canvas">
+<section class="screen active" id="main" data-kp-section="main" aria-label="Главное">
+ <div class="kicker">Сайт, который работает на задачи лагеря</div>
+ <div class="hero-grid">
+  <div class="hero-card"><div class="hero-tag">Сайт под бренд • готовая структура • подготовка к запуску</div><h1>Не просто сайт.<br>Основа для продаж и спокойной работы.</h1><p>Родители быстро находят ответы, видят смены и условия, а команда получает сайт, где предусмотрены обязательные информационные разделы и требования к работе с персональными данными.</p><div class="hero-cta-row"><button class="btn green" data-go="benefits">Увидеть выгоды →</button><button class="btn soft" data-go="offer">Состав и цена ↗</button></div></div>
+  <div class="preview"><div class="preview-top"><strong>Как может выглядеть путь родителя</strong><span>Схема, не рабочий интерфейс</span></div><div class="browser"><div class="browser-top"><i></i><i></i><i></i><span>Сайт детского лагеря</span></div><div class="site-hero"><small>О ЛАГЕРЕ &nbsp; · &nbsp; СМЕНЫ &nbsp; · &nbsp; РОДИТЕЛЯМ &nbsp; · &nbsp; ДОКУМЕНТЫ</small><strong>Лето, которое запомнится</strong><p>Программы, безопасность и вся информация — на одной странице</p></div><div class="site-search"><span>Даты смены</span><span>Возраст ребёнка</span><button type="button" data-go="benefits">Смотреть →</button></div><div class="site-tiles"><div><b>Смены</b><small>Программы и даты</small></div><div><b>Родителям</b><small>Документы и ответы</small></div><div><b>О лагере</b><small>Условия и команда</small></div></div></div><p class="preview-caption">В основе — понятная логика выбора лагеря. Дизайн и наполнение адаптируются под ваш фирменный стиль и согласованное ТЗ.</p></div>
+ </div>
+ <div class="stat-row"><div class="stat em"><b>01</b><strong>Сайт для родителей</strong><p>Легко выбрать смену и перейти к оформлению.</p></div><div class="stat"><b>02</b><strong>Нормативная структура</strong><p>Разделы по Приказу № 201 без хаотичного поиска и дублирования.</p></div><div class="stat"><b>03</b><strong>Внимание к данным</strong><p>Учитываем требования 152-ФЗ на этапе проектирования форм и документов.</p></div></div>
+ <div class="strip"><div><strong>Одно решение вместо набора разрозненных задач</strong><p>Дизайн, содержание, обязательные разделы и подготовка к продажам рассматриваются как части одного сайта — с единым маршрутом запуска.</p></div><button class="btn" data-go="order">Как это устроено →</button></div>
+</section>
+<section class="screen" id="benefits" data-kp-section="benefits" aria-label="Почему этот подход">
+ <div class="scene-head"><div class="kicker">Ценность для организации</div><h2 class="headline">Сильный сайт решает больше, чем задачу «быть в интернете».</h2><p class="lead">Обычный сайт может красиво выглядеть. Практичный сайт детского лагеря помогает родителям принять решение, снижает поток типовых вопросов и сразу учитывает отраслевые требования к публикации информации.</p></div>
+ <div class="grid3"><article class="card"><div class="card-icon">↗</div><h3>Помогает продавать</h3><p>Информация о сменах, программах, условиях и стоимости организована вокруг решения родителя, а не внутренней структуры организации.</p><div class="card-foot">Путь от интереса к выбору путёвки</div></article><article class="card"><div class="card-icon blue">◉</div><h3>Разгружает сотрудников</h3><p>Частые вопросы, документы, контакты, инфраструктура и правила доступны без постоянных обращений в отдел продаж.</p><div class="card-foot">Меньше повторяющихся объяснений</div></article><article class="card"><div class="card-icon amber">✓</div><h3>Создаёт основу для соблюдения требований</h3><p>Нормативные разделы и правила обращения с персональными данными проектируются заранее, а не добавляются после публикации.</p><div class="card-foot">Меньше переделок и несогласованностей</div></article></div>
+ <div class="content-title"><h2>Что делает предложение комплексным</h2><p>В отличие от подхода «сначала дизайн, потом всё остальное»</p></div><div class="grid2"><div class="card"><span class="eyebrow">Разработка</span><h3>Техническая основа под ключ</h3><p>Адаптивный сайт, CMS 1С-Битрикс «Старт», домен, хостинг и SSL — в составе исходного базового предложения.</p></div><div class="card"><span class="eyebrow">Содержание</span><h3>Структура, понятная родителю и проверяющему</h3><p>Отдельная логика коммерческих страниц и обязательной публичной информации, с учётом документационного блока по Приказу № 201.</p></div><div class="card"><span class="eyebrow">Данные</span><h3>Формы — не просто кнопка «Отправить»</h3><p>В проектное ТЗ закладываются правовые основания обработки, тексты документов и точки получения согласий там, где они необходимы.</p></div><div class="card"><span class="eyebrow">Запуск</span><h3>Проверка до публикации</h3><p>Тестовая версия, согласование наполнения, базовая SEO-подготовка и подготовка аналитики по этапам из предложения разработчика.</p></div></div>
+ <div class="strip"><div><strong>Экспертиза профильной команды вместо экспериментов с универсальным конструктором</strong><p>По данным презентации TravelLine, компания работала более чем с 200 детскими лагерями. Это заявление исполнителя из предоставленного КП, а не независимый рейтинг рынка.</p></div><button class="btn" data-go="offer">Перейти к условиям →</button></div>
+</section>
+<section class="screen" id="privacy" data-kp-section="privacy" aria-label="152-ФЗ">
+ <div class="scene-head"><div class="kicker">Большой блок защиты: 152-ФЗ</div><h2 class="headline">Персональные данные: учитываем требования до запуска форм.</h2><p class="lead">При сборе данных родителей и детей важны не только опубликованная политика, но и корректные основания обработки, прозрачные формы, работа с поставщиками сервисов и техническая защита. Ниже — проектная карта, а не заявление об уже пройденном юридическом аудите.</p></div>
+ <div class="tile-grid" id="privacyTiles" role="group" aria-label="Задачи по 152-ФЗ">
+  <button class="tile selected" data-topic="p0" aria-pressed="true"><small>Публичная информация</small><strong>Политика обработки ПДн</strong><span class="t-desc">Документ доступен с каждой точки сбора данных.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="p1" aria-pressed="false"><small>Согласия</small><strong>Отдельные действия</strong><span class="t-desc">Согласие не спрятано внутри договора или оферты.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="p2" aria-pressed="false"><small>Формы</small><strong>Минимум необходимых данных</strong><span class="t-desc">Сбор под конкретную цель и законное основание.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="p3" aria-pressed="false"><small>Подрядчики</small><strong>Аналитика и сторонние сервисы</strong><span class="t-desc">Проверка данных, получателей и возможных передач.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="p4" aria-pressed="false"><small>Безопасность</small><strong>Доступ, хранение, защита</strong><span class="t-desc">Меры защиты и сроки обработки не остаются за кадром.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="p5" aria-pressed="false"><small>Ответственность</small><strong>Реестр и проверка перед запуском</strong><span class="t-desc">Сайт и внутренние документы не должны противоречить друг другу.</span><span class="arr">↘</span></button>
+ </div>
+ <div id="privacyDetail" class="detail" role="region" aria-live="polite"><div><span class="detail-label">Что проектируем</span><h3>Политика обработки персональных данных</h3><p>На страницах сбора данных предусматривается доступ к актуальной политике оператора и информации о реализуемых требованиях к защите ПДн.</p></div><div><ul><li>Понятная ссылка рядом с формами и в подвале сайта.</li><li>Текст от фактического оператора ПДн — не шаблон «для галочки».</li><li>Сверка с реальными целями, категориями данных и поставщиками.</li></ul></div><div class="detail-note">Правовое основание: ст. 18.1 Федерального закона № 152-ФЗ. Итоговые документы и корректность работы с ПДн подтверждает оператор совместно с юридической/ИБ-функцией.</div></div>
+ <div class="notice"><strong>Важно для рамок КП.</strong> В приложенном базовом предложении разработчика нет отдельного перечня работ по 152-ФЗ. Поэтому внедрение конкретных согласий, регламентов, настройки систем хранения и юридическая проверка должны быть закреплены в ТЗ и договоре. Сайт сам по себе не обеспечивает выполнение всех обязанностей оператора ПДн.</div>
+</section>
+<section class="screen" id="order" data-kp-section="order" aria-label="Приказ № 201">
+ <div class="scene-head"><div class="kicker">Большой блок структуры: Приказ № 201</div><h2 class="headline">Обязательная информация — не хаотичный набор PDF-файлов.</h2><p class="lead">Приказ Минпросвещения России от 14.03.2025 № 201 определяет примерную структуру официального сайта организации отдыха детей и их оздоровления и формат предоставления информации. В архитектуре сайта закладываем шесть разделов, предусмотренных приказом.</p></div>
+ <div class="tile-grid" id="orderTiles" role="group" aria-label="Разделы по Приказу 201">
+  <button class="tile selected" data-topic="o0" aria-pressed="true"><small>Структура № 201</small><strong>Об организации отдыха</strong><span class="t-desc">Сведения, документы, руководство, персонал, контакты.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="o1" aria-pressed="false"><small>Структура № 201</small><strong>Деятельность</strong><span class="t-desc">Возраст детей, даты смен, программы и материалы.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="o2" aria-pressed="false"><small>Структура № 201</small><strong>Материально-техническая база</strong><span class="t-desc">Проживание, питание, оснащение, территория.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="o3" aria-pressed="false"><small>Структура № 201</small><strong>Услуги и стоимость</strong><span class="t-desc">Порядок предоставления услуг, путёвки, документы.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="o4" aria-pressed="false"><small>Структура № 201</small><strong>Доступная среда</strong><span class="t-desc">Информация об условиях доступности.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="o5" aria-pressed="false"><small>Структура № 201</small><strong>Иная информация</strong><span class="t-desc">Сведения по решению организации или по закону.</span><span class="arr">↘</span></button>
+ </div>
+ <div class="detail" id="orderDetail" role="region" aria-live="polite"><div><span class="detail-label">Что предусмотрено в разделе</span><h3>Об организации отдыха детей и их оздоровления</h3><p>Формируем понятную точку входа в официальные сведения об учреждении. Она отделена от эмоциональных маркетинговых страниц, но остаётся доступной родителям и проверяющим.</p></div><div><ul><li>Основные сведения и контакты.</li><li>Учредительные и другие предусмотренные документы.</li><li>Руководство, педагогический и вожатский состав.</li><li>Сведения по форме и перечню, предусмотренным приказом.</li></ul></div><div class="detail-note">Наполнение — по фактически применимым требованиям приказа и предоставленным организацией достоверным материалам.</div></div>
+ <div class="content-title"><h2>Что получает руководитель</h2><p>Сайт одновременно понятен родителям и пригоден для публичного раскрытия информации</p></div><div class="label-cards"><div class="mini-card"><strong>Единая информационная архитектура</strong><p>Обязательные сведения не теряются внутри случайных страниц.</p></div><div class="mini-card"><strong>Порядок в документах</strong><p>Проверяем структуру и комплектность до публикации.</p></div><div class="mini-card"><strong>Удобное обновление</strong><p>Смена дат, персонала, документов — управляемая редакционная задача.</p></div><div class="mini-card"><strong>Прозрачность зон ответственности</strong><p>Разработчик отвечает за реализацию, организация — за достоверность сведений.</p></div></div>
+ <div class="notice"><strong>Граница ответственности.</strong> Приказ № 201 задаёт структуру и требования к представлению информации; выполнение зависит не только от шаблона сайта, но и от полноты, актуальности и формата материалов, размещённых организацией.</div>
+</section>
+<section class="screen" id="offer" data-kp-section="offer" aria-label="Состав и стоимость">
+ <div class="scene-head"><div class="kicker">Прозрачная модель покупки</div><h2 class="headline">Понятная цена за сайт с готовой основой.</h2><p class="lead">Условия ниже перенесены из приложенного КП «Детский лагерь — выкуп 26-05». Исполнитель разработки — ООО «Трэвел Лайн Групп»; CampBox сопровождает обсуждение решения. Стоимость и налоговый режим необходимо подтвердить у исполнителя перед подписанием.</p></div>
+ <div class="price-grid"><div class="price-card feature"><span class="price-tag">Базовый комплект</span><div class="price-amount">87 000 ₽</div><p>Включая НДС 5% — по исходному КП</p><div class="price-time">От 15 рабочих дней</div><div class="price-details"><div class="price-line">Готовая структура сайта, ориентированная на родителей</div><div class="price-line">Готовая тема или стилизация под фирменный стиль</div><div class="price-line">Лицензия «1С-Битрикс: Старт» и год обновлений CMS</div><div class="price-line">Домен и хостинг</div><div class="price-line">SSL-сертификат Let’s Encrypt</div></div></div><div class="price-card"><div class="option-head"><h3>Дополнительная опция</h3><span class="opt">По согласованию</span></div><div class="option-amount">+40 000 ₽</div><div class="option-price-note">Версия для слабовидящих. В том числе НДС 5% — по исходному КП.</div><div class="price-time">От 5 рабочих дней дополнительно</div><div class="section-rule"></div><h3>Когда она нужна?</h3><p>Необходимость и конкретный объём работ определяются по применимым требованиям к организации и сайту. Дополнительная версия не заменяет общую проверку доступности.</p><div class="notice"><strong>Это не отдельный сайт.</strong> Опция проектируется в контуре основного сайта, при необходимости — с отдельным этапом сдачи.</div></div></div>
+ <div class="calculator"><div class="cal-top"><div><strong>Сколько составит проект?</strong><p>Переключите состав комплекта. Это арифметика по суммам из исходного КП, не публичная оферта.</p></div><div class="switch" role="group" aria-label="Комплектация"><button class="active" data-cal="base" aria-pressed="true">Базовый</button><button data-cal="full" aria-pressed="false">С доп. опцией</button></div></div><div class="calc-result"><b id="calcAmount">87 000 ₽</b><small id="calcDesc">Разработка сайта без дополнительной версии для слабовидящих</small></div></div>
+ <div class="content-title"><h2>Что согласуем отдельно, чтобы не было сюрпризов</h2><p>В базовом PDF эти обязательства не детализированы как отдельные оплаченные работы</p></div><div class="matrix"><div class="card"><span class="scope-label">Нормативный контур</span><h3>152-ФЗ и персональные данные</h3><ul><li>Состав форм и фактические цели обработки.</li><li>Согласия, политика, сведения об обработке.</li><li>Передача в сервисы, размещение и защита данных.</li><li>Ответственные за юридическую приёмку.</li></ul></div><div class="card"><span class="scope-label">Контент и приёмка</span><h3>Приказ № 201 и публикация</h3><ul><li>Перечень обязательных страниц и подразделов.</li><li>Список документов, таблиц и материалов заказчика.</li><li>Ответственные за своевременное обновление.</li><li>Проверка наполнения по чек-листу перед запуском.</li></ul></div></div>
+ <div class="notice"><strong>Важно:</strong> мы не прибавляем к цене произвольные суммы и не утверждаем, что проект уже включает весь юридический аудит. Детальную реализацию этих пунктов надо зафиксировать в согласованном техническом задании и смете. <a href="mailto:E.petrov@camp-box.ru?subject=Запрос%20исходного%20КП%20на%20разработку%20сайта">Запросить исходное КП у менеджера ↗</a>.</div>
+</section>
+<section class="screen" id="launch" data-kp-section="launch" aria-label="Запуск и решение">
+ <div class="scene-head"><div class="kicker">Маршрут до публикации</div><h2 class="headline">От брифа до работающего сайта — с понятными контрольными точками.</h2><p class="lead">Этапы взяты из вложенной презентации разработчика и дополнены предлагаемыми точками контроля юридического и контентного блока. Нажми на этап, чтобы увидеть, что проверяем перед переходом дальше.</p></div>
+ <div class="process" id="processTiles" role="group" aria-label="Этапы запуска">
+  <button class="tile selected" data-topic="s0" aria-pressed="true"><small>Подготовка</small><strong>Бриф и материалы</strong><span class="t-desc">Оформление, контент и цели проекта.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="s1" aria-pressed="false"><small>Подготовка</small><strong>Проверка наполнения</strong><span class="t-desc">Структура, тексты, фото и документы.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="s2" aria-pressed="false"><small>Сборка</small><strong>Тестовая ссылка</strong><span class="t-desc">Сайт с переданными материалами.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="s3" aria-pressed="false"><small>Согласование</small><strong>Проверка и правки</strong><span class="t-desc">Содержательная и техническая приёмка.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="s4" aria-pressed="false"><small>Подготовка</small><strong>SEO и аналитика</strong><span class="t-desc">Яндекс и измерение обращений.</span><span class="arr">↘</span></button>
+  <button class="tile" data-topic="s5" aria-pressed="false"><small>Публикация</small><strong>Запуск и доступы</strong><span class="t-desc">Финальная проверка и передача.</span><span class="arr">↘</span></button>
+ </div>
+ <div class="detail" id="processDetail" role="region" aria-live="polite"><div><span class="detail-label">Контрольная точка</span><h3>Бриф и материалы</h3><p>Фиксируем состав сайта, выбранное оформление, контент, роли и ответственных за согласования. Отдельно уточняем реальные формы сбора данных и требования к обязательной информации.</p></div><div><ul><li>Брендбук и примеры фирменного стиля.</li><li>Структура смен, условия и программа.</li><li>Профиль организации и нормативные документы.</li></ul></div><div class="detail-note">Исходный этап из презентации: электронный опросник. Дополнительные контрольные точки предлагаются как часть согласования ТЗ.</div></div>
+ <div class="finish-panel"><div><div class="finish-manager-label">Ответственный менеджер: Евгений Петров</div><h2>Согласуем состав работ — и запускаем проект.</h2><p>Предлагаем зафиксировать структуру сайта, юридико-технические требования, состав комплекта и ответственных. После подтверждения условий можно переходить к договору и производственному графику.</p></div><div class="finish-actions"><button class="btn green" data-contact="1">Запросить обсуждение проекта ↗</button><button class="btn soft" id="downloadSummary">Скопировать параметры КП</button><button class="btn soft" data-go="offer">Вернуться к стоимости</button></div></div>
+ <div class="sources"><details><summary>Основания и ограничения предложения ↘</summary><p>Коммерческие условия и описание работы подрядчика — приложенное КП «Детский лагерь — выкуп 26-05», 8 страниц. Цена, сроки, НДС и применимость требуют подтверждения исполнителем. Исполнитель: ООО «Трэвел Лайн Групп».</p><p>Правовые основания: <a href="https://mintrud.gov.ru/docs/laws/130" target="_blank" rel="noopener">152-ФЗ, действующий текст</a>; <a href="https://base.garant.ru/411780679/" target="_blank" rel="noopener">Приказ Минпросвещения № 201 от 14.03.2025</a>. Сайт не является заключением юриста или актом проверки конкретной организации.</p><p>CampBox и TravelLine — самостоятельные компании. Интеграция сайта с платформой CampBox, автоматическая продажа и онлайн-оплата не включены в данное КП, если это отдельно не утверждено в договоре и ТЗ. Исходное предложение можно запросить у ответственного менеджера.</p></details></div>
+</section>
+</main></div></div>
+<div class="mobile-manager-bar" aria-label="Контакт менеджера"><div><strong>Евгений Петров</strong><span>Ваш менеджер CampBox</span></div><a href="tel:+79969581851" aria-label="Позвонить Евгению">Позвонить</a><button type="button" data-contact="1">Написать ↗</button></div>
+<div class="modal-backdrop" id="contactModal" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><div class="modal-head"><div><div class="kicker">Контакт по предложению</div><h2 id="contactTitle">Обсудить проект сайта</h2></div><button class="close-modal" id="closeModal" aria-label="Закрыть окно">×</button></div><p>Обсудим состав сайта, структуру по Приказу № 201, технические требования для форм и необходимые документы. Проверим применимость и актуальность цены у разработчика до подготовки договора.</p><div class="manager-modal-id"><div class="manager-modal-badge">Ваш персональный менеджер</div>
+ <strong>Евгений Петров</strong><span>Специалист отдела продаж CampBox</span></div>
+ <div class="contact-list">
+ <a href="tel:+79969581851"><span class="contact-list-icon">☎</span><span><strong>Позвонить</strong><small>+7 996 958-18-51</small></span><span aria-hidden="true">↗</span></a>
+ <a href="mailto:E.petrov@camp-box.ru?subject=%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%9A%D0%9F%20%E2%80%94%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B0%D0%B3%D0%B5%D1%80%D1%8F&body=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9%21%20%D0%9F%D1%80%D0%BE%D1%81%D0%B8%D0%BC%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%9A%D0%9F%20%D0%BD%D0%B0%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B0%D0%B3%D0%B5%D1%80%D1%8F."><span class="contact-list-icon">✉</span><span><strong>Написать на почту</strong><small>E.petrov@camp-box.ru</small></span><span aria-hidden="true">↗</span></a>
+ <a class="contact-max" href="https://max.ru/u/f9LHodD0cOLIkOxqSGim_lj0AELqa9BqgH3rdl4RKT3h6zPxCh3qIYWnv6s" target="_blank" rel="noopener noreferrer"><span class="contact-list-icon">↗</span><span><strong>Написать в MAX</strong><small>Открыть диалог с Евгением</small></span><span aria-hidden="true">↗</span></a>
+ </div><button class="btn" id="contactToOffer">Посмотреть стоимость и состав →</button></div></div>
+<script>
+(()=>{'use strict';
+const tabs=['main','benefits','privacy','order','offer','launch'];const titles=['Главное','Почему этот подход','152-ФЗ','Приказ № 201','Состав и стоимость','Запуск и решение'];
+const sidebar=document.getElementById('sidebar'),menuToggle=document.getElementById('menuToggle');
+function go(id,updateHash=true){const n=tabs.indexOf(id);if(n<0)return;document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav-btn').forEach(x=>{const active=x.dataset.go===id;x.classList.toggle('active',active);if(active)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});document.getElementById('crumb').textContent=titles[n];document.getElementById('progressText').textContent=(n+1)+' / 6';document.getElementById('progressFill').style.width=((n+1)/6*100)+'%';sidebar.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');if(updateHash)history.replaceState(null,'','#'+id);window.scrollTo({top:0,behavior:'instant'});}
+document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));menuToggle.addEventListener('click',()=>{const on=sidebar.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(on));});window.addEventListener('hashchange',()=>go(location.hash.slice(1),false));go(tabs.includes(location.hash.slice(1))?location.hash.slice(1):'main',false);
+const legal={
+ p0:{label:'Что проектируем',title:'Политика обработки персональных данных',desc:'На страницах сбора данных предусматривается доступ к актуальной политике оператора и информации о реализуемых требованиях к защите ПДн.',bullets:['Понятная ссылка рядом с формами и в подвале сайта.','Текст от фактического оператора ПДн — не шаблон «для галочки».','Сверка с реальными целями, категориями данных и поставщиками.'],note:'Правовое основание: ст. 18.1 Федерального закона № 152-ФЗ. Итоговые документы и корректность работы с ПДн подтверждает оператор совместно с юридической/ИБ-функцией.'},
+ p1:{label:'Что проектируем',title:'Отдельные и понятные согласия',desc:'Если для конкретной обработки требуется согласие, оно должно быть самостоятельным и однозначным, а не спрятанным в договор или пользовательское соглашение.',bullets:['Согласие оформляется отдельно от других подтверждаемых документов (с 01.09.2025).','Проверяем разграничение целей обработки, особенно маркетинговых.','Фиксируем возможность доказать получение согласия и его отзыв.'],note:'Ст. 9 152-ФЗ. Не вся обработка требует согласия: правовое основание выбирается по фактической цели.'},
+ p2:{label:'Что проектируем',title:'Формы собирают только нужные данные',desc:'Анкеты и формы проверяются на целесообразность полей, прозрачность цели и правовое основание обработки.',bullets:['Отделяем заявку на путёвку от чувствительных анкет и медицинских документов.','Сведения о ребёнке не запрашиваются без проверенной необходимости.','Фиксируем сроки, способы обработки и маршрут данных после отправки.'],note:'Сбор детских и специальных категорий данных потребует отдельной проверки оснований и организационных мер.'},
+ p3:{label:'Что проектируем',title:'Контроль внешних сервисов',desc:'До подключения метрики, CRM, чатов и платёжных виджетов составляем карту передач данных и проверяем условия поставщиков.',bullets:['Уточняем, кому уходят данные из каждой формы.','Проверяем условия поручения обработки и возможные трансграничные передачи.','Определяем, какие уведомления и документы действительно необходимы.'],note:'Точные настройки зависят от выбранного стека и подрядчиков; внешние интеграции не входят в базовую цену автоматически.'},
+ p4:{label:'Что проектируем',title:'Защита данных не заканчивается на SSL',desc:'SSL шифрует передачу по сети, но сам по себе не закрывает все обязанности по персональным данным.',bullets:['Разграничение административных доступов и учёт ответственных.','Резервирование, обновления и меры защиты — по применимому уровню риска.','Проверка требований локализации баз данных граждан РФ при сборе через интернет.'],note:'Требования к информационной системе и конкретные меры защиты подтверждаются после технического обследования и согласования инфраструктуры.'},
+ p5:{label:'Что проектируем',title:'Контрольный список до открытия сайта',desc:'Формируем перечень задач для согласования с ответственным за ПДн, юридической службой и разработчиком.',bullets:['Сверка политики, согласий, фактических форм и внутренних документов.','Ответственность за ответы субъектам и возможные уведомления регулятору.','Тесты ссылок, чекбоксов, отказов и невозможности отправить обязательные согласия с ошибкой.'],note:'Это проектный чек-лист, не заключение о полном соответствии оператора требованиям 152-ФЗ.'}
+};
+const order={
+ o0:{label:'Раздел Приказа № 201',title:'Об организации отдыха детей и их оздоровления',desc:'Формируем понятную точку входа в официальные сведения об учреждении. Она отделена от маркетинговых страниц, но доступна родителям и проверяющим.',bullets:['Основные сведения и контакты.','Учредительные и другие предусмотренные документы.','Руководство, педагогический и вожатский состав.','Сведения по форме и перечню, предусмотренным приказом.'],note:'Наполнение — по фактически применимым требованиям приказа и достоверным материалам организации.'},
+ o1:{label:'Раздел Приказа № 201',title:'Деятельность',desc:'Отдельный раздел о фактической работе лагеря, доступный из основной навигации.',bullets:['Возрастные категории принимаемых детей.','Даты смен на календарный год.','Дополнительные образовательные и оздоровительные программы (при наличии).','Методические разработки (при наличии).'],note:'Актуальность расписания и программ обеспечивает организация.'},
+ o2:{label:'Раздел Приказа № 201',title:'Материально-техническое обеспечение и оснащённость',desc:'Не рекламная галерея без контекста, а содержательное описание условий и оснащения.',bullets:['Проживание и питание детей.','Образовательные и спортивные объекты.','Объекты и территория для оздоровительной деятельности (при наличии).','Сведения об эксплуатации и ремонте объектов для стационарных организаций.'],note:'Полнота зависит от фактической инфраструктуры и категории лагеря.'},
+ o3:{label:'Раздел Приказа № 201',title:'Услуги, в том числе платные',desc:'Родителю понятно, какие услуги доступны и какие документы потребуются.',bullets:['Порядок оказания платных услуг.','Стоимость путёвки и средняя стоимость дня пребывания.','Перечень необходимых документов ребёнка.','Сведения о компенсациях и других условиях в применимых случаях.'],note:'Конкретный перечень раскрываемых сведений сверяется с полным текстом приказа.'},
+ o4:{label:'Раздел Приказа № 201',title:'Доступная среда',desc:'Публикуем сведения об условиях доступности с учётом реальных возможностей организации.',bullets:['Доступность объектов и территории.','Условия пребывания для детей с ОВЗ и инвалидностью.','Сопровождение и техническая помощь — при наличии и применимости.','Дополнительные сведения по структуре приказа.'],note:'Веб-версия для слабовидящих и физическая доступность объектов — разные задачи.'},
+ o5:{label:'Раздел Приказа № 201',title:'Иная информация',desc:'Предусматриваем место для сведений, которые организация решит размещать или обязана публиковать по другим нормам.',bullets:['Дополнительные сведения по решению организации.','Материалы, обязательные по другим правовым основаниям.','Удобное обновление без переработки навигации.'],note:'Приказ прямо предусматривает этот раздел в случаях, когда размещение информации требуется или выбрано организацией.'}
+};
+const steps={
+ s0:{label:'Контрольная точка',title:'Бриф и материалы',desc:'Фиксируем состав сайта, оформление, контент, роли и ответственных. Отдельно уточняем реальные формы сбора данных и обязательную информацию.',bullets:['Брендбук и примеры фирменного стиля.','Структура смен, условия и программы.','Профиль организации и нормативные документы.'],note:'Исходный этап из презентации: электронный опросник. Контроль нормативных задач предлагается согласовать в ТЗ.'},
+ s1:{label:'Контрольная точка',title:'Проверка содержания',desc:'Разработчик проверяет полноту переданных материалов, качество изображений и согласованность визуального оформления.',bullets:['Сверяем обязательные страницы по Приказу № 201.','Проверяем владельцев и актуальность документов.','Выявляем недостающие материалы до сборки.'],note:'Структура проверки доработана для КП; детальный юридический аудит требует отдельного согласования.'},
+ s2:{label:'Контрольная точка',title:'Тестовая версия',desc:'Получаем рабочую ссылку для проверки дизайна, разделов и пользовательских сценариев.',bullets:['Переходы по меню и доступность документов.','Поведение сайта на мобильных экранах.','Предпросмотр форм и согласованных сценариев.'],note:'Факт готовности конкретных интеграций зависит от закреплённого объёма работ.'},
+ s3:{label:'Контрольная точка',title:'Проверка и правки',desc:'Заказчик проверяет промежуточный результат; команда вносит согласованные замечания.',bullets:['Проверка фактов, фамилий, графиков, дат, цен.','Тесты форм и обязательных согласий по ТЗ.','Проверка структуры документов и навигации.'],note:'Финальная юридическая и содержательная приёмка остаётся в зоне ответственных лиц организации.'},
+ s4:{label:'Контрольная точка',title:'SEO и аналитика',desc:'По КП подрядчик выполняет SEO-подготовку, работу с карточками в Яндексе и настройку воронки Яндекс Метрики.',bullets:['Проверяем заголовки и базовую поисковую доступность.','Определяем цели аналитики и источники обращения.','Перед запуском метрики согласуем её обработку данных.'],note:'Не обещаем позиции в поиске, рост конверсии в процентах или автоматическую интеграцию с CampBox.'},
+ s5:{label:'Контрольная точка',title:'Публикация и передача',desc:'Согласовываем дату запуска, проверяем открытый сайт, передаём доступы по условиям договора.',bullets:['Контроль публикации документов и форм.','Проверка HTTPS, мобильной версии и главных сценариев.','Передача доступов к сайту и хостингу; план дальнейших обновлений.'],note:'Срок от 15 рабочих дней начинается и исчисляется по правилам, согласованным в договоре.'}
+};
+function renderDetail(id,map,container){const d=map[id];if(!d)return;container.innerHTML='<div><span class="detail-label">'+d.label+'</span><h3>'+d.title+'</h3><p>'+d.desc+'</p></div><div><ul>'+d.bullets.map(t=>'<li>'+t+'</li>').join('')+'</ul></div><div class="detail-note">'+d.note+'</div>';}
+function bindTiles(groupId,map,detailId){let group=document.getElementById(groupId),out=document.getElementById(detailId);group.querySelectorAll('.tile').forEach(b=>b.addEventListener('click',()=>{group.querySelectorAll('.tile').forEach(x=>{let yes=x===b;x.classList.toggle('selected',yes);x.setAttribute('aria-pressed',String(yes));});renderDetail(b.dataset.topic,map,out)}));}
+bindTiles('privacyTiles',legal,'privacyDetail');bindTiles('orderTiles',order,'orderDetail');bindTiles('processTiles',steps,'processDetail');
+document.querySelectorAll('[data-cal]').forEach(b=>b.addEventListener('click',()=>{const full=b.dataset.cal==='full';document.querySelectorAll('[data-cal]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});document.getElementById('calcAmount').textContent=full?'127 000 ₽':'87 000 ₽';document.getElementById('calcDesc').textContent=full?'Сайт + версия для слабовидящих, по ценам исходного КП':'Разработка сайта без дополнительной версии для слабовидящих'}));
+const modal=document.getElementById('contactModal'),closeModal=document.getElementById('closeModal');let focusBack=null;function openContact(){focusBack=document.activeElement;modal.classList.add('open');document.body.style.overflow='hidden';closeModal.focus()}function closeContact(){modal.classList.remove('open');document.body.style.overflow='';if(focusBack)focusBack.focus()}
+document.querySelectorAll('[data-contact]').forEach(el=>el.addEventListener('click',openContact));closeModal.addEventListener('click',closeContact);modal.addEventListener('click',e=>{if(e.target===modal)closeContact()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeContact();if(e.key==='Tab'&&modal.classList.contains('open')){const els=[...modal.querySelectorAll('button,a[href]')].filter(x=>x.offsetParent!==null);if(!els.length)return;let first=els[0],last=els[els.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});document.getElementById('contactToOffer').addEventListener('click',()=>{closeContact();go('offer')});
+document.getElementById('downloadSummary').addEventListener('click',async()=>{const val='Коммерческое предложение на сайт детского лагеря (по PDF «Детский лагерь — выкуп 26-05»): базовый сайт — 87 000 ₽ (НДС 5% по исходному КП), срок от 15 рабочих дней. Версия для слабовидящих — дополнительно 40 000 ₽, от 5 рабочих дней. Исполнитель сайта: ООО «Трэвел Лайн Групп». Условия требуют подтверждения; требования 152-ФЗ и наполнение по Приказу № 201 — в согласуемом ТЗ. Связь: Евгений Петров, +7 996 958-18-51, E.petrov@camp-box.ru.';try{await navigator.clipboard.writeText(val);const b=document.getElementById('downloadSummary');b.textContent='Параметры скопированы ✓';setTimeout(()=>b.textContent='Скопировать параметры КП',2300)}catch(e){prompt('Скопируйте параметры КП',val)}});
+})();
+</script>
+
+<!-- Height and navigation bridge for the approved T123 GitHub Pages route. -->
+<script>
+(function(){'use strict';
+  if(!document.documentElement.classList.contains('cb-embed'))return;
+  const slug="site-development-offer";
+  let lastHeight=0,measureQueued=false;
+  function sendHeight(){
+    if(measureQueued)return;
+    measureQueued=true;
+    requestAnimationFrame(function(){
+      measureQueued=false;
+      const blocks=['.app','.mobile-manager-bar'].map(function(sel){return document.querySelector(sel)}).filter(Boolean);
+      const newHeight=Math.max.apply(null,blocks.map(function(el){return el.getBoundingClientRect().bottom + window.scrollY})) + 8;
+      if(!Number.isFinite(newHeight)||newHeight<1)return;
+      if(Math.abs(newHeight-lastHeight)<2)return;
+      lastHeight=Math.ceil(newHeight);
+      parent.postMessage({type:'campbox-audit-height',slug:slug,height:lastHeight},'*');
+    });
+  }
+  function parentScroll(){
+    parent.postMessage({type:'campbox-audit-scroll-top',slug:slug},'*');
+  }
+  document.addEventListener('click',function(event){
+    const clickable=event.target&&event.target.closest&&event.target.closest('[data-go],[data-contact],#contactToOffer');
+    if(clickable)parentScroll();
+    setTimeout(sendHeight,0);setTimeout(sendHeight,180);setTimeout(sendHeight,470);
+  },true);
+  window.addEventListener('load',sendHeight);
+  window.addEventListener('resize',sendHeight);
+  window.addEventListener('hashchange',sendHeight);
+  document.addEventListener('DOMContentLoaded',sendHeight);
+  if(window.ResizeObserver){
+    const observer=new ResizeObserver(sendHeight);
+    ['.canvas','.app','.modal-backdrop'].forEach(function(sel){let el=document.querySelector(sel);if(el)observer.observe(el)});
+  }
+  const content=document.querySelector('.canvas');
+  if(content&&window.MutationObserver){
+    new MutationObserver(sendHeight).observe(content,{subtree:true,attributes:true,childList:true,characterData:true});
+  }
+  sendHeight();setTimeout(sendHeight,160);setTimeout(sendHeight,650);
+})();
+</script>
+</body></html>
