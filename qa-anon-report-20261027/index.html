@@ -32,6 +32,29 @@
 <article class="panel"><div class="panel-heading"><div><h3>Какие разделы смотрят</h3><p>Количество открытий каждого раздела</p></div></div><div id="section-chart" class="barlist"></div></article>
 <article class="panel"><div class="panel-heading"><div><h3>Какие действия совершают</h3><p>События, прошедшие проверку согласия</p></div></div><div id="event-list" class="eventlist"></div></article>
 </div>
+
+<section class="deep-section" aria-labelledby="detail-title">
+  <div class="details-heading">
+    <div><div class="eyebrow">ГЛУБИНА ИНТЕРЕСА</div><h2 id="detail-title">Где нажимают и что изучают</h2><p>Расположение действий по разделам и элементам КП. Счётчики нажатий, не число клиентов.</p></div>
+  </div>
+  <div class="panel heat-panel">
+    <div class="panel-heading"><div><h3>Карта активности разделов</h3><p>Чем насыщеннее ячейка, тем больше зарегистрированных действий</p></div><div class="heat-note">Относительная интенсивность</div></div>
+    <div class="heat-scroll"><table class="heat-table" aria-label="Активность по разделам КП">
+      <thead><tr><th scope="col">Раздел КП</th><th scope="col">Просмотры</th><th scope="col">Нажатия</th><th scope="col">Контакты</th><th scope="col">Стоимость</th></tr></thead>
+      <tbody id="heat-body"></tbody>
+    </table></div>
+    <p class="heat-foot">Это карта интенсивности действий, а не тепловая карта координат и не путь одного посетителя.</p>
+  </div>
+  <div class="panel clicks-panel">
+    <div class="panel-heading"><div><h3>На какие элементы нажимали</h3><p>Названия кнопок и карточек расшифрованы из HTML КП</p></div></div>
+    <div class="click-filter-row"><label for="click-section">Раздел</label><select id="click-section"><option value="all">Все разделы</option><option value="main">Главное</option><option value="benefits">Почему этот подход</option><option value="privacy">152-ФЗ</option><option value="order">Приказ № 201</option><option value="offer">Состав и стоимость</option><option value="launch">Запуск и решение</option></select></div>
+    <div class="clicks-scroll"><table class="clicks-table" aria-label="Действия по элементам">
+      <thead><tr><th scope="col">Элемент / кнопка</th><th scope="col">Раздел при событии</th><th scope="col">Нажатий</th></tr></thead>
+      <tbody id="clicked-elements"></tbody>
+    </table></div>
+    <p class="heat-foot">Переход к разделу может быть нажатием в меню или кнопкой внутри КП: ранние события их не различают. Для карточек внутри разделов название определяется точно.</p>
+  </div>
+</section>
 <article class="panel timeline"><div class="panel-heading"><div><h3>Активность по дням</h3><p>Обезличенные события, группировка по UTC</p></div></div><div id="day-chart" class="daily"></div></article>
 <p class="report-notice">Это тестовые события, включая автоматические проверки. Число действий не означает число посетителей. Персональная аналитика по лагерям, KPI продаж и кабинет руководителя пока не подключены.</p>
 </section>
