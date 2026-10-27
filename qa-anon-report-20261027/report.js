@@ -95,6 +95,7 @@ async function refresh(){
  const data=await r.json();
  if(data.ok!==true||data.personal_attribution!==false)throw Error('Получены неверные данные отчёта.');
  render(data);
+ await refreshJourneys(days);
 }
 async function tryRefresh(){
  if(busy)return;loading(true);try{await refresh()}catch(e){message('report-error',e instanceof Error?e.message:'Ошибка запроса')}finally{loading(false)}
@@ -131,6 +132,62 @@ function render(d){
   add(col,'small','',String(v.day).slice(5));
  }
 }
+
+let currentVisits=[];
+async function refreshJourneys(dayRange){
+ const period=dayRange===30?7:dayRange;
+ message('journey-error','');
+ try{
+  const response=await fetch(API,{method:'POST',
+   headers:{'Authorization':'Bearer '+token,apikey:KEY,'Content-Type':'application/json'},
+   body:JSON.stringify({action:'journeys',days:period}),credentials:'omit',cache:'no-store',redirect:'error'});
+  if(!response.ok)throw Error('Маршруты тестовых посещений сейчас недоступны.');
+  const data=await response.json();
+  if(data.ok!==true||data.personal_attribution!==false||!Array.isArray(data.visits))throw Error('Не удалось проверить данные маршрутов.');
+  currentVisits=data.visits;
+  $('journey-total').textContent='Посещений с новым отслеживанием: '+(Number(data.total_test_visits)||0);
+  $('journey-subtitle').textContent='Маршруты за '+(period===1?'24 часа':'7 дней')+' · последние 12 тестовых посещений';
+  const list=$('journey-visit');list.replaceChildren();list.disabled=currentVisits.length===0;
+  if(!currentVisits.length){add(list,'option','','Нет данных');$('journey-stats').hidden=true;
+   $('journey-steps').replaceChildren();add($('journey-steps'),'div','empty','Ожидаем первые события нового тестового отслеживания.');return}
+  currentVisits.forEach((v,i)=>{const o=add(list,'option','','Тестовое посещение №'+v.number);o.value=String(i)});
+  list.value='0';renderVisit();
+ }catch(err){currentVisits=[];message('journey-error',err instanceof Error?err.message:'Маршруты недоступны');}
+}
+function renderVisit(){
+ const i=Number($('journey-visit').value),v=currentVisits[i];
+ if(!v)return;
+ $('journey-stats').hidden=false;
+ $('journey-time').textContent=Math.round(Number(v.active_seconds)||0)+' сек';
+ $('journey-depth').textContent=(Number(v.max_scroll)||0)+'%';
+ $('journey-actions').textContent=String(Number(v.total_actions)||0);
+ const wrap=$('journey-steps');wrap.replaceChildren();
+ const actionTitles={section:'Перешёл в раздел',pricing:'Посмотрел стоимость',click:'Нажал на элемент',
+ scroll:'Достиг глубины просмотра',dwell:'Активно изучал раздел',
+ modal_open:'Открыл окно связи',modal_close:'Закрыл окно связи'};
+ const kinds={nav:'пункт меню',button:'кнопка',tile:'карточка',calculator:'калькулятор',contact:'контакт',modal:'кнопка в окне'};
+ const rows=Array.isArray(v.steps)?v.steps:[];
+ if(!rows.length){add(wrap,'div','empty','В этом тестовом посещении пока нет событий.');return}
+ for(const item of rows){
+  if(!item||!Object.prototype.hasOwnProperty.call(actionTitles,item.action))continue;
+  const section=sections[item.section]||'Раздел КП';
+  const detail=add(wrap,'div','journey-step');
+  const t=new Date(item.time);add(detail,'div','journey-time',Number.isNaN(t.getTime())?'—':t.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',second:'2-digit'}));
+  add(detail,'div','journey-line');
+  const copy=add(detail,'div','journey-text');
+  let label=actionTitles[item.action],note=section;
+  if(item.action==='click'){
+   const desc=buttonDescription({target_key:item.target,event_name:'cta_click'});
+   label=desc.name;
+   note=section+' · '+(kinds[item.element]||'интерактивный элемент');
+  }
+  if(item.action==='scroll')label='Просмотрено примерно '+(Number(item.scroll)||0)+'% раздела';
+  if(item.action==='dwell')label='Активное время: '+(Number(item.dwell_seconds)||0)+' сек';
+  add(copy,'strong','',label);add(copy,'span','',note);
+ }
+}
+$('journey-visit').addEventListener('change',renderVisit);
+
 $('login-form').addEventListener('submit',signIn);
 $('logout').addEventListener('click',logout);
 $('refresh').addEventListener('click',tryRefresh);
