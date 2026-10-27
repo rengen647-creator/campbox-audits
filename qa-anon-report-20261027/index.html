@@ -55,6 +55,27 @@
     <p class="heat-foot">Переход к разделу может быть нажатием в меню или кнопкой внутри КП: ранние события их не различают. Для карточек внутри разделов название определяется точно.</p>
   </div>
 </section>
+
+<section class="journey" aria-labelledby="journey-title">
+ <div class="details-heading"><div class="eyebrow">МАРШРУТЫ ТЕСТОВЫХ ПОСЕЩЕНИЙ</div>
+ <h2 id="journey-title">Как изучали КП по шагам</h2>
+ <p>Порядок нажатий, переходов, активное время и глубина просмотра — только после отдельного согласия.</p></div>
+ <div class="panel">
+  <div class="journey-controls">
+   <div><strong id="journey-total">Посещений с новым отслеживанием: —</strong><p id="journey-subtitle">Период маршрутов: не более 7 дней</p></div>
+   <div class="journey-select"><label for="journey-visit">Посещение</label><select id="journey-visit" disabled><option>Нет данных</option></select></div>
+  </div>
+  <div id="journey-error" class="error" role="alert" hidden></div>
+  <div id="journey-stats" class="journey-metrics" hidden>
+   <div><span>Активное время</span><strong id="journey-time">—</strong></div>
+   <div><span>Максимальная прокрутка</span><strong id="journey-depth">—</strong></div>
+   <div><span>Действий</span><strong id="journey-actions">—</strong></div>
+  </div>
+  <div id="journey-steps" class="journey-steps"><div class="empty">Новые тестовые посещения пока не зарегистрированы.</div></div>
+  <p class="heat-foot">«Посещение №» — случайная сессия браузера, не уникальный клиент и не конкретный лагерь. Время считается только при активной вкладке, глубина — приблизительно. Старые события задним числом в маршрут не превращаются.</p>
+ </div>
+</section>
+
 <article class="panel timeline"><div class="panel-heading"><div><h3>Активность по дням</h3><p>Обезличенные события, группировка по UTC</p></div></div><div id="day-chart" class="daily"></div></article>
 <p class="report-notice">Это тестовые события, включая автоматические проверки. Число действий не означает число посетителей. Персональная аналитика по лагерям, KPI продаж и кабинет руководителя пока не подключены.</p>
 </section>
