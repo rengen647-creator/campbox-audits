@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://yvhnezmpxyftqbybmnfn.supabase.co; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+<title>CampBox — тестовая аналитика КП</title>
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./report.js"></script>
+</head><body>
+<div class="shell">
+<header class="topbar"><div class="brand"><div class="logo">CB<span>•</span></div><div><strong>CampBox</strong><small>Аналитика коммерческих предложений</small></div></div><div class="top-tag">ТЕСТОВАЯ СРЕДА · БЕЗ КЛИЕНТОВ</div></header>
+<main class="container">
+<div class="intro"><div class="eyebrow">CAMPBOX / QA ANALYTICS</div><h1>Как изучают наши предложения</h1><p>Сводка действий на тестовой странице Тильды. Без персональных ссылок, имён посетителей и сведений о лагерях.</p></div>
+<section id="login-view" class="login-grid">
+<div class="login-card"><div class="section-kicker">ДОСТУП СОТРУДНИКА</div><h2>Войти в тестовую аналитику</h2><p>Вход только для активных менеджеров и руководителей тестового Supabase.</p>
+<form id="login-form" autocomplete="off"><label for="email">Почта тестового сотрудника</label><input id="email" name="email" type="email" autocomplete="off" required placeholder="qa@example.com">
+<label for="password">Пароль тестовой учётной записи</label><input id="password" name="password" type="password" autocomplete="off" required placeholder="Введите пароль">
+<button type="submit" id="login-button" class="primary">Войти и открыть отчёт</button></form>
+<p class="error" role="alert" id="login-error" hidden></p><div class="fine">Используй только тестовую учётную запись. Пароль отправляется непосредственно в тестовый Supabase, не сохраняется на этой странице.</div></div>
+<aside class="aside-card"><span class="aside-icon">↗</span><h3>От открытия до интереса</h3><p>Отчёт ответит на три вопроса: какие разделы открывают, доходят ли до стоимости и нажимают ли на контакты.</p><div class="separate"><strong>Отдельная тестовая база</strong><span>Текущие действия на странице не сопоставляются с получателями КП.</span></div></aside>
+</section>
+<section id="report-view" hidden aria-label="Тестовая сводка КП">
+<div class="tools"><div><h2>Обзор действий</h2><p id="refreshed-at">Данные тестового Supabase</p></div><div class="tool-actions"><label for="days">Период</label><select id="days"><option value="1">24 часа</option><option value="7" selected>7 дней</option><option value="30">30 дней</option></select><button type="button" class="secondary" id="refresh">Обновить</button><button type="button" class="outline" id="logout">Выйти</button></div></div>
+<div id="report-error" role="alert" class="error" hidden></div>
+<div class="metrics">
+<div class="metric"><span>Всего действий</span><strong id="metric-total">—</strong><small>Не уникальные посетители</small></div>
+<div class="metric"><span>Открытия разделов</span><strong id="metric-sections">—</strong><small>Переходы внутри КП</small></div>
+<div class="metric"><span>Интерес к стоимости</span><strong id="metric-pricing">—</strong><small>Просмотры стоимости</small></div>
+<div class="metric"><span>Контактные действия</span><strong id="metric-contact">—</strong><small>Контакты и окна связи</small></div>
+</div>
+<div class="cols">
+<article class="panel"><div class="panel-heading"><div><h3>Какие разделы смотрят</h3><p>Количество открытий каждого раздела</p></div></div><div id="section-chart" class="barlist"></div></article>
+<article class="panel"><div class="panel-heading"><div><h3>Какие действия совершают</h3><p>События, прошедшие проверку согласия</p></div></div><div id="event-list" class="eventlist"></div></article>
+</div>
+<article class="panel timeline"><div class="panel-heading"><div><h3>Активность по дням</h3><p>Обезличенные события, группировка по UTC</p></div></div><div id="day-chart" class="daily"></div></article>
+<p class="report-notice">Это тестовые события, включая автоматические проверки. Число действий не означает число посетителей. Персональная аналитика по лагерям, KPI продаж и кабинет руководителя пока не подключены.</p>
+</section>
+</main><footer>CampBox · QA only · Данные из изолированного тестового проекта · Основные системы не затронуты</footer>
+</div>
+</body></html>
