@@ -9,6 +9,56 @@ const names={
 section_view:'Открытие раздела',pricing_view:'Просмотр стоимости',modal_open:'Открытие окна',modal_close:'Закрытие окна',cta_click:'Нажатие кнопки',contact_click:'Нажатие на контакты'
 };
 const sections={main:'Главное',benefits:'Почему этот подход',privacy:'152-ФЗ',order:'Приказ № 201',offer:'Состав и стоимость',launch:'Запуск и решение'};
+
+const targetLabels={
+ contact:'Связаться с менеджером',details:'Контактное окно',calc_base:'Калькулятор: базовый комплект',calc_full:'Калькулятор: с дополнительной опцией',
+ p0:'Политика обработки ПДн',p1:'Отдельные согласия',p2:'Минимум необходимых данных',p3:'Аналитика и сторонние сервисы',p4:'Доступ, хранение, защита',p5:'Реестр и проверка перед запуском',
+ o0:'Об организации отдыха',o1:'Деятельность',o2:'Материально-техническая база',o3:'Услуги и стоимость',o4:'Доступная среда',o5:'Иная информация',
+ s0:'Бриф и материалы',s1:'Проверка наполнения',s2:'Тестовая ссылка',s3:'Проверка и правки',s4:'SEO и аналитика',s5:'Запуск и доступы'
+};
+let clickedRows=[];
+function buttonDescription(row){
+ const dest=row.target_key||'';
+ if(Object.prototype.hasOwnProperty.call(sections,dest))return {name:'Переход → '+sections[dest],kind:'Пункт меню или кнопка перехода'};
+ if(Object.prototype.hasOwnProperty.call(targetLabels,dest))return {name:targetLabels[dest],kind:row.event_name==='contact_click'?'Контактная кнопка':dest.startsWith('calc_')?'Переключатель калькулятора':'Интерактивный элемент'};
+ return {name:'Неизвестный элемент',kind:'Без расшифровки'};
+}
+function updateDetailedReport(data){
+ clickedRows=Array.isArray(data.by_button)?data.by_button.filter(r=>
+   r&&Number.isFinite(r.count)&&r.count>0&&
+   (Object.prototype.hasOwnProperty.call(targetLabels,r.target_key)||
+   Object.prototype.hasOwnProperty.call(sections,r.target_key))):[];
+ renderButtons();
+ const body=$('heat-body');body.replaceChildren();
+ const metrics=Array.isArray(data.heat_sections)?data.heat_sections:[];
+ const max=Math.max(1,...metrics.flatMap(r=>[r.views,r.clicks,r.contact,r.pricing].map(v=>Number(v)||0)));
+ for(const [key,name] of Object.entries(sections)){
+  const row=metrics.find(r=>r.section_key===key)||{};
+  const tr=add(body,'tr');const heading=add(tr,'td','',name);
+  heading.setAttribute('scope','row');
+  for(const prop of ['views','clicks','contact','pricing']){
+   const td=add(tr,'td');const n=Math.max(0,Math.floor(Number(row[prop])||0));
+   const level=n===0?0:Math.min(4,Math.max(1,Math.ceil(4*n/max)));
+   const el=add(td,'span','heat-pill level-'+level,n);
+   el.setAttribute('aria-label',name+': '+n+' '+prop);
+  }
+ }
+}
+function renderButtons(){
+ const body=$('clicked-elements');body.replaceChildren();
+ const filter=$('click-section').value;
+ const rows=clickedRows.filter(r=>filter==='all'||r.section_key===filter);
+ if(!rows.length){const tr=add(body,'tr');const td=add(tr,'td','click-empty','Для выбранного раздела нажатий пока нет.');td.colSpan=3;return}
+ for(const r of rows){
+  const tr=add(body,'tr');
+  const detail=buttonDescription(r);
+  const title=add(tr,'td');
+  add(title,'div','click-title',detail.name);add(title,'span','click-kind',detail.kind);
+  add(tr,'td','click-section',sections[r.section_key]||'Раздел не определён');
+  add(tr,'td','',Math.max(0,Math.floor(Number(r.count)||0)));
+ }
+}
+
 function message(id,text){const el=$(id);el.hidden=!text;el.textContent=text||'';}
 function showReport(active){$('login-view').hidden=active;$('report-view').hidden=!active;}
 function loading(state){busy=state;$('login-button').disabled=state;$('refresh').disabled=state;$('days').disabled=state;}
@@ -69,6 +119,7 @@ function render(d){
  for(const [key,label] of Object.entries(names)){
   const row=add(events,'div','event-row');add(row,'span','',label);add(row,'strong','',Number(vals[key])||0);
  }
+ updateDetailedReport(d);
  const chart=$('day-chart');chart.replaceChildren();
  const days=Array.isArray(d.by_day)?d.by_day:[];
  if(days.length===0){add(chart,'div','empty','За выбранный период событий пока нет.');return}
@@ -84,5 +135,6 @@ $('login-form').addEventListener('submit',signIn);
 $('logout').addEventListener('click',logout);
 $('refresh').addEventListener('click',tryRefresh);
 $('days').addEventListener('change',tryRefresh);
+$('click-section').addEventListener('change',renderButtons);
 window.opener=null;
 })();
