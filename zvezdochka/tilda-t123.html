@@ -1,0 +1,54 @@
+<!-- CampBox | «Звёздочка» | GitHub Pages → Tilda T123 -->
+<div id="campbox-zvezdochka-embed">
+  <iframe
+    id="campbox-zvezdochka-frame"
+    title="«Звёздочка» — аудит сайта: 152-ФЗ, приказ №201, SEO, GEO и ИИ"
+    src="https://rengen647-creator.github.io/campbox-audits/zvezdochka/"
+    width="100%"
+    height="1100"
+    loading="eager"
+    scrolling="auto"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="display:block;width:100%;height:1100px;border:0;background:#F6FBF6"
+  ></iframe>
+</div>
+<style>
+  #campbox-zvezdochka-embed {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - 2px);
+    max-width: calc(100vw - 2px);
+    margin: 0;
+    overflow: hidden;
+    background: #F6FBF6;
+  }
+  #campbox-zvezdochka-frame { display:block; border:0; width:100%; }
+</style>
+<script>
+(function () {
+  'use strict';
+  var frame = document.getElementById('campbox-zvezdochka-frame');
+  var wrapper = document.getElementById('campbox-zvezdochka-embed');
+  var allowedOrigin = 'https://rengen647-creator.github.io';
+  window.addEventListener('message', function (event) {
+    if (event.origin !== allowedOrigin || event.source !== frame.contentWindow) return;
+    var data = event.data;
+    if (!data || data.channel !== 'campbox-zvezdochka-v1') return;
+    if (data.kind === 'resize') {
+      var h = Number(data.height);
+      if (Number.isFinite(h) && h >= 360 && h < 100000) {
+        var nextHeight = Math.ceil(h);
+        if (Math.abs((parseInt(frame.style.height, 10) || 0) - nextHeight) >= 3) {
+          frame.style.height = nextHeight + 'px';
+          frame.setAttribute('height', String(nextHeight));
+        }
+      }
+    }
+    if (data.kind === 'navigate') {
+      var y = wrapper.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({top: Math.max(0, y), behavior: 'smooth'});
+    }
+  });
+})();
+</script>
