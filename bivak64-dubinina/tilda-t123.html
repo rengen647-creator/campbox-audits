@@ -1,0 +1,27 @@
+<!-- CampBox · Бивак 64 / им. В. Дубинина · Tilda T123 -->
+<div id="cb-bivak64-embed" style="width:100%;max-width:100%;overflow:hidden">
+  <iframe id="cb-bivak64-frame"
+    src="https://rengen647-creator.github.io/campbox-audits/bivak64-dubinina/"
+    title="CampBox — Бивак 64 и лагерь им. В. Дубинина: предложение и аудит"
+    loading="eager" scrolling="no" allowfullscreen
+    style="width:100%;height:1100px;min-height:900px;border:0;display:block;background:#F5F7F3;overflow:hidden"
+  ></iframe>
+</div>
+<script>
+(function(){
+  'use strict';
+  var frame=document.getElementById('cb-bivak64-frame');
+  if(!frame)return;
+  var trustedOrigin='https://rengen647-creator.github.io';
+  function resize(event){
+    if(event.origin!==trustedOrigin || event.source!==frame.contentWindow)return;
+    var data=event.data;
+    if(!data || data.type!=='campbox-audit-height' || data.slug!=='bivak64-dubinina')return;
+    var n=Number(data.height);
+    if(!Number.isFinite(n))return;
+    var newHeight=Math.min(30000,Math.max(900,Math.ceil(n)+8));
+    if(Math.abs(frame.offsetHeight-newHeight)>4)frame.style.height=newHeight+'px';
+  }
+  window.addEventListener('message',resize,false);
+})();
+</script>
