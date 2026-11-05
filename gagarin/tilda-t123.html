@@ -1,0 +1,61 @@
+<!-- CampBox | Лагерь им. Ю. А. Гагарина | GitHub Pages → Tilda T123 -->
+<div id="campbox-gagarin-embed">
+  <iframe
+    id="campbox-gagarin-frame"
+    src="https://rengen647-creator.github.io/campbox-audits/gagarin/"
+    title="Аудит сайта лагеря им. Ю. А. Гагарина — 152-ФЗ и приказ № 201"
+    loading="eager"
+    scrolling="no"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="display:block;width:100%;height:1050px;border:0;background:#F5F7F3;overflow:hidden"
+  ></iframe>
+  <noscript><a href="https://rengen647-creator.github.io/campbox-audits/gagarin/" target="_blank" rel="noopener noreferrer">Открыть аудит в отдельной вкладке</a></noscript>
+</div>
+<style>
+  #campbox-gagarin-embed {
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100vw - 2px);
+    max-width:calc(100vw - 2px);
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#F5F7F3;
+  }
+  #campbox-gagarin-frame {
+    display:block;
+    width:100%;
+    border:0;
+    max-width:100%;
+  }
+</style>
+<script>
+(function () {
+  'use strict';
+  var frame = document.getElementById('campbox-gagarin-frame');
+  var wrap = document.getElementById('campbox-gagarin-embed');
+  if (!frame || !wrap) return;
+
+  var trustedOrigin = 'https://rengen647-creator.github.io';
+
+  window.addEventListener('message', function (event) {
+    if (event.origin !== trustedOrigin || event.source !== frame.contentWindow) return;
+    var data = event.data;
+    if (!data || data.slug !== 'gagarin') return;
+
+    if (data.type === 'campbox-audit-height') {
+      var height = Number(data.height);
+      if (!Number.isFinite(height) || height < 360 || height > 45000) return;
+      var next = Math.ceil(height) + 4;
+      var current = parseInt(frame.style.height, 10) || 0;
+      if (Math.abs(current - next) >= 4) frame.style.height = next + 'px';
+    }
+
+    if (data.type === 'campbox-audit:navigate') {
+      var y = wrap.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+    }
+  }, false);
+})();
+</script>
