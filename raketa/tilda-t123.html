@@ -1,0 +1,56 @@
+<!-- CampBox | Лагерь «Ракета» | GitHub Pages → Tilda / T123 -->
+<div id="campbox-raketa-wrap">
+  <iframe
+    id="campbox-raketa-frame"
+    src="https://rengen647-creator.github.io/campbox-audits/raketa/"
+    title="Детский лагерь «Ракета» — персональное предложение CampBox и TravelLine"
+    loading="eager"
+    scrolling="auto"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="display:block;width:100%;height:1200px;border:0;background:#F5F7F5"
+  ></iframe>
+  <noscript><a href="https://rengen647-creator.github.io/campbox-audits/raketa/" target="_blank" rel="noopener noreferrer">Открыть коммерческое предложение</a></noscript>
+</div>
+<style>
+#campbox-raketa-wrap {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - 2px);
+  max-width: calc(100vw - 2px);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #F5F7F5;
+}
+#campbox-raketa-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  max-width: 100%;
+}
+</style>
+<script>
+(function () {
+  'use strict';
+  var frame = document.getElementById('campbox-raketa-frame');
+  var wrap = document.getElementById('campbox-raketa-wrap');
+  if (!frame || !wrap) return;
+  var origin = 'https://rengen647-creator.github.io';
+  window.addEventListener('message', function (event) {
+    if (event.origin !== origin || event.source !== frame.contentWindow) return;
+    var data = event.data;
+    if (!data || data.slug !== 'raketa') return;
+    if (data.type === 'campbox-audit-height') {
+      var height = Number(data.height);
+      if (!Number.isFinite(height) || height < 400 || height > 45000) return;
+      var newHeight = Math.ceil(height);
+      if (Math.abs(frame.offsetHeight - newHeight) > 3) frame.style.height = newHeight + 'px';
+    }
+    if (data.type === 'campbox-audit:navigate') {
+      var top = wrap.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({top:Math.max(0,top),behavior:'auto'});
+    }
+  }, false);
+})();
+</script>
