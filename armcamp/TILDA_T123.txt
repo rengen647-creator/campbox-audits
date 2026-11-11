@@ -1,0 +1,23 @@
+<!-- CampBox × ArmCamp — вставьте целиком в один HTML-блок Tilda T123 -->
+<div id="campbox-armcamp-wrap" style="width:100%;max-width:100%;margin:0 auto;overflow:hidden;">
+  <iframe id="campbox-armcamp-frame" title="ArmCamp × CampBox — аудит и предложение"
+    src="https://rengen647-creator.github.io/campbox-audits/armcamp/"
+    loading="eager" scrolling="no" style="width:100%;height:1000px;display:block;border:0;background:#f6f8f5;"
+    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<script>
+(function () {
+  'use strict';
+  var iframe=document.getElementById('campbox-armcamp-frame');
+  if(!iframe)return;
+  var trustedOrigin='https://rengen647-creator.github.io';
+  window.addEventListener('message',function(event){
+    if(event.origin!==trustedOrigin || event.source!==iframe.contentWindow)return;
+    var d=event.data;
+    if(!d || d.type!=='campbox-audit-height' || d.slug!=='armcamp')return;
+    var h=Number(d.height);
+    if(!Number.isFinite(h))return;
+    iframe.style.height=Math.max(900,Math.min(30000,Math.ceil(h)))+'px';
+  });
+})();
+</script>
