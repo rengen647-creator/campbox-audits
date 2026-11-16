@@ -1,0 +1,41 @@
+<!-- CampBox × ВСЛ «Звёздный» | GitHub Pages → Tilda T123 -->
+<div id="campbox-zvezdny-embed">
+  <iframe id="campbox-zvezdny-frame"
+    src="https://rengen647-creator.github.io/campbox-audits/zvezdny/"
+    title="ВСЛ «Звёздный» — персональное предложение CampBox"
+    loading="eager"
+    scrolling="no"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="display:block;width:100%;height:900px;border:0;background:#f7faf6;overflow:hidden"
+  ></iframe>
+  <noscript><a href="https://rengen647-creator.github.io/campbox-audits/zvezdny/" target="_blank" rel="noopener noreferrer">Открыть предложение отдельной страницей</a></noscript>
+</div>
+<style>
+  #campbox-zvezdny-embed{position:relative;left:50%;transform:translateX(-50%);width:calc(100vw - 2px);max-width:calc(100vw - 2px);margin:0;padding:0;overflow:hidden;background:#f7faf6}
+  #campbox-zvezdny-frame{display:block;max-width:100%;width:100%;border:0}
+</style>
+<script>
+(function(){
+  'use strict';
+  var frame=document.getElementById('campbox-zvezdny-frame');
+  var wrap=document.getElementById('campbox-zvezdny-embed');
+  if(!frame||!wrap)return;
+  var trustedOrigin='https://rengen647-creator.github.io';
+  window.addEventListener('message',function(event){
+    if(event.origin!==trustedOrigin||event.source!==frame.contentWindow)return;
+    var data=event.data;
+    if(!data||data.slug!=='zvezdny')return;
+    if(data.type==='campbox-zvezdny-height'){
+      var h=Number(data.height);
+      if(!Number.isFinite(h)||h<300||h>60000)return;
+      var next=Math.ceil(h)+5;
+      var current=parseInt(frame.style.height,10)||0;
+      if(Math.abs(next-current)>3)frame.style.height=next+'px';
+    }
+    if(data.type==='campbox-zvezdny-navigate'){
+      var y=wrap.getBoundingClientRect().top+window.scrollY;
+      window.scrollTo({top:Math.max(0,y),behavior:'instant'});
+    }
+  },false);
+})();
+</script>
